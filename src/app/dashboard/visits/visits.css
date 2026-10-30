@@ -1,0 +1,190 @@
+/* Site visits: what the shared `sv-` rules in globals.css do not cover once
+   the sheet shows real visits. */
+
+/* A message or call that did not go out: kept in the ladder, set back, so
+   "why did they get no directions" has its answer where it is asked. */
+.sv-step--off .sv-step__mark {
+  background: var(--surface-sunk);
+  box-shadow: inset 0 0 0 1.5px var(--line);
+}
+
+.sv-step--off .sv-step__label {
+  color: var(--ink-mute);
+  font-weight: 500;
+}
+
+/* The next-arrival pill while its check-in is on the way. */
+.sv-next__cta:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.sv-next__cta:disabled:hover {
+  background: var(--on-dark);
+}
+
+/* The server's answer can run to two sentences. Let it wrap on a phone
+   rather than run off the edge. */
+.kb-toast.sv-toast {
+  max-width: min(560px, calc(100vw - 32px));
+  white-space: normal;
+}
+
+.kb-toast.sv-toast button {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  min-width: 28px;
+  min-height: 28px;
+}
+
+.sv-toast__dot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--risk-wash);
+  box-shadow: 0 0 0 3px rgba(182, 42, 64, 0.55);
+}
+
+/* Moving a visit: a day, then a free half hour, then one button. */
+.sv-move {
+  display: grid;
+  gap: 12px;
+  margin: 4px 0 14px;
+  padding: 14px;
+  border-radius: var(--r-inner);
+  background: var(--surface-sunk);
+}
+
+.sv-move__day {
+  display: grid;
+  gap: 6px;
+  max-width: 220px;
+}
+
+.sv-move .kb-chip:disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.sv-move__acts {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* The host's voice note: one button, then a timer while it records. */
+.sv-voice {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.sv-voice.is-live {
+  padding: 10px 12px;
+  border-radius: var(--r-inner);
+  background: var(--surface-sunk);
+}
+
+.sv-voice__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--risk);
+  animation: sv-voice-beat 1.2s ease-in-out infinite;
+}
+
+@keyframes sv-voice-beat {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sv-voice__dot {
+    animation: none;
+  }
+}
+
+.sv-voice__time {
+  font-size: 18px;
+  font-weight: 620;
+}
+
+.sv-voice__time span {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-mute);
+}
+
+.sv-voice__hint {
+  flex: 1;
+  font-size: 13px;
+  color: var(--ink-mute);
+}
+
+.sv-voice__mic {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--risk);
+}
+
+.sv-voice--wait,
+.sv-voice__say {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+}
+
+.sv-voice__say {
+  flex-basis: 100%;
+}
+
+.sv-voice__say.is-bad {
+  color: var(--risk);
+}
+
+/* What the note said, above the form it filled in. */
+.sv-heard {
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  border-radius: var(--r-inner);
+  background: var(--blue-wash);
+}
+
+.sv-heard__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--blue-deep);
+}
+
+.sv-heard__head .ws-link {
+  margin-left: auto;
+}
+
+.sv-heard__text {
+  margin: 6px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-height: 7.5em;
+  overflow: auto;
+}
+
+@media (max-width: 640px) {
+  .sv-voice .btn {
+    min-height: 44px;
+    flex: 1 1 auto;
+  }
+}

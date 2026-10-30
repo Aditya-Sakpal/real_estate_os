@@ -1,0 +1,195 @@
+/* Property portals: the forwarding address, the wordings matched to towers,
+   and what arrived. The WhatsApp screen's cards and table; nothing here
+   carries a raw hex. */
+
+.pt-addr {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+}
+
+.pt-addr__row {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 12px;
+}
+
+.pt-addr__row dt {
+  font-size: 12.5px;
+  font-weight: 560;
+  color: var(--ink-mute);
+}
+
+.pt-addr__row dd {
+  min-width: 0;
+  margin: 0;
+}
+
+.pt-code {
+  display: block;
+  padding: 8px 10px;
+  overflow-wrap: anywhere;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--ink);
+  background: var(--surface-sunk);
+  border-radius: 10px;
+  user-select: all;
+}
+
+.pt-quiet {
+  font-size: 13.5px;
+  color: var(--ink-mute);
+}
+
+.pt-from {
+  display: block;
+  margin-top: 3px;
+  font-size: 12px;
+  color: var(--ink-mute);
+}
+
+.pt-tower {
+  width: 320px;
+}
+
+.pt-tower .select-field {
+  width: 100%;
+  max-width: 320px;
+}
+
+.pt-matched {
+  font-weight: 560;
+  color: var(--ink);
+}
+
+.pt-matched small {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--ink-mute);
+}
+
+.pt-counts td:not(:first-child),
+.pt-counts th:not(:first-child) {
+  text-align: right;
+}
+
+@media (max-width: 760px) {
+  .pt-addr__row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+  }
+
+  .pt-matches thead {
+    display: none;
+  }
+
+  .pt-matches tr {
+    display: grid;
+    gap: 8px;
+    padding: 12px 0;
+    border-top: 1px solid var(--line-soft);
+  }
+
+  .pt-matches td {
+    padding: 0;
+    border-top: 0;
+  }
+
+  .pt-matches td:last-child,
+  .pt-tower {
+    width: auto;
+    text-align: left;
+  }
+
+  .pt-tower .select-field {
+    max-width: none;
+    min-height: 44px;
+  }
+}
+
+.pt-lead {
+  margin: 0 0 14px;
+}
+
+.pt-linklist {
+  display: grid;
+  gap: 10px;
+}
+
+.pt-links .copyfield {
+  display: grid;
+  grid-template-columns: minmax(120px, 180px) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.pt-links .copyfield > label {
+  overflow: hidden;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 560;
+  color: var(--ink-soft);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pt-links .copyfield input[type="text"] {
+  min-width: 0;
+  padding: 7px 11px;
+  font-family: ui-monospace, "Cascadia Mono", Menlo, monospace;
+  font-size: 12px;
+  color: var(--ink-soft);
+  text-overflow: ellipsis;
+  background: var(--surface-sunk);
+}
+
+.pt-links .copyfield .btn {
+  min-width: 92px;
+}
+
+.pt-links .copyfield .btn[data-copied="true"] {
+  color: var(--ok);
+  border-color: var(--ok-wash);
+  background: var(--ok-wash);
+}
+
+.pt-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pt-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.pt-risk {
+  font-size: 13.5px;
+  color: var(--risk);
+}
+
+@media (max-width: 560px) {
+  .pt-links .copyfield {
+    grid-template-columns: minmax(0, 1fr) auto;
+    row-gap: 5px;
+  }
+
+  .pt-links .copyfield > label {
+    grid-column: 1 / -1;
+  }
+
+  .pt-fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pt-addr__row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+  }
+}

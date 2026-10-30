@@ -1,0 +1,100 @@
+/* The Project Brain, read-only: the sections two across, each one's facts a
+   grid of label over value. Editing keeps the label-left rows of a form. */
+
+.braingroups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  align-items: stretch;
+}
+
+.braingroups > .braincard {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.braingroups > .braincard--wide {
+  grid-column: 1 / -1;
+}
+
+/* A signature line sits at the foot of its card, level with its neighbour's. */
+.braingroups .brainsign {
+  margin-top: auto;
+}
+
+.braingroups .brainfacts {
+  margin-bottom: 18px;
+}
+
+/* A short value beside a long list stays under its own label rather than
+   drifting down the row. */
+.brainfacts .formfield {
+  align-content: start;
+}
+
+/* Lines a tower takes from its project, beside its own. */
+.brainfacts .brainlist__above {
+  color: var(--ink-soft);
+}
+
+.braingroups .brainfacts:last-child {
+  margin-bottom: 0;
+}
+
+/* "from Sath Heights" beside the label it qualifies, not on a line of its own. */
+.brainfacts .formfield__label .hint {
+  display: inline;
+  margin-left: 6px;
+  font-size: 11.5px;
+  font-weight: 450;
+  color: var(--ink-faint);
+}
+
+.brainfacts .formfield__label .brainsource {
+  display: inline;
+  margin-left: 6px;
+}
+
+.brainfacts .brainlist {
+  padding-left: 16px;
+  font-size: 13.5px;
+  line-height: 1.45;
+}
+
+.brainfacts .brainlist li {
+  margin: 0 0 4px;
+}
+
+.brainfacts .brainlist .formfield__unset {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/* Editing: two fields across, label over box, so a price is not typed into a
+   box the width of the screen. */
+.brainedit .brainform {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 24px;
+}
+
+.brainedit .brainform .formfield {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "label"
+    "input";
+  row-gap: 7px;
+  align-content: start;
+}
+
+.brainedit .formfield__label .hint {
+  display: inline;
+  margin-left: 6px;
+}
+
+@media (max-width: 900px) {
+  .braingroups,
+  .brainedit .brainform {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

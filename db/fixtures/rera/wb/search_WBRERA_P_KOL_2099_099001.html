@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Welcome to RERA</title>
+</head>
+<body>
+<!-- Trimmed capture of rera.wb.gov.in, 28 September 2026: page chrome and footer cut. -->
+<div>
+<div style="margin-top:20px;"></div>
+<div class="col-md-12" style="margin:0 auto"><h3 style="text-align:center;"><u>Search Certificate</u></h3></div>
+<div style="margin-top:25px;"></div>
+<div class="container">
+<form class="navbar-form" method="POST">
+<div style="margin: 0 auto;" class="col-md-6">
+    <div class="input-group add-on">
+      <input class="form-control" placeholder="Search Certificate" name="srchterm" id="myinput" value="WBRERA/P/KOL/2099/099001" type="text" />
+      <!-- pattern="^[0-9a-zA-Z/ -]+$" -->
+<!--  <div class="input-group-btn">
+        <button type="submit" name="search" class="btn btn-default"><i class="fa fa-search"></i></button>
+      </div>  -->
+    </div> 
+<div id="myDiv"></div>
+<!--<div id="spnError" style="color: Red; display: none">*This is not a valid input.</div>  -->
+</div>
+<div style="margin:0 auto;" class="col-md-2">
+<input style="margin-top:10px;" id="EncodeBeforeWrite" class="btn btn-primary" type="submit" name="search" value="Search Certificate" />
+</div>
+</form> 
+</div>
+<div style="margin-top:30px;"></div>
+<!-- Search form -->
+</div>
+
+<div class="container">
+  <h4 style="text-align:center;margin-top:5px"><u>Search Result</u></h4>
+  <p>&nbsp;</p>
+    
+  <table id="agentDataTable" style="border: 1px solid #000;" class="table table-striped">
+    <thead style="background:#004080;color:#fff;">
+      <tr style="border:1px solid #fff;">
+        <th>Sl No.</th>
+        <th>Application No.</th>
+        <th>Project Name</th>
+        <th>District Name</th>
+        <th>Project Type</th>
+      </tr>
+    </thead>
+    <tbody>
+<tr>
+        <td class="centera">1</td>
+        <td class="centera">WBRERA/NPR-999001</td>
+        <td><a href="project_details.php?procode=99999000000001">Rera Check Residency</a></td>
+        <td>Kolkata</td>
+        <td>Project</td>
+      </tr>      
+    </tbody>
+  </table>
+  
+</div>
+
+
+<style>
+.footer-policy {
+    color: #fff;
+    font-size: 14px;
+}
+
+.policy-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.policy-link:hover {
+    text-decoration: underline;
+    color: #ffd966;
+}
+
+.visitor-count {
+    margin-top: 6px;
+    font-size: 13px;
+    opacity: 0.85;
+}
+
+a:hover{
+	background:var(--gradient-soft-highlight) !important;
+	color:inherit;
+}
+
+</style>
+</body>
+</html>

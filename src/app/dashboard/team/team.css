@@ -1,0 +1,94 @@
+/* Team: the people on the left, adding somebody in the rail beside them, so
+   the form is in view from the header's "Invite someone" without scrolling
+   past the list. */
+
+.team-warn {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px 18px;
+}
+
+.team-warn .qi__why {
+  margin-top: 2px;
+}
+
+/* In the rail the invite form is a column: address, role, place, button. */
+.team__rail .invite {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.team__rail .invite input[type="email"],
+.team__rail .invite input[type="text"],
+.team__rail .invite input[type="tel"],
+.team__rail .invite .select-field {
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+.team__rail .invite .btn {
+  margin-left: 0;
+  justify-content: center;
+}
+
+.team__hint {
+  margin-top: 8px;
+  font-size: 12.5px;
+  color: var(--ink-mute);
+}
+
+.team__several {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+}
+
+/* Rows in the rail and the bulk preview: name over pills, the action under. */
+.team__rail .invited {
+  grid-template-columns: 30px minmax(0, 1fr);
+  grid-template-areas:
+    "mark id"
+    ".    role"
+    ".    act";
+  gap: 6px 12px;
+}
+
+.team__rail .invited > :first-child { grid-area: mark; align-self: start; }
+.team__rail .invited__id   { grid-area: id; }
+.team__rail .invited__role { grid-area: role; justify-content: flex-start; }
+.team__rail .invited__act  { grid-area: act; justify-self: start; }
+
+.team__rail .import__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.team__rail .import__text {
+  width: 100%;
+}
+
+/* Beside the rail a member's controls take a line of their own under the
+   name, so name, role, place and date keep one readable line. */
+@media (min-width: 901px) {
+  .team .person {
+    grid-template-columns: 34px minmax(0, 1.7fr) minmax(0, 1fr) minmax(0, 1.1fr) auto;
+    row-gap: 8px;
+  }
+
+  .team .person__act {
+    grid-column: 2 / -1;
+    justify-content: flex-start;
+  }
+}
+
+/* Wide enough for the invite form to sit beside the members, the form is the
+   action; the header's button only matters once the two stack. */
+@media (min-width: 1181px) {
+  .team__jump {
+    display: none;
+  }
+}

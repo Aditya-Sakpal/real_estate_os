@@ -1,0 +1,14 @@
+{
+  "state": "KA",
+  "ours": "PRM/KA/RERA/1251/308/PR/260999/099001",
+  "others": "PRM/KA/RERA/1251/308/PR/260999/099002",
+  "revoked": "PRM/KA/RERA/1251/308/PR/260999/099003",
+  "never": "PRM/KA/RERA/1251/308/PR/260999/099004",
+  "down": "PRM/KA/RERA/1251/308/PR/260999/099005",
+  "lapsed": null,
+  "ourPromoter": "Rera Check Holdings LLP",
+  "otherPromoter": "Other Realty Developers Private Limited",
+  "nightlyRequests": 2,
+  "downDir": "down",
+  "notes": "atForm answers from the day's bulk read (sharedRead), not a per-number request, so no per-number fixture exists. To prove `down`, point RERA_KA_FIXTURES at the `down` subfolder (both reads marked .down) and call resetPortalCache() first, or the copy already held from an earlier case answers. `revoked` is on the withdrawn list as REVOKED and, as on the real portal, still in the register; atForm answers it found with status REVOKED. `never` and `down` are in neither file. Real rows kept: company promoters only; the page chrome (footer contacts) is cut."
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="csrf-token" content="fixtureCsrfToken0000000000000000000000000">
+<title>TNRERA search</title>
+</head>
+<body>
+<!-- Test fixture. Trimmed from a capture of rera.tn.gov.in on 28 and 29 September 2026: page chrome cut, rows cut to a few, personal details removed. Rows numbered 99xx are invented. -->
+<!-- Modal -->
+<div class="modal fade" id="dataModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog custom-fullwidth">
+        <div class="modal-content">
+            <div class="modal-body"> 
+                <h5 style="text-align: center; margin-bottom: 20px;">
+                    <b>REGISTERED PROJECTS - [TAMIL NADU AND ANDAMAN NICOBAR ISLANDS]</b>
+                </h5>
+                
+                                    <div class="text-center p-4">
+                        <p class="text-muted">No data found.</p>
+                    </div>
+                            </div>
+            
+            <div class="modal-footer">
+                <a href="https://rera.tn.gov.in/" class="btn btn-info loader-link">Close</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (window.bootstrap && window.bootstrap.Modal) {
+            var myModal = new bootstrap.Modal(document.getElementById('dataModal'));
+            myModal.show();
+        } else if (typeof $ !== 'undefined') {
+            $('#dataModal').modal('show');
+        }
+    });
+</script>
+
+
+
+    
+</body>
+</html>

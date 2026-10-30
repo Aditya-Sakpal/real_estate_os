@@ -1,0 +1,298 @@
+/* The brand kit: which node's kit in one select beside Edit, the four marks
+   in a row, then the words as grids of fields with the label above each. */
+
+.bk .pagehead__acts {
+  align-items: center;
+}
+
+.bk-node {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.bk-node__label {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--ink-mute);
+  white-space: nowrap;
+}
+
+.bk-node select {
+  height: 40px;
+  max-width: 260px;
+  padding: 0 36px 0 15px;
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 560;
+  color: var(--ink);
+  background-color: var(--surface);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%236b7080' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-pill);
+  appearance: none;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  transition: border-color 140ms ease;
+}
+
+.bk-node select:hover {
+  border-color: var(--ink-faint);
+}
+
+.bk-node select:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.bk-node[data-pending] select {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.bk-gaps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin-bottom: 16px;
+}
+
+.bk-gaps strong {
+  display: inline;
+  margin: 0;
+}
+
+.bk-gaps__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.bk-gaps .pill--warn {
+  background: var(--surface);
+}
+
+/* ---- marks ---- */
+
+.bk-marks {
+  margin-bottom: 16px;
+}
+
+.bk-marks .brandfiles {
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+}
+
+.bk-marks .brandfile__shot {
+  background-color: #fafbfc;
+  background-image:
+    linear-gradient(45deg, rgba(0, 0, 0, 0.05) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(0, 0, 0, 0.05) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, 0.05) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, 0.05) 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+}
+
+.brandfile__font {
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.brandfile__titleline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.brandfile__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 1.5px 6.5px;
+  border-radius: 999px;
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+}
+
+.brandfile__tag--good {
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.28);
+}
+
+.brandfile__tag--warn {
+  background: rgba(245, 158, 11, 0.12);
+  color: #d97706;
+  border: 1px solid rgba(245, 158, 11, 0.32);
+}
+
+.brandfile__pickwrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.brandfile__picked {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.brandfile__pickedpreview {
+  width: 100%;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  padding: 4px;
+  border-radius: var(--r-field, 8px);
+  border: 1px dashed var(--line-strong, #cbd5e1);
+  background-color: #fafbfc;
+  background-image:
+    linear-gradient(45deg, rgba(0, 0, 0, 0.05) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(0, 0, 0, 0.05) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, 0.05) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, 0.05) 75%);
+  background-size: 14px 14px;
+  background-position: 0 0, 0 7px, 7px -7px, -7px 0;
+  overflow: hidden;
+}
+
+.brandfile__pickedpreview img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.brandfile__alert {
+  display: flex;
+  gap: 7px;
+  padding: 7px 9px;
+  border-radius: var(--r-field, 8px);
+  font-size: 11px;
+  line-height: 1.35;
+  text-align: left;
+}
+
+.brandfile__alert--warn {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  color: #92400e;
+}
+
+.brandfile__alert--good {
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #065f46;
+}
+
+.brandfile__alerticon {
+  font-size: 13px;
+  flex-shrink: 0;
+  line-height: 1.2;
+}
+
+.brandfile__alertbody {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.brandfile__alertbody strong {
+  font-weight: 650;
+  font-size: 11.5px;
+}
+
+/* ---- the words ---- */
+
+.bk .fieldgrid {
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+}
+
+/* "from BillBay" sits on the label's line, so an inherited value lines up
+   with its neighbours rather than dropping a line below them. */
+.bk .fieldgrid .formfield__label .hint {
+  display: inline;
+  margin: 0 0 0 6px;
+  font-size: 11.5px;
+  color: var(--ink-faint);
+}
+
+.bk .fieldgrid .formfield__label .hint::before {
+  content: "\00b7";
+  margin-right: 6px;
+}
+
+.bk .bk-edit {
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 16px 18px;
+}
+
+.bk-edit .formfield__label {
+  font-size: 12.5px;
+  font-weight: 570;
+  color: var(--ink-soft);
+}
+
+.bk-edit .formfield__input,
+.bk-edit textarea {
+  padding: 9px 12px;
+}
+
+.bk-edit textarea {
+  resize: vertical;
+}
+
+.bk-langs {
+  grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
+  gap: 6px;
+}
+
+.bk-langs .checkset__item {
+  padding: 8px 11px;
+}
+
+@media (max-width: 560px) {
+  .bk-marks .brandfiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .bk-marks .brandfile__body {
+    padding: 10px;
+  }
+
+  .bk .fieldgrid:not(.bk-edit) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 16px;
+  }
+}
+
+@media (max-width: 760px) {
+  .bk .pagehead__acts {
+    width: 100%;
+  }
+
+  .bk-node {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .bk-node select {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: none;
+    height: 44px;
+  }
+}

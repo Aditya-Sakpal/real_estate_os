@@ -1,0 +1,243 @@
+/* Competitor ads: the dark card of what the market leans on, the bar,
+   and a grid of property-style tiles. */
+
+.mk-leans {
+  margin-bottom: 16px;
+}
+
+/* A label over a list at every width: the dashboard's dark card turns into a
+   row on narrower screens, which squeezes sentences into a column. */
+.mk-leans.ws-dark {
+  display: flex;
+  flex-direction: column;
+}
+
+.mk-leans .ws-dark__label {
+  text-align: left;
+}
+
+.mk-leans__list {
+  display: grid;
+  gap: 8px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--on-dark);
+}
+
+.mk-leans__list li {
+  max-width: 72ch;
+}
+
+.mk-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 16px;
+  margin-bottom: 16px;
+}
+
+.mk-seg {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+}
+
+.mk-seg .tnum {
+  color: var(--ink-faint);
+}
+
+.mk-seg[aria-pressed="true"] .tnum {
+  color: var(--ink-mute);
+}
+
+.mk-weight {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+  margin: 0;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.mk-weight label {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.mk-weight__n {
+  width: 64px;
+  min-height: 36px;
+  padding: 6px 10px;
+  text-align: center;
+}
+
+.mk-weight__err {
+  flex-basis: 100%;
+  font-size: 12.5px;
+  color: var(--risk);
+}
+
+.mk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(236px, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mk-tile {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  min-width: 0;
+}
+
+.mk-tile__media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--surface-sunk);
+  border-radius: calc(var(--r-card) - 6px);
+}
+
+.mk-tile__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mk-tile__none {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  font-size: 12.5px;
+  color: var(--ink-faint);
+}
+
+.mk-tile__age {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  color: var(--ink);
+  box-shadow: var(--lift-sm);
+}
+
+.mk-tile__body {
+  padding: 12px 8px 4px;
+}
+
+.mk-tile__who {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.018em;
+  color: var(--ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mk-tile__where {
+  margin-top: 2px;
+  font-size: 12.5px;
+  color: var(--ink-mute);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mk-tile__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.mk-tile__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: auto;
+  padding: 10px 8px 2px;
+  font-size: 12px;
+  color: var(--ink-mute);
+}
+
+.mk-tile__foot span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mk-remove {
+  flex: none;
+}
+
+.mk-file {
+  width: 100%;
+  padding: 10px 12px;
+  font: inherit;
+  font-size: 13.5px;
+  background: var(--surface-sunk);
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--r-field);
+  cursor: pointer;
+}
+
+.mk-left {
+  margin: 6px 0 0;
+  font-size: 12.5px;
+  color: var(--ink-mute);
+}
+
+.mk-left.is-out {
+  color: var(--warn);
+}
+
+@media (max-width: 760px) {
+  .mk-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .mk-bar {
+    align-items: stretch;
+  }
+
+  .mk-bar .seg {
+    display: flex;
+    width: 100%;
+  }
+
+  .mk-bar .seg__opt {
+    flex: 1 1 auto;
+    justify-content: center;
+    height: 44px;
+  }
+
+  .mk-weight__n {
+    min-height: 44px;
+  }
+
+  .mk-remove {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 420px) {
+  .mk-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

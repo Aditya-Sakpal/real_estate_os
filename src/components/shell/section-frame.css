@@ -1,0 +1,191 @@
+/* A section with several screens (Settings, Campaigns, Library): the list of
+   its screens on the left, the screen beside it. On a narrow screen the list
+   becomes one scrolling row of chips above the screen. */
+
+.secx {
+  display: grid;
+  grid-template-columns: 210px minmax(0, 1fr);
+  gap: 26px;
+  align-items: start;
+}
+
+.secx__body {
+  min-width: 0;
+}
+
+.secnav {
+  position: sticky;
+  top: calc(var(--topbar) + 12px);
+  padding: 20px 0 0;
+  display: grid;
+  gap: 14px;
+  max-height: calc(100dvh - var(--topbar) - 24px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.secnav__group {
+  display: grid;
+  gap: 2px;
+}
+
+.secnav__label {
+  margin: 0 0 4px;
+  padding: 0 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.secnav__item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 34px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: background 120ms ease, color 120ms ease;
+}
+
+.secnav__item svg {
+  flex: none;
+  color: var(--ink-faint);
+}
+
+.secnav__text {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.secnav__count {
+  flex: none;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: var(--r-pill);
+  background: var(--ink);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  display: grid;
+  place-items: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.secnav__count--risk {
+  background: var(--risk);
+}
+
+.secnav__count--warn {
+  background: var(--warn-wash);
+  color: var(--warn);
+}
+
+.secnav__item:hover {
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.secnav__item[aria-current="page"] {
+  background: var(--surface);
+  box-shadow: var(--lift-sm);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.secnav__item[aria-current="page"] svg {
+  color: var(--blue);
+}
+
+.secnav__branch,
+.secnav__kids {
+  display: grid;
+  gap: 2px;
+}
+
+/* A project's towers, under it, with a rule down the side tying them to it. */
+.secnav__kids {
+  margin: 2px 0 4px 17px;
+  padding-left: 10px;
+  border-left: 1.5px solid var(--line);
+}
+
+.secnav__item--child {
+  min-height: 30px;
+  padding: 5px 10px;
+  font-size: 13px;
+}
+
+/* The project a tower sits under, while that tower is open: named, not lit. */
+.secnav__item--open {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.secnav__item:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 1px;
+}
+
+/* The list beside the screen already says how to get back, and the top bar
+   carries the trail; a back pill above the title says it a third time. */
+.secx .pagehead .backlink {
+  display: none;
+}
+
+.secx .pagehead .backlink + h1 {
+  margin-top: 0 !important;
+}
+
+@media (max-width: 1080px) {
+  .secx {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+  .secnav {
+    position: static;
+    max-height: none;
+    display: flex;
+    gap: 6px;
+    padding: 14px 0 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .secnav::-webkit-scrollbar {
+    display: none;
+  }
+  .secnav__group,
+  .secnav__branch,
+  .secnav__kids {
+    display: contents;
+  }
+  .secnav__label {
+    display: none;
+  }
+  .secnav__item {
+    flex: none;
+    min-height: 36px;
+    padding: 6px 12px;
+    border-radius: var(--r-pill);
+    background: var(--surface);
+    box-shadow: var(--lift-sm);
+  }
+  .secnav__item[aria-current="page"] {
+    background: var(--ink);
+    color: #fff;
+  }
+  .secnav__item[aria-current="page"] svg {
+    color: #fff;
+  }
+  .secnav__text {
+    overflow: visible;
+  }
+}

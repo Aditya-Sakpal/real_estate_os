@@ -1,0 +1,219 @@
+[
+  {
+    "id": "24984",
+    "mood": "uplifting",
+    "file": "uplifting/umlungu-john-bartmann.mp3",
+    "title": "Umlungu",
+    "artist": "John Bartmann",
+    "tags": [
+      "all",
+      "cinematic",
+      "hopeful",
+      "bright",
+      "calm"
+    ],
+    "seconds": 203,
+    "license": "CC0 1.0 (public domain, no attribution required)",
+    "source": "https://www.chosic.com/download-audio/24984/"
+  },
+  {
+    "id": "25603",
+    "mood": "uplifting",
+    "file": "uplifting/horse-ride-4-trg-banks.mp3",
+    "title": "Horse Ride 4",
+    "artist": "TRG Banks",
+    "tags": [
+      "all",
+      "dreamy",
+      "nostalgia",
+      "calm"
+    ],
+    "seconds": 159,
+    "license": "CC0 1.0 (public domain, no attribution required)",
+    "source": "https://www.chosic.com/download-audio/25603/"
+  },
+  {
+    "id": "24475",
+    "mood": "uplifting",
+    "file": "uplifting/hope-and-love-loyalty-freak-music.mp3",
+    "title": "Hope And Love",
+    "artist": "Loyalty Freak Music",
+    "tags": [
+      "all",
+      "morning",
+      "electronic",
+      "hopeful",
+      "romantic"
+    ],
+    "seconds": 262,
+    "license": "CC0 1.0 (public domain, no attribution required)",
+    "source": "https://www.chosic.com/download-audio/24475/"
+  },
+  {
+    "id": "25126",
+    "mood": "uplifting",
+    "file": "uplifting/dreaming-of-you-komiku.mp3",
+    "title": "Dreaming Of You",
+    "artist": "Komiku",
+    "tags": [
+      "all",
+      "relaxing",
+      "dreamy",
+      "folk"
+    ],
+    "seconds": 171,
+    "license": "CC0 1.0 (public domain, no attribution required)",
+    "source": "https://www.chosic.com/download-audio/25126/"
+  },
+  {
+    "id": "24851",
+    "mood": "warm",
+    "file": "warm/h-lice-monplaisir.mp3",
+    "title": "Hélice",
+    "artist": "Monplaisir",
+    "tags": [
+      "all",
+      "guitar",
+      "romantic",
+      "valentine",
+      "folk"
+    ],
+    "seconds": 161,
+    "license": "CC0 1.0 (public domain, no attribution required)",
+    "source": "https://www.chosic.com/download-audio/24851/"
+  },
+  {
+    "id": "25174",
+    "mood": "warm",
+    "file": "warm/dormir-rien-de-plus-monplaisir.mp3",
+    "title": "Dormir Rien De Plus",
+    "artist": "Monplaisir",
+    "tags": [
+      "all",
+      "acoustic",
+      "guitar",
+      "romantic",
+      "folk"
+    ],
+    "seconds": 109,
+    "license": "CC0 1.0 (public domain, no attribution required)",
+    "source": "https://www.chosic.com/download-audio/25174/"
+  },
+  {
+    "id": "27014",
+    "mood": "warm",
+    "file": "warm/a-letter-for-you-hina.mp3",
+    "title": "A Letter For You",
+    "artist": "陽菜/Hina",
+    "tags": [
+      "all",
+      "romantic",
+      "cooking"
+    ],
+    "seconds": 58,
+    "license": "CC0 1.0 (public domain, no attribution required)",
+    "source": "https://www.chosic.com/download-audio/27014/"
+  },
+  {
+    "id": "25533",
+    "mood": "warm",
+    "file": "warm/i-am-the-coyote-monplaisir.mp3",
+    "title": "I Am The Coyote",
+    "artist": "Monplaisir",
+    "tags": [
+      "all",
+      "acoustic",
+      "guitar",
+      "romantic",
+      "folk"
+    ],
+    "seconds": 40,
+    "license": "CC0 1.0 (public domain, no attribution required)",
+    "source": "https://www.chosic.com/download-audio/25533/"
+  },
+  {
+    "id": "24980",
+    "mood": "cinematic",
+    "file": "cinematic/african-moon-john-bartmann.mp3",
+    "title": "African Moon",
+    "artist": "John Bartmann",
+    "tags": [
+      "all",
+      "african",
+      "cinematic",
+      "dance",
+      "world"
+    ],
+    "seconds": 145,
+    "license": "CC0 1.0 (public domain, no attribution required)",
+    "source": "https://www.chosic.com/download-audio/24980/"
+  },
+  {
+    "id": "24835",
+    "mood": "cinematic",
+    "file": "cinematic/somewhere-nice-john-bartmann.mp3",
+    "title": "Somewhere Nice",
+    "artist": "John Bartmann",
+    "tags": [
+      "all",
+      "ambient",
+      "african",
+      "cinematic",
+      "nostalgia"
+    ],
+    "seconds": 142,
+    "license": "CC0 1.0 (public domain, no attribution required)",
+    "source": "https://www.chosic.com/download-audio/24835/"
+  },
+  {
+    "id": "24447",
+    "mood": "cinematic",
+    "file": "cinematic/west-in-africa-john-bartmann.mp3",
+    "title": "West In Africa",
+    "artist": "John Bartmann",
+    "tags": [
+      "all",
+      "african",
+      "acoustic",
+      "cinematic",
+      "guitar"
+    ],
+    "seconds": 174,
+    "license": "CC0 1.0 (public domain, no attribution required)",
+    "source": "https://www.chosic.com/download-audio/24447/"
+  },
+  {
+    "id": "28490",
+    "mood": "festive",
+    "file": "festive/sound-of-passion-hina.mp3",
+    "title": "Sound Of Passion",
+    "artist": "陽菜/Hina",
+    "tags": [
+      "all",
+      "celebration",
+      "energetic",
+      "fast",
+      "happy"
+    ],
+    "seconds": 80,
+    "license": "CC0 1.0 (public domain, no attribution required)",
+    "source": "https://www.chosic.com/download-audio/28490/"
+  },
+  {
+    "id": "25280",
+    "mood": "festive",
+    "file": "festive/bouncy-gypsy-beats-john-bartmann.mp3",
+    "title": "Bouncy Gypsy Beats",
+    "artist": "John Bartmann",
+    "tags": [
+      "all",
+      "cinematic",
+      "guitar",
+      "happy",
+      "bright"
+    ],
+    "seconds": 260,
+    "license": "CC0 1.0 (public domain, no attribution required)",
+    "source": "https://www.chosic.com/download-audio/25280/"
+  }
+]

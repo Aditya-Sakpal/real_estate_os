@@ -1,0 +1,13 @@
+{
+  "state": "AP",
+  "ours": "P99000009901",
+  "others": "P99000009902",
+  "revoked": null,
+  "never": "P99000009904",
+  "down": "P99000009905",
+  "lapsed": null,
+  "ourPromoter": "Rera Check Holdings LLP",
+  "otherPromoter": "Other Realty Developers Private Limited",
+  "nightlyRequests": 1,
+  "notes": "APRERA publishes no revocation list (and the register's Status column is a category, not a lifecycle; revoked registrations appear to be dropped from it silently), so revoked is null and blocked is always empty. atForm is the per-number search: search_form.html (the GET, for the ViewState) then search_<number>.html (the POST). The search carries the promoter and the application number but no dates, so atForm's project has no validTo. never's page is the real 'No Data found on your entered text' answer, captured live for P99000009904 on 29 September 2026. down's POST is marked .down, so atForm answers known:false after the GET. nightly is one request, approved_projects.html (32.5 MB live, about 16 s): six real rows and the two invented ones (ours residential, others a plotted layout), with validTo and registeredOn but no promoter. Real rows carry project names and places only. The ViewState and event validation are stubbed."
+}

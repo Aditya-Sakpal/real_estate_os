@@ -1,0 +1,95 @@
+/* A project's campaigns: starting one beside the library it is built from,
+   then the briefs. */
+
+.nodebriefs__top {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+  align-items: stretch;
+  margin-bottom: 16px;
+}
+
+.nodebriefs__top > * {
+  margin: 0;
+}
+
+.nodebriefs__top > .assetlink {
+  align-items: center;
+}
+
+.nodebriefs__top > :only-child {
+  grid-column: 1 / -1;
+}
+
+.nodebriefs__start .briefstart input[type="text"] {
+  flex-basis: 200px;
+}
+
+/* The other half of where a campaign runs: a project's towers beside its
+   briefs, and on a tower the briefs that cover the whole project. */
+.nodebriefs__up {
+  color: var(--blue-deep);
+  font-weight: 560;
+  text-decoration: none;
+}
+
+.nodebriefs__up:hover {
+  text-decoration: underline;
+}
+
+.nodebriefs__list {
+  display: grid;
+  gap: 2px;
+}
+
+.nodebriefs__row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 42px;
+  padding: 8px 10px;
+  border-radius: var(--r-row, 10px);
+  color: inherit;
+  text-decoration: none;
+  transition: background 120ms ease;
+}
+
+.nodebriefs__row:hover {
+  background: var(--surface-sunk);
+}
+
+.nodebriefs__row svg {
+  flex: none;
+  color: var(--ink-faint);
+}
+
+.nodebriefs__name {
+  flex: 1;
+  min-width: 0;
+  font-size: 14px;
+  font-weight: 560;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nodebriefs__meta {
+  flex: none;
+  font-size: 12.5px;
+  color: var(--ink-mute);
+}
+
+.nodebriefs__all {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 8px 10px 0;
+  font-size: 13px;
+  font-weight: 570;
+  color: var(--blue-deep);
+  text-decoration: none;
+}
+
+.nodebriefs__all:hover {
+  text-decoration: underline;
+}

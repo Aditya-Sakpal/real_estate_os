@@ -1,0 +1,139 @@
+/* Published and Waiting on you: what shows before anything has gone out or
+   is waiting. One line with the next step, never a tall white card over a
+   row of filters that all read 0. */
+
+.cmp-none {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 14px;
+  padding: 16px 20px;
+}
+
+.cmp-none__mark {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  margin: 0;
+  border-radius: 11px;
+}
+
+.cmp-none__text {
+  display: grid;
+  flex: 1 1 260px;
+  gap: 2px;
+  min-width: 0;
+  font-size: 12.5px;
+  color: var(--ink-mute);
+}
+
+.cmp-none__text strong {
+  font-size: 14px;
+  font-weight: 590;
+  color: var(--ink);
+}
+
+.cmp-none .btn {
+  flex: none;
+}
+
+@media (max-width: 560px) {
+  .cmp-none .btn {
+    width: 100%;
+    min-height: 44px;
+    justify-content: center;
+  }
+}
+
+/* --- campaigns made in Ads Manager --------------------------------------- */
+
+.pub-else {
+  margin-top: 16px;
+  padding: 18px 20px;
+}
+
+.pub-else__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.pub-else__head h2 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.pub-else__total {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-mute);
+}
+
+.pub-else__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.8fr) minmax(0, 1.4fr);
+  gap: 12px;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+}
+
+.pub-else__num {
+  display: flex;
+  flex-direction: column;
+}
+
+.pub-else__num small,
+.pub-else__row .pub-row__what small {
+  color: var(--ink-mute);
+  font-size: 12px;
+}
+
+.pub-else__form {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.pub-else__form .select-field {
+  min-width: 0;
+  flex: 1;
+  padding: 7px 10px;
+  font-size: 13px;
+}
+
+.pub-else__place {
+  justify-self: end;
+  font-size: 13px;
+  font-weight: 560;
+}
+
+@media (max-width: 720px) {
+  .pub-else__row {
+    grid-template-columns: 1fr;
+  }
+  .pub-else__form {
+    justify-content: stretch;
+  }
+}
+
+/* An ad's headline opens its own page. */
+.pub-row__open {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+}
+
+.pub-row__open:hover strong {
+  color: var(--blue-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.pub-row__open strong {
+  display: block;
+}

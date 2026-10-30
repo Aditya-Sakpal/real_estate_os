@@ -1,0 +1,112 @@
+/* The audit trail: a filter row, then a dense, read-only table. */
+
+.au-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px 16px;
+  margin-bottom: 14px;
+  padding: 16px 20px;
+}
+
+/* Sized so the four filters and Show sit on one line beside the Settings
+   list, rather than Show dropping onto a line of its own. */
+.au-field {
+  display: grid;
+  gap: 6px;
+  flex: 1 1 150px;
+  min-width: 0;
+}
+
+.au-field--day {
+  flex: 0 1 150px;
+}
+
+.au-acts {
+  display: flex;
+  gap: 8px;
+}
+
+.au-sheet {
+  padding: 6px 0 10px;
+}
+
+.au-table td {
+  vertical-align: top;
+}
+
+.au-when {
+  white-space: nowrap;
+  color: var(--ink-soft);
+}
+
+.au-what {
+  display: block;
+  font-weight: 540;
+}
+
+.au-system {
+  color: var(--ink-mute);
+}
+
+.au-on {
+  color: var(--ink-soft);
+}
+
+.au-more {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0 4px;
+}
+
+@media (max-width: 640px) {
+  .au-filters {
+    padding: 14px 16px;
+  }
+
+  .au-field,
+  .au-field--day {
+    flex: 1 1 100%;
+  }
+
+  .au-acts .btn {
+    min-height: 44px;
+  }
+
+  .au-table thead {
+    display: none;
+  }
+
+  .au-table tr {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2px 12px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .au-table.ws-table td,
+  .au-table.ws-table td:first-child,
+  .au-table.ws-table td:last-child {
+    padding: 0;
+    border: 0;
+  }
+
+  .au-table td:nth-child(3) {
+    grid-column: 1 / -1;
+    order: -1;
+  }
+
+  .au-table td:nth-child(2) {
+    text-align: right;
+  }
+
+  .au-table td:nth-child(4) {
+    grid-column: 1 / -1;
+    font-size: 12.5px;
+  }
+
+  .au-table td:nth-child(4):empty {
+    display: none;
+  }
+}

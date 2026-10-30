@@ -1,0 +1,319 @@
+/* The CRM beside us. Built from the connection screens' parts: the card, the
+   pill, the account rows and the dark card. Nothing here carries a raw hex. */
+
+.crm-mark {
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  vertical-align: -6px;
+  color: var(--ink-soft);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.crm-card,
+.crm-conn-row {
+  margin-top: 16px;
+}
+
+.crm-conn .conn__mark {
+  color: var(--ink-soft);
+}
+
+/* Theirs against ours, two cards to a row on a desk: the stages beside what
+   we set, the projects beside the people. */
+.crm-matches {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+  margin-top: 16px;
+}
+
+.crm-matches > .note {
+  grid-column: 1 / -1;
+}
+
+.crm-matches .crm-card {
+  margin-top: 0;
+}
+
+@media (max-width: 1100px) {
+  .crm-matches {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Their word, then ours. Read-only rows lose the account rows' kind column. */
+.crm-row.acct--read {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.crm-row .pill {
+  justify-self: end;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.crm-where {
+  margin: -4px 0 14px;
+  font-size: 12.5px;
+  color: var(--ink-mute);
+}
+
+.crm-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px 20px;
+}
+
+/* The keys side by side, each name over its box, rather than a 220px name
+   column and a box stretched across the card. */
+.crm-fields .formfield {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "label"
+    "input";
+  row-gap: 6px;
+}
+
+/* Which CRM: three tiles, one of them chosen. */
+.crm-pick {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.crm-pick__tile {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 16px 18px;
+  color: var(--ink);
+  text-decoration: none;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-inner);
+  box-shadow: var(--lift-sm);
+  transition: border-color 120ms ease, background 120ms ease;
+}
+
+.crm-pick__tile strong {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.crm-pick__tile span {
+  font-size: 12.5px;
+  color: var(--ink-mute);
+}
+
+.crm-pick__tile:hover {
+  border-color: var(--line-strong);
+}
+
+.crm-pick__tile--on {
+  background: var(--blue-wash);
+  border-color: var(--blue-line);
+}
+
+.crm-pick__tile--on span {
+  color: var(--blue-deep);
+}
+
+.crm-pick__tile:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* Needs you: the group's one dark card. */
+.crm-needs {
+  margin-top: 16px;
+}
+
+.crm-needs__list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.crm-needs__list > li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.crm-needs__list > li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.crm-needs__what {
+  display: flex;
+  flex: 1 1 280px;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.crm-needs__what strong {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.crm-needs__what span,
+.crm-needs__aside {
+  font-size: 12.5px;
+  color: var(--on-dark-mute);
+}
+
+.crm-needs__form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.crm-needs__form .select-field {
+  min-width: 200px;
+}
+
+.crm-needs__form > .note {
+  flex: 1 0 100%;
+  margin: 0;
+}
+
+/* Refused leads, one line each, inside the dark card. */
+.crm-dead {
+  flex: 1 0 100%;
+  margin: 2px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.crm-dead li {
+  display: grid;
+  grid-template-columns: minmax(120px, 200px) minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 12px;
+  padding: 8px 0;
+  font-size: 12.5px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.crm-dead__lead {
+  overflow: hidden;
+  font-weight: 600;
+  color: var(--on-dark);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.crm-dead__lead:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.crm-dead__why {
+  min-width: 0;
+  color: var(--on-dark-mute);
+  overflow-wrap: anywhere;
+}
+
+.crm-dead__retry {
+  padding: 4px 0;
+  font: inherit;
+  font-weight: 600;
+  color: var(--on-dark);
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.crm-dead__retry:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.crm-dead__retry:focus-visible {
+  outline: 2px solid var(--on-dark);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Towers not syncing yet, and the one thing each needs. */
+.crm-towers {
+  display: flex;
+  flex-direction: column;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.crm-towers li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  padding: 8px 0;
+  font-size: 12.5px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.crm-towers strong {
+  font-weight: 600;
+}
+
+.crm-towers span {
+  color: var(--warn);
+}
+
+/* A campaign key is read by a person against Sell.Do's screen: spaced figures, not a costume. */
+.crm-key {
+  width: 100%;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+.crm-keyval {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 760px) {
+  .crm-pick {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .crm-row.acct--read {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .crm-row .pill {
+    justify-self: start;
+  }
+
+  .crm-dead li {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .crm-dead__why {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .crm-needs__list .btn,
+  .crm-needs__form .select-field {
+    min-height: 40px;
+  }
+}

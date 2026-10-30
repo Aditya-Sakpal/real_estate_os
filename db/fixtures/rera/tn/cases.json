@@ -1,0 +1,13 @@
+{
+  "state": "TN",
+  "ours": "TNRERA/29/BLG/9901/2026",
+  "others": "TNRERA/29/BLG/9902/2026",
+  "revoked": "TNRERA/29/BLG/9903/2026",
+  "never": "TNRERA/29/BLG/9904/2026",
+  "down": "TNRERA/29/BLG/9905/2026",
+  "lapsed": null,
+  "ourPromoter": "Rera Check Holdings LLP",
+  "otherPromoter": "Other Realty Developers Private Limited",
+  "nightlyRequests": 10,
+  "notes": "atForm asks the project search (home.html for the CSRF token and the year menu, then search_<number>.html). ours, others and revoked are found there; revoked's own status reads 'Registration Cancelled Revised Registration given in Registration No. ...' and is answered found with status REVOKED. never gets the real 'No data found.' page, which the adapter does not believe on its own, so it then reads building_index.html and building_online_2026.html (a POST for that year) and answers found:false because neither lists it (4 requests). down's search file is marked .down, so atForm answers known:false after home.html. nightly reads 10 files here: for each of building, layout and regularisation, the index, the online list (GET), any other year its menu offers (building_online_2025.html by POST) and each offline year the index names (the index fixtures are trimmed to one offline year each). Live it is about 31 requests and 60 MB: 13 building, 14 layout, 4 regularisation. ours, others and revoked (REVOKED, also in blocked) are in building_online.html; so are three real 2026 rows, one of them really cancelled (TNRERA/35/BLG/0005/2026). building_offline_2019.html carries a real superseded row (TN/29/Building/006/2019, blocked) and a partial cancellation ('Registration Cancelled for Block-III', registered). never and down are in no list. Real rows kept: company promoters only by name, addresses cut to the city; people's names and addresses replaced, commented-out cells emptied."
+}

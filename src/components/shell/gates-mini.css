@@ -1,0 +1,100 @@
+/* One tower's six gates as a short card: name, a bar of six, the next step. */
+
+.gmini {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+  border-radius: var(--r-inner);
+  background: var(--surface-sunk);
+}
+
+.gmini__head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.gmini__name {
+  flex: 1;
+  min-width: 0;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.gmini__name:hover {
+  color: var(--blue-deep);
+  text-decoration: underline;
+}
+
+.gmini__count {
+  flex: none;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-mute);
+  font-variant-numeric: tabular-nums;
+}
+
+.gmini__count--risk {
+  color: var(--risk);
+}
+
+.gmini__bar {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gmini__seg {
+  height: 6px;
+  border-radius: var(--r-pill);
+  background: var(--line);
+}
+
+.gmini__seg--done {
+  background: var(--viz-green);
+}
+
+.gmini__seg--blocked {
+  background: var(--risk);
+}
+
+.gmini__seg--next:not(.gmini__seg--blocked) {
+  background: var(--blue);
+}
+
+.gmini__next {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.gmini__what {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  gap: 1px;
+}
+
+.gmini__label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--blue-deep);
+}
+
+.gmini__label--risk {
+  color: var(--risk);
+}
+
+.gmini__detail {
+  font-size: 12.5px;
+  color: var(--ink-mute);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

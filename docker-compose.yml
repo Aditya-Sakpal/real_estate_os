@@ -1,0 +1,20 @@
+services:
+  db:
+    image: postgres:16
+    container_name: salesdesk-db
+    environment:
+      POSTGRES_USER: salesdesk
+      POSTGRES_PASSWORD: salesdesk
+      POSTGRES_DB: salesdesk
+    ports:
+      - "5434:5432"
+    volumes:
+      - salesdesk-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U salesdesk"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  salesdesk-pgdata:

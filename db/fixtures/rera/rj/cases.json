@@ -1,0 +1,13 @@
+{
+  "state": "RJ",
+  "ours": "RAJ/P/2099/9001",
+  "others": "RAJ/P/2099/9002",
+  "revoked": "RAJ/P/2099/9003",
+  "never": "RAJ/P/2099/9991",
+  "down": "RAJ/P/2099/9005",
+  "lapsed": null,
+  "ourPromoter": "Rera Check Holdings LLP",
+  "otherPromoter": "Other Realty Developers Private Limited",
+  "nightlyRequests": 3,
+  "notes": "One API answers both. GetProjects with every filter empty is the whole register (approved, revoked and suspended rows, each with its AppStatus), so the nightly read is the home page, the main bundle (for the X-API-KEY, read at run time) and one POST: always 3 requests, because the night reads the key fresh. atForm uses the key held for the day, else reads it (index.html, main.js), then one POST answered from GetProjects_<number>.json. RAJ/P/2099/9004 is SUSPENDED in the register fixture and is in blocked too. Exemption certificates in the list are dropped. RAJ/P/2025/3789 is a real number issued to two promoters; its merged entry carries no promoter. RajRERA's Lapsed filter is date-derived and is not read, so lapsed is null."
+}

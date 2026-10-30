@@ -1,0 +1,15 @@
+{
+  "state": "WB",
+  "ours": "WBRERA/P/KOL/2099/099001",
+  "others": "WBRERA/P/NOR/2099/099002",
+  "revoked": null,
+  "never": "WBRERA/P/KOL/2025/999999",
+  "down": "WBRERA/P/KOL/2099/099004",
+  "lapsed": null,
+  "ourPromoter": "Rera Check Holdings LLP",
+  "otherPromoter": "Other Realty Developers Private Limited",
+  "nightlyRequests": 3,
+  "othersValidTo": "2031-12-31",
+  "tiedRevoked": "WBRERA/P/KOL/2099/099005",
+  "notes": "atForm is two requests: the certificate search (search_<number>.html) and the project page it links to (project_details_<procode>.html), which proves the number. `revoked` is null: the portal answers a revoked number exactly as it answers one never issued ('No data found!'), so atForm cannot say REVOKED, and the rejected/revoked list is keyed by application number, not registration number. At night a rejected/revoked row blocks only when its application number is still on the register against a registration number: tiedRevoked (WBRERA/P/KOL/2099/099005, application WBRERA/NPR-999005) is such a synthetic row and must be in `blocked` as REVOKED; the real rejected rows tie to nothing, as on the live list. Do not ask atForm about tiedRevoked: it has no per-number fixture and would reach the portal. `never` is the portal's own no-match page for that number. `down` has its search marked .down. `others` has an extension on its project page, so its validTo at the form is 2031-12-31 (the later date); the register shows only 2031-06-30. The register carries no promoter, so promoterName is present at the form only. Real rows kept: project names only, no people; page chrome, documents, contacts and addresses cut."
+}

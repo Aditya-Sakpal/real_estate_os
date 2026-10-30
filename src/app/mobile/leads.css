@@ -1,0 +1,381 @@
+/* Phone layout for this area's screens. Loaded after mobile.css. */
+
+/* ---------- the board: the move sheet sits above everything ---------- */
+
+/* On a phone the card's menu holder is lifted (z-index 2) so the whole-card
+   link does not swallow the ⋯ press. That made it a stacking context, and the
+   move sheet inside it drew under the sticky stage strip and the tab bar. */
+@media (max-width: 760px) {
+  .main .kb-card__menu:has(.kb-menu) {
+    z-index: 120;
+  }
+
+  .main .kb-card:has(.kb-menu) {
+    z-index: 120;
+  }
+
+  .main .kb-menu {
+    padding-bottom: calc(14px + env(safe-area-inset-bottom));
+  }
+}
+
+/* ---------- a lead's page ---------- */
+
+/* Call now on its own line; the two other ways to call side by side; the
+   site location below. Four full-width pills stacked pushed the lead itself
+   below the fold. */
+@media (max-width: 760px) {
+  .main .ld-acts__row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .main .ld-acts__row > form {
+    grid-column: 1 / -1;
+  }
+
+  .main .ld-acts__row > button:only-of-type {
+    grid-column: 1 / -1;
+  }
+
+  .main .ld-acts__row > .btn {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+/* A dialog opened from a page header's actions inherits that row's phone rule
+   (every .btn in .pagehead__acts grows to fill it), which stretched a sheet's
+   round close button into a wide oval. */
+@media (max-width: 760px) {
+  .pagehead__acts dialog .btn--icon {
+    flex: 0 0 auto;
+    width: 44px;
+  }
+}
+
+/* ---------- the call log ---------- */
+
+/* Each call is one compact card: who and how it ended on top, the agent and
+   when below, the next step and the length last. The generic stacked table
+   gave every cell its own label and line, so one call took a whole screen. */
+@media (max-width: 760px) {
+  .main table.ch-table[data-stack] tr.ch-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "lead out"
+      "agent when"
+      "next num";
+    gap: 6px 12px;
+    padding: 14px 16px;
+    align-items: start;
+  }
+
+  .main table.ch-table[data-stack] tr.ch-row > td[data-label]:not([data-label=""])::before {
+    content: none;
+  }
+
+  .main table.ch-table[data-stack] tr.ch-row > .ch-next--overdue[data-label]:not([data-label=""])::before {
+    content: "";
+    display: inline-block;
+    margin: 0 7px 1px 0;
+  }
+
+  .main table.ch-table[data-stack] tr.ch-row > .ch-lead {
+    grid-area: lead;
+    max-width: none;
+  }
+
+  .main table.ch-table[data-stack] tr.ch-row .ch-lead__name {
+    font-size: 15px;
+    font-weight: 600;
+    min-height: 24px;
+  }
+
+  .main table.ch-table[data-stack] tr.ch-row > .ch-out {
+    grid-area: out;
+    justify-self: end;
+  }
+
+  .main table.ch-table[data-stack] tr.ch-row > .ch-agent {
+    grid-area: agent;
+    display: flex;
+    gap: 6px;
+    align-items: baseline;
+    min-width: 0;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+
+  .main table.ch-table[data-stack] tr.ch-row > .ch-agent .ch-sub::before {
+    content: "· ";
+  }
+
+  .main table.ch-table[data-stack] tr.ch-row > .ch-when {
+    grid-area: when;
+    justify-self: end;
+    display: flex;
+    gap: 6px;
+    align-items: baseline;
+    font-size: 13px;
+    font-weight: 400;
+  }
+
+  .main table.ch-table[data-stack] tr.ch-row > .ch-when .ch-when__t {
+    display: inline;
+  }
+
+  .main table.ch-table[data-stack] tr.ch-row > .ch-next {
+    grid-area: next;
+    font-size: 13px;
+  }
+
+  .main table.ch-table[data-stack] tr.ch-row > .ch-num {
+    grid-area: num;
+    justify-self: end;
+    font-size: 13px;
+  }
+
+  .main table.ch-table[data-stack] tr.ch-row > .ch-chev {
+    display: none;
+  }
+
+  .main table.ch-table[data-stack] tr.ch-detailrow {
+    padding: 0 8px 10px;
+    background: #f3f6ff;
+  }
+
+  .main table.ch-table[data-stack] tr.ch-row.is-open {
+    background: #f3f6ff;
+  }
+
+  .main .ch-open {
+    padding: 16px 14px 14px;
+  }
+
+  .main table.ch-table[data-stack] tr.ch-detailrow > td {
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
+
+@media (max-width: 760px) {
+  .main table.ch-table[data-stack] tr.ch-row > .ch-lead .ch-sub {
+    white-space: normal;
+  }
+}
+
+/* ---------- availability and call lists: the av-table ---------- */
+
+/* The table scrolled edge to edge inside its card (a negative margin). Read
+   as cards, its rows sat flush on the card's edge, so they come back inside
+   the card's own padding. */
+@media (max-width: 760px) {
+  .main .av-scroll:has(> table[data-stack]) {
+    margin: 0;
+    overflow: visible;
+  }
+
+  .main .av-scroll > table[data-stack] tr {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* A call list: its name, then where and how it stands, then three
+     counts in a row. The delete button needs no "Delete" label over it. */
+  .main .cls-recent .av-table[data-stack] tr {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px 12px;
+  }
+
+  .main .cls-recent .av-table[data-stack] tr > :nth-child(2) {
+    grid-column: span 2;
+  }
+
+  .main .cls-recent .av-table[data-stack] tr > :nth-child(3) {
+    justify-self: end;
+  }
+
+  .main .cls-recent .av-table[data-stack] tr > .cls-del {
+    grid-column: 1 / -1;
+  }
+
+  .main .cls-recent .av-table[data-stack] tr > .cls-del[data-label]:not([data-label=""])::before {
+    content: none;
+  }
+
+  .main .cls-recent .cls-link {
+    display: inline-block;
+    padding: 4px 0;
+    word-break: break-word;
+  }
+}
+
+/* ---------- one call list ---------- */
+
+@media (max-width: 760px) {
+  /* Pause and Stop sit side by side, not two half-empty rows. */
+  .main .cls-controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
+  }
+
+  .main .cls-controls > :only-child {
+    grid-column: 1 / -1;
+  }
+
+  .main .cls-controls .btn,
+  .main .cls-controls form {
+    width: 100%;
+  }
+
+  /* A person: the sheet's line number small, then the name, then what the
+     call does and where it stands across the whole card. */
+  .main table.cls-table[data-stack] tr > :first-child {
+    font-size: 12px;
+    font-weight: 560;
+    color: var(--ink-mute);
+  }
+
+  .main table.cls-table[data-stack] tr > :first-child::before {
+    content: attr(data-label) " ";
+  }
+
+  .main table.cls-table[data-stack] tr > .cls-wrap {
+    grid-column: 1 / -1;
+    min-width: 0;
+    max-width: none;
+  }
+}
+
+/* ---------- the gate scanner ---------- */
+
+/* At 62% of the screen the camera pushed today's list wholly under the tab
+   bar, so a host never saw who else was due without scrolling. A little
+   shorter, the first name shows below it; the frame still fills a thumb's
+   reach. */
+@media (max-width: 640px) {
+  .main .sc-cam {
+    height: min(54dvh, 470px);
+  }
+
+  .main .sc-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---------- home loans ---------- */
+
+@media (max-width: 760px) {
+  /* Needs you: one row per loan, the whole row opens it. "Open" sat alone
+     on a line under every item, doubling the card's height. */
+  .main [data-loan-needs] .pub-needs__item {
+    position: relative;
+    flex-wrap: nowrap;
+    align-items: center;
+    min-height: 56px;
+  }
+
+  .main [data-loan-needs] .pub-needs__what {
+    flex: 1 1 auto;
+    flex-basis: auto;
+  }
+
+  .main [data-loan-needs] .pub-needs__item > a.btn {
+    flex: none;
+    margin-left: 0;
+  }
+
+  .main [data-loan-needs] .pub-needs__item > a.btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+
+  /* The list's title on its own line, the stage filters a row that scrolls. */
+  .main .lo-list .card__head {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .main .lo-filter {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin: 0 -18px;
+    padding: 2px 18px;
+  }
+
+  .main .lo-filter::-webkit-scrollbar {
+    display: none;
+  }
+
+  .main .lo-filter .pill {
+    flex: none;
+  }
+
+  .main .lo-scroll:has(> table[data-stack]) {
+    margin: 0;
+    overflow: visible;
+  }
+
+  .main .lo-scroll > table[data-stack] tr {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* One loan file: the card's title keeps one line; its stage and action
+     wrap under it instead of squeezing "The loan" onto two. */
+  .main .lf-grid .card__head {
+    flex-wrap: wrap;
+  }
+
+  .main .lf-grid .card__head h2 {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 760px) {
+  .main .lo-table[data-stack] .lo-next {
+    display: inline;
+  }
+
+  .main .lo-table[data-stack] .lo-next svg {
+    vertical-align: -2px;
+    margin-left: 3px;
+  }
+}
+
+@media (max-width: 760px) {
+  /* Money: the label above its sum, so "Rs 45,00,000 of Rs 45,00,000"
+     reads on one line instead of breaking beside a squeezed label. */
+  .main .lf-money__top {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  /* A document ticked off: a full-height row for a thumb, its date on one
+     line. */
+  .main .lf-doc {
+    min-height: 44px;
+  }
+
+  .main .lf-doc small {
+    flex: none;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 760px) {
+  /* A two or three column table in a report card fits the phone as it is;
+     made a scrolling block it shrank to its content and left half the card
+     empty. */
+  .main .lf-card .lo-table:not([data-stack]) {
+    display: table;
+    width: 100%;
+  }
+}

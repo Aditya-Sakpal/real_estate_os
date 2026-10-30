@@ -1,0 +1,40 @@
+node_modules/
+.next/
+.env
+.env.local
+*.tsbuildinfo
+.venv/
+next-env.d.ts
+
+# build artifact from scripts/build-doc.mjs
+salesdesk-flow.html
+
+# regenerable review captures, 2.4MB of screenshots
+.impeccable/review/
+
+# AWS key exports. Never commit one; the CLI profile holds these.
+*accessKeys*.csv
+*credentials*.csv
+
+# throwaway drive-the-app scripts
+scripts/_*.mjs
+
+# labelled placeholder uploads for trying the asset library, throwaway
+sample-assets/
+
+# the marketing site is its own repository: github.com/Aditya-Sakpal/salesdesk_website
+website/
+
+# reference reels, about 800 MB: kept on this machine, never in git or the
+# deployment (their posters and notes are committed)
+*.mp4
+
+# scratch and local-only files
+scripts/.tmp/
+.claude/settings.local.json
+.patch.mjs
+.next-prod/
+
+# the dev server started with its output to a file
+.dev-server.log
+*.tsbuildinfo

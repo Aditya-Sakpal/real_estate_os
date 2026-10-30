@@ -1,0 +1,87 @@
+/* Published: an ad's figures, as a second line under its row. */
+
+.pub-row.pub-row--figs {
+  row-gap: 6px;
+}
+
+.pub-figs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px 14px;
+  grid-column: 2 / -1;
+  grid-row: 2;
+  min-width: 0;
+  font-size: 12px;
+  color: var(--ink-mute);
+}
+
+.pub-fig {
+  white-space: nowrap;
+}
+
+.pub-fig strong {
+  font-weight: 620;
+  color: var(--ink);
+}
+
+.pub-shift {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 9px;
+  font-weight: 570;
+  border-radius: var(--r-pill);
+}
+
+.pub-shift--up {
+  color: var(--blue-deep);
+  background: var(--blue-wash);
+}
+
+.pub-shift--down {
+  color: var(--ink-soft);
+  background: var(--surface-sunk);
+}
+
+.pub-shift--failed {
+  color: var(--warn);
+  background: var(--warn-wash);
+}
+
+.pub-flag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 9px;
+  font-weight: 570;
+  border-radius: var(--r-pill);
+}
+
+.pub-flag--risk {
+  color: var(--risk);
+  background: var(--risk-wash);
+}
+
+.pub-flag--due {
+  color: var(--warn);
+  background: var(--warn-wash);
+}
+
+.pub-flag--watch {
+  color: var(--ink-soft);
+  background: var(--surface-sunk);
+}
+
+@media (max-width: 760px) {
+  .pub-row.pub-row--figs {
+    grid-template-areas:
+      "thumb what state"
+      "thumb where where"
+      "figs figs figs"
+      "acts acts acts";
+  }
+
+  .pub-figs {
+    grid-area: figs;
+    gap: 4px 12px;
+  }
+}

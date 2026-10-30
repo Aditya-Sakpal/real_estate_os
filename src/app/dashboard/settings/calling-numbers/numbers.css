@@ -1,0 +1,174 @@
+/* Calling numbers. The WhatsApp numbers screen's rows and dark card, plus a
+   release button at the end of each row and the search and pick views.
+   Nothing here carries a raw hex. */
+
+.cn-num {
+  grid-template-columns: minmax(0, 1fr) minmax(180px, auto) auto;
+}
+
+.cn-num__release {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Where Vobiz sends calls to the number, and the Sarvam connection it
+   dials through: a full-width line under the row. */
+.cn-num__more {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  order: 1;
+  gap: 8px 24px;
+  margin: 4px 0 0;
+  padding-top: 10px;
+  font-size: 13px;
+  border-top: 1px solid var(--line);
+}
+
+.cn-num__more dt {
+  margin-bottom: 4px;
+  font-size: 12px;
+  color: var(--ink-mute);
+}
+
+.cn-num__more dd {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  margin: 0;
+}
+
+.cn-num__addr {
+  display: block;
+  max-width: 100%;
+  padding: 6px 10px;
+  overflow-wrap: anywhere;
+  font-size: 12px;
+  user-select: all;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.cn-conn {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.cn-conn .formfield__input {
+  flex: 1 1 180px;
+  min-width: 0;
+}
+
+.cn-search {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+/* No number yet: one centred empty state rather than a line on the left. */
+.cn-empty h2 {
+  margin-top: 4px;
+  font-size: 16px;
+  color: var(--ink);
+}
+
+.cn-empty .sub {
+  margin-top: 4px;
+}
+
+.cn-search__field {
+  display: flex;
+  flex: 1 1 260px;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cn-search__starts {
+  flex: 0 1 180px;
+}
+
+.cn-search + .note {
+  margin-top: 12px;
+}
+
+.cn-pick {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.cn-pick__row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 2px 10px;
+  min-height: 48px;
+  padding: 10px 14px;
+  cursor: pointer;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.cn-pick__row input {
+  grid-row: span 2;
+  accent-color: var(--blue);
+}
+
+.cn-pick__row small {
+  font-size: 12px;
+  color: var(--ink-mute);
+}
+
+.cn-pick__row:has(input:checked) {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 1px var(--blue);
+}
+
+.cn-pick__row:has(input:focus-visible) {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.cn-where {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 360px;
+  margin-top: 16px;
+}
+
+@media (max-width: 720px) {
+  .cn-num {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cn-num__release {
+    justify-content: flex-start;
+  }
+
+  .cn-search .btn {
+    min-height: 44px;
+  }
+}
+
+/* Verifying the business, before the first number. */
+.cn-kyc .sub { margin: 0 0 16px; }
+.cn-kyc__form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  align-items: flex-end;
+}
+.cn-kyc__form .cn-search__field { flex: 1 1 220px; }
+.cn-kyc__code { text-transform: uppercase; letter-spacing: 0.04em; }
+.cn-kyc__form .cn-search__field { flex: 1 1 200px; }

@@ -1,0 +1,358 @@
+/* The public enquiry page. The developer's page rather than the console's:
+   everything is scoped under .enq so none of it reaches the console, and
+   none of the console's element styles decide how a buyer's form looks. */
+
+.enq {
+  --enq-ground: #f4f4f1;
+  --enq-card: #fdfdfb;
+  --enq-field: #fcfcfd;
+  --enq-ink: #14161b;
+  --enq-soft: #3f434c;
+  --enq-mute: #5b606a;
+  --enq-line: #d5d8df;
+  --enq-focus: #2b5ce6;
+  --enq-risk: #b62a40;
+  --enq-ok: #127a4f;
+  --enq-ok-wash: #e2f4ea;
+
+  min-height: 100dvh;
+  background: var(--enq-ground);
+  color: var(--enq-ink);
+  padding: 12px 16px 40px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.enq__wrap {
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+/* --- the developer ------------------------------------------------------ */
+
+.enq-top {
+  display: flex;
+  align-items: center;
+  min-height: 52px;
+  margin-bottom: 10px;
+}
+
+.enq-top__logo {
+  display: block;
+  height: 38px;
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.enq-top__name {
+  font-size: 18px;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+}
+
+/* --- the project -------------------------------------------------------- */
+
+.enq-hero {
+  border-radius: 24px;
+  padding: 24px 22px 20px;
+  background:
+    radial-gradient(120% 90% at 0% 0%, #dde7ff 0%, transparent 60%),
+    radial-gradient(100% 90% at 100% 20%, #fbdce9 0%, transparent 62%),
+    radial-gradient(120% 100% at 30% 100%, #e7ddfb 0%, transparent 65%),
+    #fde7d6;
+}
+
+.enq-hero__city {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(253, 253, 251, 0.78);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--enq-soft);
+}
+
+.enq .enq-hero__title {
+  margin: 14px 0 0;
+  font-size: 34px;
+  line-height: 1.08;
+  font-weight: 650;
+  letter-spacing: -0.028em;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+
+.enq-hero__tower {
+  margin: 4px 0 0;
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--enq-soft);
+}
+
+.enq-rera {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 14px;
+  margin: 18px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid rgba(20, 22, 27, 0.12);
+  font-size: 14px;
+  color: var(--enq-soft);
+}
+
+.enq-rera__no {
+  font-weight: 650;
+  color: var(--enq-ink);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+}
+
+.enq-rera a {
+  color: var(--enq-soft);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: rgba(20, 22, 27, 0.3);
+  overflow-wrap: anywhere;
+}
+
+/* --- the form ----------------------------------------------------------- */
+
+.enq-card {
+  margin-top: 14px;
+  padding: 24px 18px 20px;
+  border-radius: 24px;
+  background: var(--enq-card);
+  box-shadow:
+    0 1px 2px rgba(20, 22, 27, 0.04),
+    0 14px 32px -16px rgba(20, 22, 27, 0.16);
+}
+
+.enq .enq-card__title {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.enq-card__sub {
+  margin: 6px 0 0;
+  font-size: 15px;
+  color: var(--enq-mute);
+}
+
+.enq-field {
+  margin-top: 18px;
+}
+
+.enq .enq-field > label {
+  display: block;
+  margin: 0 0 7px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--enq-ink);
+}
+
+.enq .enq-input {
+  display: block;
+  width: 100%;
+  height: 54px;
+  padding: 0 14px;
+  font: inherit;
+  font-size: 17px;
+  color: var(--enq-ink);
+  background: var(--enq-field);
+  border: 1px solid var(--enq-line);
+  border-radius: 14px;
+  box-shadow: none;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.enq .enq-input::placeholder {
+  color: #737883;
+}
+
+.enq .enq-input:focus {
+  outline: none;
+  border-color: var(--enq-focus);
+  box-shadow: 0 0 0 3px rgba(43, 92, 230, 0.16);
+}
+
+.enq-select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 44px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2314161b' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  cursor: pointer;
+}
+
+/* The country code sits inside the field, so a buyer types ten digits. */
+.enq-phone {
+  position: relative;
+}
+
+.enq-phone__cc {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 17px;
+  color: var(--enq-mute);
+  pointer-events: none;
+}
+
+.enq .enq-phone .enq-input {
+  padding-left: 52px;
+  letter-spacing: 0.02em;
+}
+
+.enq .enq-phone.is-invalid .enq-input {
+  border-color: var(--enq-risk);
+}
+
+.enq .enq-phone.is-invalid .enq-input:focus {
+  box-shadow: 0 0 0 3px rgba(182, 42, 64, 0.16);
+}
+
+.enq-error {
+  margin: 7px 0 0;
+  font-size: 14px;
+  font-weight: 550;
+  color: var(--enq-risk);
+}
+
+.enq .enq-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 20px 0 0;
+  padding: 10px 0;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--enq-soft);
+  cursor: pointer;
+}
+
+.enq .enq-consent--second {
+  margin-top: 0;
+}
+
+.enq-consent input {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  accent-color: var(--enq-ink);
+  cursor: pointer;
+}
+
+.enq-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 56px;
+  margin-top: 16px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--enq-ink);
+  color: #fafafa;
+  font: inherit;
+  font-size: 17px;
+  font-weight: 620;
+  cursor: pointer;
+  transition: background-color 140ms ease, transform 140ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.enq-cta:hover {
+  background: #000;
+}
+
+.enq-cta:active {
+  transform: scale(0.985);
+}
+
+.enq-cta:focus-visible {
+  outline: 3px solid var(--enq-focus);
+  outline-offset: 3px;
+}
+
+.enq-cta svg {
+  transition: transform 140ms ease;
+}
+
+.enq-cta:hover svg {
+  transform: translateX(2px);
+}
+
+/* --- after sending, and when closed ------------------------------------- */
+
+.enq-note {
+  margin-top: 14px;
+  padding: 36px 22px;
+  border-radius: 24px;
+  background: var(--enq-card);
+  text-align: center;
+  box-shadow:
+    0 1px 2px rgba(20, 22, 27, 0.04),
+    0 14px 32px -16px rgba(20, 22, 27, 0.16);
+}
+
+.enq-note__mark {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
+  border-radius: 999px;
+  background: var(--enq-ok-wash);
+  color: var(--enq-ok);
+}
+
+.enq .enq-note__title {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.enq-note__text {
+  margin: 6px 0 0;
+  font-size: 17px;
+  color: var(--enq-soft);
+}
+
+.enq-note__text:only-child {
+  margin: 0;
+}
+
+@media (min-width: 560px) {
+  .enq {
+    padding-top: 28px;
+  }
+
+  .enq-card {
+    padding: 28px 26px 24px;
+  }
+
+  .enq-hero {
+    padding: 30px 28px 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enq-cta,
+  .enq-cta svg,
+  .enq .enq-input {
+    transition: none;
+  }
+}

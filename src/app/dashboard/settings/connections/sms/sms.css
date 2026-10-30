@@ -1,0 +1,99 @@
+/* Service SMS: the DLT registration and the words each message is
+   registered with. The WhatsApp screen's cards and table, denser words. */
+
+.sms-form {
+  display: block;
+}
+
+.sms-reg {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px 24px;
+}
+
+.sms-reg__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sms-reg__field strong {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.sms-header {
+  text-transform: uppercase;
+}
+
+.sms-msgs .wa-msgs__why {
+  color: var(--ink-mute);
+}
+
+.sms-words {
+  display: block;
+  max-width: 62ch;
+  padding: 8px 10px;
+  font-family: inherit;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ink);
+  white-space: normal;
+  background: var(--surface-sunk);
+  border-radius: 10px;
+  user-select: all;
+}
+
+.sms-id {
+  width: 210px;
+}
+
+.sms-id .pill {
+  white-space: nowrap;
+}
+
+.sms-id small {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--ink-mute);
+}
+
+.sms-id .formfield__input {
+  width: 100%;
+  max-width: 210px;
+}
+
+@media (max-width: 760px) {
+  .sms-reg {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sms-msgs thead {
+    display: none;
+  }
+
+  .sms-msgs tr {
+    display: grid;
+    gap: 8px;
+    padding: 12px 0;
+    border-top: 1px solid var(--line-soft);
+  }
+
+  .sms-msgs td {
+    padding: 0;
+    border-top: 0;
+  }
+
+  .sms-msgs td:last-child,
+  .sms-id {
+    width: auto;
+    text-align: left;
+  }
+
+  .sms-id .formfield__input {
+    max-width: none;
+    min-height: 44px;
+  }
+}

@@ -1,0 +1,76 @@
+/* WhatsApp broadcasts on Published. The publication rows' grid, with the
+   five figures in place of the destination column. */
+
+.bcl {
+  margin-top: 16px;
+}
+
+.bcl__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 20px 4px;
+}
+
+.bcl__head h2 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 620;
+  letter-spacing: -0.01em;
+}
+
+.bcl-row {
+  grid-template-columns: 44px minmax(0, 1.5fr) minmax(0, 2.1fr) minmax(0, 1.3fr) 112px 180px;
+}
+
+.bcl-row .pub-row__what strong {
+  font-weight: 560;
+}
+
+.bcl-figs {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 6px;
+  min-width: 0;
+}
+
+.bcl-fig {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.bcl-fig strong {
+  font-size: 14px;
+  font-weight: 620;
+  letter-spacing: -0.01em;
+}
+
+.bcl-fig small {
+  overflow: hidden;
+  font-size: 11px;
+  color: var(--ink-mute);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bcl-row--cancelled .pub-row__what strong,
+.bcl-row--halted .pub-row__what strong {
+  color: var(--ink-mute);
+}
+
+@media (max-width: 1100px) {
+  .bcl-row {
+    grid-template-columns: 44px minmax(0, 1.4fr) minmax(0, 2fr) minmax(0, 1.2fr) 168px;
+  }
+}
+
+@media (max-width: 760px) {
+  .bcl-row {
+    grid-template-columns: 44px minmax(0, 1fr) auto;
+  }
+
+  .bcl-figs {
+    grid-area: where;
+  }
+}

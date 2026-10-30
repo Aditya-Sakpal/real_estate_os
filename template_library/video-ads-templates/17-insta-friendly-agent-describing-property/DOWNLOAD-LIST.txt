@@ -1,0 +1,58 @@
+PASTE-AND-SAVE LIST
+============================================================
+
+Folder: 17-insta-friendly-agent-describing-property
+
+HOW TO USE THIS FILE
+--------------------
+Copy a URL below, paste it into a downloader (fastvideosave.net or any
+equivalent paste-a-link service), download the file, then rename it to
+the "save as:" name printed directly under that URL and drop it in this
+folder.
+
+Work top to bottom. The list is already in the order you want, so the
+numbering comes out right on its own.
+
+Faster: download a whole batch into Downloads first without renaming,
+then rename them all in one pass. Explorer sorts by download time and
+this list is in the same order, so they line up row for row.
+
+If a link is refused by the downloader, screen record it instead, or
+skip it. There are more references here than you need.
+
+Full walkthrough, including the no-download option and the rules on
+what you can and cannot do with someone else's reel:
+  ..\INSTA-HOW-TO-DOWNLOAD.md
+
+--- YOUR ORIGINAL REFERENCES (priority) ---
+
+https://www.instagram.com/p/Dca6EWTxGpw/
+  save as:  reel__17-agent-describing-property__01-kalsie-opponent.mp4
+
+https://www.instagram.com/p/DXeU5dDkeXe/
+  save as:  reel__17-agent-describing-property__02-kalsie-phone-frame.mp4
+
+
+--- DISCOVERED, SAME FORMAT (optional) ---
+
+https://www.instagram.com/reel/DdjmhMZpBvN/
+  save as:  reel__17-agent-describing-property__03-piyush-kukreja.mp4
+
+https://www.instagram.com/reel/DalWUKmPE6G/
+  save as:  reel__17-agent-describing-property__04-karishma-koth.mp4
+
+https://www.instagram.com/reel/DbTuHyrPImO/
+  save as:  reel__17-agent-describing-property__05-monty-lans.mp4
+
+https://www.instagram.com/reel/DPoSGLJDpGc/
+  save as:  reel__17-agent-describing-property__06-agent-crate.mp4
+
+https://www.instagram.com/reel/DOUmKquDf2Q/
+  save as:  reel__17-agent-describing-property__07-amber-bush-joseph.mp4
+
+https://www.instagram.com/reel/Ddomr3eChtW/
+  save as:  reel__17-agent-describing-property__08-amber-bush-joseph.mp4
+
+https://www.instagram.com/reel/DdEX7dKpZsr/
+  save as:  reel__17-agent-describing-property__09-shradha-social-strategist.mp4
+

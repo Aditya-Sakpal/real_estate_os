@@ -1,0 +1,189 @@
+/* =========================================================================
+   Layout kit: the few shapes every console screen is built from, so no
+   screen is a column of full-width cards with the right half empty.
+
+   .split   the work on the left, what supports it in a narrower rail beside
+   .pair    short cards two (or three) across
+   .stack   cards one under another with the console's gap, no inline margins
+   .fieldgrid  read-only facts as a grid, label above value
+   .disclose   a form somebody needs now and then, closed until asked for
+   ========================================================================= */
+
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+  gap: 16px;
+  align-items: start;
+}
+
+.split--wide-side {
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
+}
+
+.split__main,
+.split__side {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+  align-content: start;
+}
+
+.split__main > *,
+.split__side > *,
+.stack > *,
+.pair > * {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.pair {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.pair--stretch {
+  align-items: stretch;
+}
+
+.pair--three {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.pair > .pair__wide {
+  grid-column: 1 / -1;
+}
+
+.stack {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.stack + .stack,
+.split + .stack,
+.stack + .split,
+.pair + .stack,
+.stack + .pair,
+.pair + .pair,
+.split + .pair,
+.pair + .split {
+  margin-top: 16px;
+}
+
+/* Read-only facts: label over value, as many across as fit. The label/value
+   rows of a form (label left, field right) are for editing; reading them that
+   way leaves a 200px gap and an empty right half. */
+.fieldgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px 28px;
+}
+
+.fieldgrid > .fieldgrid__wide {
+  grid-column: 1 / -1;
+}
+
+.fieldgrid .formfield {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "label"
+    "input";
+  row-gap: 4px;
+  align-content: start;
+  margin: 0 !important;
+}
+
+.fieldgrid .formfield__label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-mute);
+}
+
+.fieldgrid .formfield__value,
+.fieldgrid .formfield__unset {
+  padding: 0;
+  margin: 0;
+  color: var(--ink);
+  font-weight: 520;
+}
+
+.fieldgrid .formfield__unset {
+  color: var(--ink-faint);
+  font-weight: 400;
+}
+
+/* A form that is needed now and then: one line until opened. */
+.disclose {
+  background: var(--surface);
+  border-radius: var(--r-card);
+  box-shadow: var(--lift);
+}
+
+.disclose > summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 20px;
+  cursor: pointer;
+  list-style: none;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  border-radius: var(--r-card);
+}
+
+.disclose > summary::-webkit-details-marker {
+  display: none;
+}
+
+.disclose > summary::after {
+  content: "";
+  margin-left: auto;
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid var(--ink-mute);
+  border-bottom: 1.5px solid var(--ink-mute);
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 160ms ease;
+}
+
+.disclose[open] > summary::after {
+  transform: rotate(-135deg) translateY(-2px);
+}
+
+.disclose > summary:hover {
+  background: var(--surface-sunk);
+}
+
+.disclose > summary:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.disclose__sub {
+  font-size: 12.5px;
+  font-weight: 400;
+  color: var(--ink-mute);
+}
+
+.disclose__body {
+  padding: 0 20px 20px;
+}
+
+@media (max-width: 1180px) {
+  .split,
+  .split--wide-side {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Beside a section's list the screen is 230px narrower, so a rail beside the
+   work needs a wider window before it fits. */
+@media (max-width: 1300px) {
+  .secx .split,
+  .secx .split--wide-side {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

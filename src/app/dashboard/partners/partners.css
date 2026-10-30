@@ -1,0 +1,472 @@
+/* The partner desk's forms. The desk itself is `ws-` and `pt-` in globals.css;
+   these are the pieces that act, and they reuse the move dialog's fields
+   (`mv-`) and the call dialog's shell (`cl-`) rather than inventing a third. */
+
+.pf-dialog {
+  width: min(680px, calc(100vw - 28px));
+  max-height: min(92dvh, 900px);
+}
+
+.pf-fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.pf-fieldset[aria-invalid="true"] .checkset {
+  border-radius: var(--r-field);
+  box-shadow: 0 0 0 1px var(--risk);
+}
+
+/* Machine values (PAN, GSTIN, agent number, UTR) in the desk's own mono. */
+.mv-input.pt-mono {
+  font-size: 13px;
+}
+
+.pf-narrow {
+  max-width: 180px;
+}
+
+.pf-tiny {
+  width: 104px;
+}
+
+.pf-three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.pf-sub-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 12px;
+}
+
+/* A number with its unit beside it, inside the field's own box. */
+.pf-pct {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+}
+
+.pf-pct > span[aria-hidden] {
+  position: absolute;
+  right: 12px;
+  font-size: 12.5px;
+  font-weight: 560;
+  color: var(--ink-mute);
+  pointer-events: none;
+}
+
+.pf-pct .mv-input {
+  padding-right: 36px;
+}
+
+.pf-step .pf-pct {
+  width: auto;
+}
+
+.pf-problems {
+  padding: 12px 14px;
+  border-radius: var(--r-field);
+  background: var(--risk-wash);
+  color: var(--note-ink-risk);
+  outline: none;
+}
+
+.pf-problems:focus-visible {
+  box-shadow: 0 0 0 2px var(--surface), 0 0 0 3px var(--risk);
+}
+
+.pf-problems__title {
+  margin: 0 0 4px;
+  font-size: 13px;
+  font-weight: 620;
+}
+
+.pf-problems ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 12.5px;
+}
+
+.pf-problems a {
+  color: inherit;
+  text-underline-offset: 2px;
+}
+
+/* The verdict on a registration: the partner's own sentence, with what it
+   means on the desk ahead of it. */
+.pf-verdict {
+  display: grid;
+  gap: 3px;
+  padding: 12px 14px;
+  border-radius: var(--r-field);
+  font-size: 13.5px;
+  line-height: 1.45;
+}
+
+.pf-verdict__label {
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.pf-verdict--info {
+  background: var(--ok-wash);
+  color: var(--ok);
+}
+
+.pf-verdict--warn {
+  background: var(--warn-wash);
+  color: var(--note-ink-warn);
+}
+
+.pf-verdict--risk {
+  background: var(--risk-wash);
+  color: var(--note-ink-risk);
+}
+
+.pf-steps {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.pf-step {
+  display: grid;
+  grid-template-columns: 150px 104px 104px 32px;
+  align-items: center;
+  gap: 10px;
+}
+
+.pf-step__k {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.pf-inline {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pf-inline .mv-label {
+  margin: 0;
+}
+
+.pf-inline .mv-input {
+  width: auto;
+  min-width: 0;
+  flex: 0 1 220px;
+}
+
+.pf-card {
+  display: grid;
+  gap: 12px;
+  margin-top: 10px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-field);
+  background: var(--surface-sunk);
+}
+
+.pf-file {
+  width: 100%;
+  font: inherit;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.pf-file::file-selector-button {
+  margin-right: 10px;
+  padding: 7px 12px;
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 570;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-pill);
+  cursor: pointer;
+}
+
+.pf-danger {
+  color: var(--risk) !important;
+}
+
+/* A firm's standing on each project, one row each. */
+.pf-projects {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.pf-project {
+  display: grid;
+  gap: 4px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.pf-project:last-child {
+  border-bottom: 0;
+}
+
+.pf-project__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.pf-project__name {
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.pf-grant {
+  display: grid;
+  gap: 6px;
+}
+
+.pf-grant__acts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.pf-visit {
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+}
+
+.pf-visit__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pf-visit__row .cl-select,
+.pf-visit__row .mv-input {
+  width: auto;
+  min-width: 140px;
+}
+
+.pf-dates {
+  display: grid;
+  gap: 6px;
+  justify-items: start;
+  margin-top: 12px;
+}
+
+.pf-dates__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 12px;
+}
+
+.pf-half {
+  display: grid;
+  gap: 6px;
+  justify-items: start;
+}
+
+.pf-settings {
+  margin-top: 16px;
+}
+
+.pf-settings__title {
+  flex: none;
+  white-space: nowrap;
+}
+
+/* A long line of current values must not squeeze the chevron flat. */
+.pf-settings > summary::after {
+  flex: none;
+}
+
+.pf-settings__form {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 0 16px;
+}
+
+.pf-settings__form .mv-field {
+  flex: 0 1 260px;
+}
+
+.pf-settings__form .btn {
+  margin-bottom: 12px;
+}
+
+.pf-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (max-width: 560px) {
+  .pf-three,
+  .pf-sub-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pf-inline .mv-input,
+  .pf-visit__row .cl-select,
+  .pf-visit__row .mv-input {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .pf-inline .btn,
+  .pf-visit .btn,
+  .pf-half .btn {
+    min-height: 44px;
+  }
+}
+
+.pf-inline .pf-pct {
+  width: auto;
+}
+
+/* A form inside half a payout: one field to a row, so nothing is cut. */
+.pf-stack {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (max-width: 560px) {
+  .pf-step {
+    grid-template-columns: minmax(0, 1fr) 96px 96px 32px;
+  }
+}
+
+/* A partner's links: the code, where it lands, and the posts it can carry. */
+.pf-links {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.pf-posts {
+  display: grid;
+  gap: 6px;
+  margin: 6px 0 0;
+  padding: 8px 10px;
+  list-style: none;
+  border-radius: var(--r-field);
+  background: var(--surface-sunk);
+}
+
+.pf-post {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.pf-post__what {
+  display: grid;
+  min-width: 0;
+}
+
+.pf-post__dl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pf-linkform {
+  margin-top: 6px;
+}
+
+.pf-linkform .cl-select {
+  width: auto;
+}
+
+@media (max-width: 560px) {
+  .pf-post {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* The firm's people on WhatsApp beside its links: two panels, one rule above. */
+.pf-pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 28px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.pf-pair .pf-links {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+@media (max-width: 860px) {
+  .pf-pair {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+}
+
+/* An invoice on file, and the firm's own confirmation of it. */
+.pf-invoice {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+/* A project another mandate firm already holds: shown, not choosable. */
+.checkset__item.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.checkset__item.is-disabled:hover {
+  background: transparent;
+}
+
+/* Nothing on a view yet: one line with what to do, never a tall white card. */
+.pt-none {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+}
+
+.pt-none__mark {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  margin: 0;
+  border-radius: 11px;
+}
+
+.pt-none__text {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  font-size: 12.5px;
+  color: var(--ink-mute);
+}
+
+.pt-none__text strong {
+  font-size: 14px;
+  font-weight: 590;
+  color: var(--ink);
+}

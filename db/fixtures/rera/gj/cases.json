@@ -1,0 +1,13 @@
+{
+  "state": "GJ",
+  "ours": "PR/GJ/AHMEDABAD/AHMEDABAD CITY/AUDA/MAA99001/150626",
+  "others": "PR/GJ/SURAT/SURAT CITY/Surat Municipal Corporation/RAA99002/150626",
+  "revoked": null,
+  "never": "PR/GJ/VADODARA/VADODARA/Vadodara Municipal Corporation/MAA99991/150626",
+  "down": "PR/GJ/RAJKOT/RAJKOT/Rajkot Municipal Corporation/MAA99005/150626",
+  "lapsed": null,
+  "ourPromoter": "Rera Check Holdings LLP",
+  "otherPromoter": "Other Realty Developers Private Limited",
+  "nightlyRequests": 1,
+  "notes": "GujRERA publishes no revocation list, so blocked is always empty at night and revoked is null. At the form a project whose getproject-details carries a projectRevokeDocId reads as REVOKED; no real revoked project was found to confirm that field. The register is the whole all-time list of projects under their current numbers, so absence blocks; it is not a lapse list. Numbers compare by their serial (MAA99001), so atForm searches by serial and matches on keyOf(). Fixture names: global-search_<serial>.json, alldatabyprojectid_<id>.json, getproject-details_<id>.json, projectlist_all.json. Live requests need legacy TLS renegotiation (see rera-gj.ts); the fixtures are unaffected."
+}

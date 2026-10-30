@@ -1,0 +1,274 @@
+/* Flat availability: a tower picker, the sheet import, then two dense tables. */
+
+.av-towers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.av-tower {
+  display: flex;
+  flex-direction: column;
+  min-width: 120px;
+  padding: 9px 14px;
+  color: var(--ink);
+  text-decoration: none;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-inner);
+  transition: border-color 120ms ease, background 120ms ease;
+}
+
+.av-tower strong {
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.av-tower span {
+  font-size: 12px;
+  color: var(--ink-mute);
+}
+
+.av-tower:hover {
+  border-color: var(--line-strong);
+}
+
+.av-tower--on {
+  background: var(--blue-wash);
+  border-color: var(--blue-line);
+}
+
+.av-tower--on span {
+  color: var(--blue-deep);
+}
+
+/* The import. With no flats it is the card itself, one line: what to do on
+   the left, the file and the button at the right. Beside the flats it sits
+   closed in the rail, and stacks. */
+.av-import__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+}
+
+.av-import__text {
+  display: grid;
+  gap: 4px;
+  flex: 1 1 320px;
+  min-width: 0;
+}
+
+.av-import__label {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+}
+
+.av-import__pick {
+  max-width: 100%;
+  font: inherit;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.av-import__pick::file-selector-button {
+  margin-right: 12px;
+  padding: 7px 14px;
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--surface-sunk);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-pill);
+  cursor: pointer;
+}
+
+.av-import__hint {
+  margin: 0;
+  max-width: 75ch;
+  font-size: 12.5px;
+  color: var(--ink-mute);
+}
+
+.av-import__hint a {
+  font-weight: 600;
+  color: var(--blue-deep);
+  text-underline-offset: 3px;
+}
+
+.av-update .av-import__label {
+  font-size: 13.5px;
+}
+
+.av-update .av-import__row {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.av-update .av-import__text {
+  flex: none;
+}
+
+.av-update .btn {
+  align-self: flex-start;
+}
+
+/* A line, not a page of white: there is nothing here yet to lay out. */
+.av-none {
+  padding: 18px 20px;
+}
+
+.av-none p {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--ink-mute);
+}
+
+/* The flats table needs its six columns; the mix and the import sit beside. */
+.av-split .av-flats {
+  min-width: 0;
+}
+
+.av-table--mix th,
+.av-table--mix td {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.av-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.av-filter .pill {
+  text-decoration: none;
+}
+
+.av-scroll {
+  overflow-x: auto;
+  margin: 0 -20px -20px;
+}
+
+.av-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 13.5px;
+}
+
+.av-table th,
+.av-table td {
+  padding: 7px 12px;
+  text-align: left;
+  vertical-align: middle;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.av-table thead th {
+  padding-top: 9px;
+  padding-bottom: 9px;
+  font-size: 12px;
+  font-weight: 560;
+  color: var(--ink-mute);
+}
+
+.av-table tbody th {
+  font-weight: 600;
+}
+
+.av-scroll .av-table th:first-child,
+.av-scroll .av-table td:first-child {
+  padding-left: 20px;
+}
+
+.av-scroll .av-table th:last-child,
+.av-scroll .av-table td:last-child {
+  padding-right: 20px;
+}
+
+.av-table tbody tr:last-child th,
+.av-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.av-table--mix th:first-child {
+  padding-left: 0;
+}
+
+.av-table .av-num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.av-table .av-num--lead {
+  font-weight: 650;
+  color: var(--ok);
+}
+
+.av-faint {
+  color: var(--ink-mute);
+}
+
+.av-src {
+  margin-left: 8px;
+  font-size: 11.5px;
+  color: var(--ink-mute);
+}
+
+@media (max-width: 560px) {
+  .av-tower {
+    flex: 1 1 calc(50% - 8px);
+    min-width: 0;
+  }
+
+  .av-import__row .btn {
+    width: 100%;
+    min-height: 44px;
+  }
+}
+
+/* The live sheet: what it reads and how the last read went, the link behind Change. */
+.av-live {
+  margin-top: 14px;
+}
+
+.av-live__facts {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  font-size: 13px;
+}
+
+.av-live__facts div {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 8px;
+}
+
+.av-live__facts dt {
+  color: var(--ink-mute);
+}
+
+.av-live__facts dd {
+  margin: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.av-live__change {
+  margin-top: 12px;
+}
+
+.av-live__form {
+  display: grid;
+  gap: 10px;
+}
+
+.av-live__form + .av-live__form {
+  margin-top: 10px;
+}

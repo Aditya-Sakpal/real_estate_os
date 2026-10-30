@@ -1,0 +1,20 @@
+# The film worker's voice fix (scripts/voicefix.py). Install into its own
+# environment and point VOICEFIX_PYTHON at that environment's python.
+#   pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+#   pip install --no-deps demucs==4.1.0
+#   pip install -r scripts/voicefix-requirements.txt
+dora-search
+einops
+julius
+lameenc
+openunmix
+pyyaml
+tqdm
+sphn
+soundfile
+scipy
+praat-parselmouth
+numpy
+# the lip check (scripts/lipsync.py); then swap OpenCV for opencv-python-headless
+mediapipe
+python_speech_features

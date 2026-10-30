@@ -1,0 +1,539 @@
+/* Call lists: the upload, the plan, and the people on it. The start card is
+   the group's one near-black card: it is the decision the page exists for. */
+
+.cls-recent {
+  margin-top: 16px;
+}
+
+.cls-link {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.cls-link:hover {
+  color: var(--blue-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cls-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.cls-go {
+  margin-bottom: 16px;
+  color: var(--on-dark);
+  background: var(--ink-card);
+  box-shadow: var(--lift-lg);
+}
+
+.cls-start {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+}
+
+.cls-go .switch {
+  flex: 1 1 360px;
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.cls-go .switch__name {
+  color: var(--on-dark);
+}
+
+/* The CTA inverts on the dark card. */
+.cls-go .btn--ink {
+  color: var(--ink-card);
+  background: var(--on-dark);
+}
+
+.cls-go .btn--ink:disabled {
+  opacity: 0.45;
+}
+
+.cls-go__none {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--on-dark-mute);
+}
+
+.cls-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.cls-purpose {
+  margin: 0 0 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.cls-cols {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.cls-cols li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 4px 4px 10px;
+  font-size: 12.5px;
+  background: var(--surface-sunk);
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+}
+
+.cls-cols__from {
+  max-width: 22ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--ink-soft);
+}
+
+.cls-goal {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.cls-goal__input {
+  width: 100%;
+  padding: 10px 13px;
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-field);
+  resize: vertical;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.cls-goal__input:focus {
+  outline: none;
+  border-color: var(--blue-line);
+  box-shadow: 0 0 0 3px var(--blue-wash);
+}
+
+.cls-goal .btn {
+  justify-self: start;
+}
+
+.cls-counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.cls-table td.cls-wrap {
+  min-width: 220px;
+  max-width: 420px;
+  white-space: normal;
+}
+
+.cls-note {
+  display: block;
+  margin-top: 3px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--ink-mute);
+}
+
+@media (max-width: 560px) {
+  .cls-start .btn,
+  .cls-controls .btn {
+    width: 100%;
+    min-height: 44px;
+  }
+}
+
+/* The questions: the page's one decision until they are answered, so they
+   take the start card's place. Light, because they are read slowly. */
+.cls-qs {
+  display: grid;
+  gap: 16px;
+}
+
+.cls-go .cls-qs {
+  color: var(--ink);
+}
+
+.cls-go:has(.cls-qs) {
+  color: var(--ink);
+  background: var(--surface);
+  box-shadow: var(--lift);
+  border: 1px solid var(--blue-line);
+}
+
+.cls-go:has(.cls-qs) .btn--ink {
+  color: var(--on-dark);
+  background: var(--ink-card);
+  justify-self: start;
+}
+
+.cls-qs__title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.cls-q {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-inner);
+  background: var(--surface-sunk);
+}
+
+/* Floated, so the legend sits inside the box rather than on its border. */
+.cls-q__text {
+  float: left;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  padding: 0;
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.cls-q__n {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 22px;
+  height: 22px;
+  font-size: 11.5px;
+  color: var(--blue-deep);
+  background: var(--blue-wash);
+  border-radius: 50%;
+}
+
+.cls-q__about {
+  clear: both;
+  margin: 0 0 0 32px;
+  font-size: 12.5px;
+  color: var(--ink-mute);
+}
+
+.cls-q__opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-left: 32px;
+}
+
+.cls-opt {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 36px;
+  padding: 6px 14px;
+  font-size: 13px;
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  transition: border-color 120ms ease, background 120ms ease;
+}
+
+.cls-opt input {
+  margin: 0;
+  accent-color: var(--blue);
+}
+
+.cls-opt--on {
+  background: var(--blue-wash);
+  border-color: var(--blue-line);
+  color: var(--blue-deep);
+}
+
+.cls-q__other {
+  margin-left: 32px;
+  max-width: 480px;
+  padding: 9px 13px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-field);
+}
+
+.cls-q__other:focus {
+  outline: none;
+  border-color: var(--blue-line);
+  box-shadow: 0 0 0 3px var(--blue-wash);
+}
+
+.cls-answers {
+  display: grid;
+  gap: 10px;
+  margin: 14px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--line-soft);
+  font-size: 13px;
+}
+
+.cls-answers dt {
+  color: var(--ink-mute);
+}
+
+.cls-answers dd {
+  margin: 2px 0 0;
+  font-weight: 560;
+}
+
+@media (max-width: 560px) {
+  .cls-q__opts,
+  .cls-q__about,
+  .cls-q__other {
+    margin-left: 0;
+  }
+}
+
+/* The tower picker: a field that opens onto projects and their towers. */
+.tp {
+  position: relative;
+  flex: 0 1 300px;
+  min-width: 220px;
+}
+
+.tp__button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 40px;
+  padding: 8px 14px;
+  font-size: 13.5px;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.tp__button::-webkit-details-marker {
+  display: none;
+}
+
+.tp__button span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tp__empty {
+  color: var(--ink-mute);
+}
+
+.tp[open] .tp__chev {
+  transform: rotate(180deg);
+}
+
+.tp__chev {
+  flex: none;
+  transition: transform 140ms ease;
+}
+
+.tp__panel {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 6px);
+  left: 0;
+  width: max(100%, 320px);
+  max-height: 360px;
+  overflow-y: auto;
+  padding: 8px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-inner);
+  box-shadow: var(--lift-lg);
+}
+
+.tp__group + .tp__group {
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.tp__row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 36px;
+  padding: 6px 10px 6px 30px;
+  font-size: 13.5px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.tp__row:hover {
+  background: var(--surface-sunk);
+}
+
+.tp__row input {
+  margin: 0;
+  width: 15px;
+  height: 15px;
+  accent-color: var(--blue);
+}
+
+.tp__row--off {
+  color: var(--ink-mute);
+  cursor: not-allowed;
+}
+
+.tp__row--off:hover {
+  background: transparent;
+}
+
+.tp__row--project {
+  padding-left: 10px;
+  font-weight: 600;
+}
+
+.tp__count {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 450;
+  color: var(--ink-mute);
+}
+
+.tp__first {
+  margin-left: auto;
+}
+
+.cls-towers {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: var(--ink-mute);
+}
+
+/* The row's one action sits at the table's right edge, with room between
+   it and the last number. `.av-table td` sets left alignment, so this needs
+   the table in the selector to win. */
+.av-table td.cls-del {
+  width: 140px;
+  text-align: right;
+}
+
+@media (max-width: 560px) {
+  .tp {
+    flex: 1 1 100%;
+  }
+
+  .tp__panel {
+    width: 100%;
+  }
+}
+
+/* How each column is read: the sheet's rules, in the card that says what the list is. */
+.cls-uses dd {
+  font-weight: 450;
+  line-height: 1.45;
+}
+
+/* Where the sheet's people came from, asked at upload and on a draft list. */
+.cls-src {
+  margin: 16px 0 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.cls-src__q {
+  margin: 0 0 8px;
+  padding: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.cls-src__opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cls-src__opt {
+  align-items: flex-start;
+  border-radius: 16px;
+  padding: 10px 14px;
+}
+
+.cls-src__opt input {
+  margin-top: 3px;
+}
+
+.cls-src__label {
+  display: block;
+  font-weight: 600;
+}
+
+.cls-src__hint {
+  display: block;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.cls-src-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.cls-src-line {
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: var(--ink);
+}
+
+@media (max-width: 640px) {
+  .cls-src__opt {
+    width: 100%;
+  }
+}
+
+.cls-src-go {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px 16px;
+}
+
+@media (max-width: 640px) {
+  .cls-src-go .btn {
+    width: 100%;
+    min-height: 44px;
+  }
+}

@@ -1,0 +1,15 @@
+/* Occasions: the name gets the tile's width; a date nobody confirmed is said
+   under it rather than squeezing it onto two lines. */
+
+.occasion {
+  align-items: flex-start;
+}
+
+.occasion input {
+  margin-top: 2px;
+}
+
+.occasion__body .pill {
+  align-self: flex-start;
+  margin-top: 6px;
+}

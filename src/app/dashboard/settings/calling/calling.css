@@ -1,0 +1,291 @@
+/* Settings, Calling: the rules, automation, channels and lead capture cards.
+   Built from the page's existing `.cs` rows; only what they lacked is here. */
+
+.cset {
+  margin-top: 16px;
+}
+
+.cset__head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 0 12px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.cset__head h2 {
+  margin-right: auto;
+  font-size: 16px;
+}
+
+.cset__form {
+  display: grid;
+  gap: 12px;
+  padding: 16px 0 20px;
+}
+
+.cset__form .field {
+  margin: 0 0 4px;
+}
+
+.cset__note {
+  margin: 14px 0 0;
+}
+
+/* --- minutes used this month, one line per project ----------------------- */
+
+.cset-use {
+  margin-top: -4px;
+  padding: 0 0 14px;
+}
+
+.cset-use + .cs-row {
+  border-top: 1px solid var(--line-soft);
+}
+
+.cset-use__cap {
+  margin-bottom: 8px;
+  font-size: 11.5px;
+  font-weight: 570;
+  color: var(--ink-mute);
+}
+
+.cset-use__none {
+  font-size: 12.5px;
+  color: var(--ink-mute);
+}
+
+.cset-use__list {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cset-use__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(90px, 200px) minmax(128px, auto);
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+}
+
+.cset-use__name {
+  overflow: hidden;
+  font-weight: 560;
+  color: var(--ink-soft);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cset-use__bar {
+  display: block;
+  height: 6px;
+  overflow: hidden;
+  background: var(--surface-sunk);
+  border-radius: var(--r-pill);
+}
+
+.cset-use__bar > span {
+  display: block;
+  height: 100%;
+  min-width: 0;
+  background: linear-gradient(90deg, var(--blue-line), var(--blue));
+  border-radius: inherit;
+}
+
+.cset-use__row--near .cset-use__bar > span {
+  background: var(--warn);
+}
+
+.cset-use__row--full .cset-use__bar > span {
+  background: var(--risk);
+}
+
+.cset-use__n {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--ink-mute);
+  white-space: nowrap;
+}
+
+.cset-use__n strong {
+  font-weight: 620;
+  color: var(--ink);
+}
+
+.cset-use__row--full .cset-use__n strong {
+  color: var(--risk);
+}
+
+/* --- lead capture --------------------------------------------------------- */
+
+.cap-group {
+  padding: 14px 0 16px;
+}
+
+.cap-group + .cap-group {
+  border-top: 1px solid var(--line-soft);
+}
+
+.cap-group__title {
+  font-size: 14px;
+  font-weight: 570;
+  color: var(--ink);
+}
+
+.cap-group__sub {
+  margin-top: 2px;
+  font-size: 12.5px;
+  color: var(--ink-mute);
+}
+
+.cap-list {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cap-none {
+  margin-top: 10px;
+  font-size: 12.8px;
+  color: var(--ink-mute);
+}
+
+.cap-none a {
+  margin-left: 6px;
+  font-weight: 600;
+  color: var(--blue-deep);
+  text-decoration: none;
+}
+
+.cap-none a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cap-page {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13px;
+}
+
+.cap-page__name {
+  overflow: hidden;
+  font-weight: 560;
+  color: var(--ink-soft);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* A value to paste somewhere else: its name, the value, and Copy. */
+.copyfield {
+  display: grid;
+  grid-template-columns: minmax(120px, 220px) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.copyfield > label {
+  overflow: hidden;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 560;
+  color: var(--ink-soft);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.copyfield input[type="text"] {
+  min-width: 0;
+  padding: 7px 11px;
+  font-family: ui-monospace, "Cascadia Mono", Menlo, monospace;
+  font-size: 12px;
+  color: var(--ink-soft);
+  text-overflow: ellipsis;
+  background: var(--surface-sunk);
+}
+
+.copyfield .btn {
+  min-width: 92px;
+}
+
+.copyfield .btn[data-copied="true"] {
+  color: var(--ok);
+  border-color: var(--ok-wash);
+  background: var(--ok-wash);
+}
+
+@media (max-width: 560px) {
+  .cset__form .roleform__pair {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cset-use__row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    row-gap: 5px;
+  }
+
+  .cset-use__bar {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .copyfield {
+    grid-template-columns: minmax(0, 1fr) auto;
+    row-gap: 5px;
+  }
+
+  .copyfield > label {
+    grid-column: 1 / -1;
+  }
+
+  .copyfield .btn {
+    min-height: 40px;
+  }
+}
+
+/* --- sales team ---------------------------------------------------------- */
+.cst-empty {
+  margin: 4px 0 12px;
+}
+.cst-acts {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cst-duty {
+  cursor: pointer;
+  border: 0;
+  font: inherit;
+}
+.cst-duty:focus-visible {
+  outline: 2px solid var(--blue, #2f5bff);
+  outline-offset: 2px;
+}
+.cst-add {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 12px;
+  align-items: end;
+  margin-top: 14px;
+}
+.cst-add .field {
+  margin: 0;
+}
+@media (max-width: 640px) {
+  .cst-add {
+    grid-template-columns: 1fr;
+  }
+  .cst-add .btn {
+    min-height: 44px;
+  }
+}

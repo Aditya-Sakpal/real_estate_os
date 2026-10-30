@@ -1,0 +1,10 @@
+{
+  "state": "UP",
+  "ours": "UPRERAPRJ999001/09/2099",
+  "others": "UPRERAPRJ999002/09/2099",
+  "oursUrl": "https://up-rera.in/Projectsummary?UI0aPA1ISD=salesdesk-check-ours",
+  "othersUrl": "https://up-rera.in/Projectsummary?UI0aPA1ISD=salesdesk-check-others",
+  "ourPromoter": "Rera Check Holdings LLP",
+  "otherPromoter": "Other Realty Developers Private Limited",
+  "notes": "UP RERA answers no search without a CAPTCHA, so the check reads the page the project QR links to (rera-up.ts). Files are named summary_<first 16 hex of the sha256 of the link>.html."
+}

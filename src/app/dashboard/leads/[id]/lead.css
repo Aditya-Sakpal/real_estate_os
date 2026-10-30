@@ -1,0 +1,748 @@
+/* One lead's page.
+   A left column for who it is and what we know, a right column for what
+   happens next and everything so far. On a phone the two fold into one
+   list in the order a person reads them: who, next, known, history. */
+
+/* --- the header's actions -------------------------------------------------- */
+
+.ld-acts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  max-width: 100%;
+}
+
+/* The primary comes first in the markup, so a phone stacks it on top;
+   on a desk the row is reversed and it sits at the right-hand end. */
+.ld-acts__row {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+/* Only the row's own forms. The goal dialog's form sits inside the row too,
+   and a flex row squeezed its text box to three letters wide. */
+.ld-acts__row > form {
+  display: flex;
+}
+
+.gc-goal {
+  display: block;
+  min-height: 76px;
+  resize: vertical;
+  line-height: 1.45;
+}
+
+.ld-acts__why,
+.ld-acts__said {
+  max-width: 46ch;
+  font-size: 12.5px;
+  text-align: right;
+}
+
+.ld-acts__why {
+  color: var(--ink-mute);
+}
+
+.ld-acts__said.is-ok {
+  color: var(--ok);
+}
+
+.ld-acts__said.is-err {
+  color: var(--risk);
+}
+
+/* --- needs you: the one near-black card ------------------------------------ */
+
+.ld-needs {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+  padding: 14px 14px 14px 18px;
+  color: var(--on-dark);
+  background: var(--ink-card);
+  border-radius: var(--r-card);
+  box-shadow: var(--lift);
+}
+
+.ld-needs__dot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--viz-pink);
+  box-shadow: 0 0 0 4px rgba(226, 85, 143, 0.24);
+}
+
+.ld-needs__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.ld-needs__label {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--on-dark-mute);
+}
+
+.ld-needs__text {
+  margin-top: 2px;
+  font-size: 14px;
+  font-weight: 560;
+  overflow-wrap: anywhere;
+}
+
+.ld-needs__act {
+  flex: none;
+}
+
+/* --- layout ---------------------------------------------------------------- */
+
+.ld-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.ld-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.card.ld-card {
+  padding: 18px 20px 20px;
+}
+
+.ld-card .card__head {
+  min-height: 26px;
+  margin-bottom: 12px;
+}
+
+.ld-h {
+  margin-right: auto;
+  font-size: 15.5px;
+  letter-spacing: -0.014em;
+}
+
+.ld-count {
+  font-size: 12.5px;
+  color: var(--ink-mute);
+}
+
+.ld-empty {
+  font-size: 13px;
+  color: var(--ink-mute);
+}
+
+.ld-unset {
+  font-weight: 400;
+  color: var(--ink-mute);
+}
+
+/* --- label and value lists ------------------------------------------------- */
+
+.ld-dl {
+  margin: 0;
+}
+
+.ld-dl > div {
+  display: grid;
+  grid-template-columns: minmax(96px, 38%) minmax(0, 1fr);
+  gap: 12px;
+  padding: 8px 0;
+  border-top: 1px solid var(--line-soft);
+}
+
+.ld-dl > div:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.ld-dl dt {
+  font-size: 12.5px;
+  color: var(--ink-mute);
+}
+
+.ld-dl dd {
+  margin: 0;
+  min-width: 0;
+  font-size: 13.5px;
+  font-weight: 560;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.ld-dl__pill {
+  margin-left: 8px;
+  vertical-align: 1px;
+}
+
+/* The DND row: its state, then a folded Change, the way a unit's numbers fold. */
+.ld-dnd {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.ld-dnd > summary {
+  cursor: pointer;
+  font-size: 12.5px;
+  font-weight: 570;
+  color: var(--ink-mute);
+  list-style: none;
+}
+
+.ld-dnd > summary::-webkit-details-marker {
+  display: none;
+}
+
+.ld-dnd > summary:hover,
+.ld-dnd[open] > summary {
+  color: var(--ink);
+}
+
+.ld-dnd[open] {
+  display: block;
+  margin: 8px 0 0;
+}
+
+.ld-dnd__choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+/* --- what happens next ----------------------------------------------------- */
+
+.ld-next__list {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ld-task {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  padding: 10px 12px;
+  background: var(--surface-sunk);
+  border-radius: var(--r-inner);
+}
+
+.ld-task__what {
+  min-width: 0;
+  font-size: 13.5px;
+  font-weight: 570;
+  color: var(--ink);
+}
+
+.ld-task__when {
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.ld-task__when.is-now {
+  font-weight: 600;
+  color: var(--blue-deep);
+}
+
+.ld-task__detail {
+  grid-column: 1 / -1;
+  font-size: 12.5px;
+  color: var(--ink-mute);
+}
+
+.ld-next.is-paused .ld-task__what {
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+.ld-auto {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.ld-auto__state {
+  flex: 1 1 200px;
+  font-size: 12.5px;
+  color: var(--ink-mute);
+}
+
+.ld-auto form {
+  margin-left: auto;
+}
+
+/* --- the history ----------------------------------------------------------- */
+
+.ld-day + .ld-day {
+  margin-top: 18px;
+}
+
+.ld-day__head {
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--ink-mute);
+}
+
+.ld-tl {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ld-ev {
+  position: relative;
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 12px;
+  padding-bottom: 16px;
+}
+
+/* The thread joining one entry to the next. */
+.ld-ev::before {
+  content: "";
+  position: absolute;
+  left: 14.5px;
+  top: 34px;
+  bottom: 4px;
+  width: 1px;
+  background: var(--line);
+}
+
+.ld-ev:last-child {
+  padding-bottom: 0;
+}
+
+.ld-ev:last-child::before {
+  display: none;
+}
+
+.ld-ev__mark {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: var(--ink-soft);
+  background: var(--surface-sunk);
+}
+
+.ld-ev__mark--call {
+  color: var(--blue-deep);
+  background: var(--blue-wash);
+}
+
+.ld-ev__mark--msg {
+  color: var(--ok);
+  background: var(--ok-wash);
+}
+
+.ld-ev__mark--visit {
+  color: var(--step-ink-lilac);
+  background: var(--wash-lilac);
+}
+
+.ld-ev__mark--stage {
+  color: var(--ink);
+  background: var(--line-soft);
+}
+
+.ld-ev__body {
+  min-width: 0;
+  padding-top: 5px;
+}
+
+.ld-ev__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+}
+
+.ld-ev__title {
+  min-width: 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.ld-ev__title--plain {
+  flex: 1 1 auto;
+  font-weight: 540;
+  color: var(--ink-soft);
+}
+
+.ld-ev__time {
+  margin-left: auto;
+  padding-left: 8px;
+  font-size: 12px;
+  color: var(--ink-mute);
+  white-space: nowrap;
+}
+
+.ld-ev__meta {
+  margin-top: 2px;
+  font-size: 12.5px;
+  color: var(--ink-mute);
+}
+
+.ld-ev__text {
+  max-width: 66ch;
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+.ld-ev__note {
+  display: block;
+  max-width: 66ch;
+  margin-top: 6px;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--ink-soft);
+  quotes: "\201C" "\201D";
+}
+
+.ld-ev__why {
+  margin-top: 6px;
+  font-size: 12.5px;
+}
+
+.ld-ev__why--warn {
+  color: var(--warn);
+}
+
+.ld-ev__why--risk {
+  color: var(--risk);
+}
+
+/* A WhatsApp message reads as the message, not as a log line. */
+.ld-bubble {
+  width: fit-content;
+  max-width: min(62ch, 100%);
+  margin-top: 6px;
+  padding: 9px 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  background: var(--surface-sunk);
+  border-radius: 4px var(--r-inner) var(--r-inner) var(--r-inner);
+}
+
+.ld-bubble--in {
+  background: var(--blue-wash);
+}
+
+.ld-bubble.is-unsent {
+  color: var(--ink-soft);
+  background: transparent;
+  border: 1px dashed var(--line-strong);
+}
+
+.ld-rec {
+  max-width: 440px;
+  margin-top: 10px;
+}
+
+/* --- narrower -------------------------------------------------------------- */
+
+@media (max-width: 1100px) {
+  .ld-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ld-col {
+    display: contents;
+  }
+
+  .ld-about {
+    order: 1;
+  }
+
+  .ld-next {
+    order: 2;
+  }
+
+  .ld-known {
+    order: 3;
+  }
+
+  .ld-history {
+    order: 4;
+  }
+}
+
+@media (max-width: 760px) {
+  .ld-acts {
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .ld-acts__row {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  .ld-acts__row > .btn,
+  .ld-acts__row > form .btn {
+    width: 100%;
+    min-height: 44px;
+    white-space: normal;
+  }
+
+  .ld-acts__why,
+  .ld-acts__said {
+    max-width: none;
+    text-align: left;
+  }
+
+  .ld-needs {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 14px 16px;
+  }
+
+  .ld-needs__dot {
+    margin-top: 6px;
+  }
+
+  .ld-needs__act {
+    flex: 1 1 100%;
+  }
+
+  .ld-needs__act .btn {
+    width: 100%;
+    min-height: 44px;
+  }
+
+  .card.ld-card {
+    padding: 16px;
+  }
+
+  .ld-auto form,
+  .ld-auto .btn {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .ld-auto .btn {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 430px) {
+  .ld-dl > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1px;
+  }
+}
+
+/* --- milestones: what the lead became, and what the ads were told ---------- */
+
+.ld-out {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ld-out__sent {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.ld-ms {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.ld-ms__label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 12.5px;
+  font-weight: 560;
+  color: var(--ink-soft);
+}
+
+.ld-ms__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.ld-ms__date {
+  flex: 1 1 150px;
+  max-width: 200px;
+  min-height: 44px;
+}
+
+.ld-ms__err {
+  margin-top: 6px;
+  font-size: 12.5px;
+  color: var(--risk);
+}
+
+/* What the calls heard, under what the lead is known to want. */
+.ld-heard__h {
+  margin: 16px 0 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-mute);
+}
+
+.ld-heard__said {
+  display: block;
+  margin-top: 2px;
+  font-size: 12.5px;
+  color: var(--ink-mute);
+  overflow-wrap: anywhere;
+}
+
+/* The quote: the numbers, then the token link's state. */
+.ld-quote__note {
+  margin-bottom: 12px;
+}
+
+.ld-quote__form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 12px 14px;
+}
+
+.ld-quote__acts {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.ld-quote__sum {
+  display: grid;
+  margin: 0;
+}
+
+.ld-quote__sum div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 7px 0;
+  border-top: 1px solid var(--line-soft);
+  font-size: 13.5px;
+}
+
+.ld-quote__sum div:first-child {
+  border-top: 0;
+}
+
+.ld-quote__sum dt {
+  color: var(--ink-soft);
+}
+
+.ld-quote__sum dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.ld-quote__total {
+  font-size: 15px;
+}
+
+.ld-quote__total dt,
+.ld-quote__total dd {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.ld-quote__foot {
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: var(--ink-mute);
+}
+
+.ld-quote__link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0 0;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.ld-quote__pair {
+  display: flex;
+  gap: 8px;
+}
+
+.ld-quote__pair input {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.ld-quote__pair select {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+.ld-quote__wide {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 640px) {
+  .ld-quote__form {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* A channel partner's lead, registered with a developer. */
+.ld-regdev {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.ld-regdev .mv-input {
+  flex: 1 1 200px;
+  min-width: 0;
+}
+
+/* Erasing the buyer: the last thing on the card, apart from the rest. */
+.ld-erase {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line-soft);
+  display: flex;
+  justify-content: flex-end;
+}

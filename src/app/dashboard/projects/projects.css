@@ -1,0 +1,225 @@
+/* Projects: a card per project, its towers inside, the new one beside them. */
+
+.projgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  align-items: start;
+  gap: 12px;
+}
+
+.projcard {
+  grid-template-columns: minmax(0, 1fr);
+  display: grid;
+  gap: 6px;
+  padding: 8px;
+  border-radius: var(--r-inner);
+  background: var(--surface-sunk);
+}
+
+.projcard__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  border-radius: var(--r-row);
+  color: inherit;
+  text-decoration: none;
+  transition: background 120ms ease;
+}
+
+.projcard__head:hover {
+  background: var(--surface);
+}
+
+.projcard__head:focus-visible,
+.projtower:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 1px;
+}
+
+.projcard__head > svg {
+  flex: none;
+  color: var(--ink-mute);
+}
+
+.projcard__mark {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: var(--blue-deep);
+  background: var(--blue-wash);
+}
+
+.projcard__id {
+  flex: 1;
+  min-width: 0;
+}
+
+.projcard__id strong {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 620;
+  letter-spacing: -0.014em;
+}
+
+.projcard__id small {
+  display: block;
+  margin-top: 1px;
+  overflow: hidden;
+  font-size: 12.5px;
+  color: var(--ink-mute);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.projcard__towers {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.projtower {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 64px auto;
+  align-items: center;
+  gap: 10px;
+  min-height: 40px;
+  padding: 6px 8px 6px 40px;
+  border-radius: var(--r-row);
+  color: inherit;
+  text-decoration: none;
+  transition: background 120ms ease;
+}
+
+.projtower:hover {
+  background: var(--surface);
+}
+
+.projtower__name {
+  overflow: hidden;
+  font-size: 13.5px;
+  font-weight: 540;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* The six gates as a bar: done, blocked, still to do. */
+.projtower__bar {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 3px;
+}
+
+.projtower__seg {
+  height: 5px;
+  border-radius: var(--r-pill);
+  background: var(--line-strong);
+}
+
+.projtower__seg--done {
+  background: var(--viz-green);
+}
+
+.projtower__seg--blocked {
+  background: var(--risk);
+}
+
+.projcard__none {
+  margin: 0;
+  padding: 2px 8px 8px 54px;
+  font-size: 12.5px;
+  color: var(--ink-mute);
+}
+
+/* --- adding a project: a tile in the grid, closed until asked for -------- */
+
+.projadd {
+  border: 1.5px dashed var(--line-strong);
+  border-radius: var(--r-inner);
+  scroll-margin-top: 16px;
+}
+
+.projadd[open] {
+  border-style: solid;
+  border-color: var(--blue-line);
+  background: var(--surface);
+}
+
+.projadd > summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 66px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--blue-deep);
+  cursor: pointer;
+  list-style: none;
+  border-radius: var(--r-inner);
+}
+
+.projadd > summary::-webkit-details-marker {
+  display: none;
+}
+
+.projadd > summary:hover {
+  background: var(--blue-wash);
+}
+
+.projadd > summary:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.projadd__plus {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--blue-wash);
+}
+
+.projadd__form {
+  display: grid;
+  padding: 0 16px 16px;
+}
+
+.projadd__form .field {
+  margin-bottom: 12px;
+}
+
+.projadd__form .btn {
+  justify-self: start;
+  margin-top: 4px;
+}
+
+@media (max-width: 560px) {
+  .projgrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .projtower {
+    grid-template-columns: minmax(0, 1fr) 54px auto;
+    min-height: 44px;
+    padding-left: 12px;
+  }
+
+  .projcard__none {
+    padding-left: 12px;
+  }
+
+  .projadd__form .btn {
+    justify-self: stretch;
+    min-height: 44px;
+  }
+}

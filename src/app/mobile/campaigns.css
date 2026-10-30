@@ -1,0 +1,291 @@
+/* Phone layout for this area's screens. Loaded after mobile.css. */
+
+/* ---------- Campaigns: where each phase stands ---------- */
+
+@media (max-width: 760px) {
+  /* The project tiles were at least 340px, wider than the card on a phone,
+     so the whole page slid sideways. One column. */
+  .campaignprojects {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .campaignproject {
+    padding: 12px;
+  }
+
+  /* A row is the name with its chevron, then the pills under it, rather
+     than a chevron left alone on a third line. */
+  .main .campaignline--link {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px 10px;
+    min-height: 44px;
+  }
+
+  .main .campaignline--link.campaignline--phase {
+    padding-left: 18px;
+  }
+
+  .main .campaignline--link > svg {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .main .campaignline--link .campaignline__status {
+    grid-column: 1 / -1;
+    margin-left: 0;
+    justify-content: flex-start;
+  }
+}
+
+/* ---------- The brief: its header actions ---------- */
+
+@media (max-width: 760px) {
+  /* Four full-width buttons stacked, the main one last. The studio goes
+     first and full width; the two light ones share a row. */
+  .main .pagehead__acts:has(> [data-studio]) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .main .pagehead__acts:has(> [data-studio]) > .pill {
+    grid-column: 1 / -1;
+    justify-self: start;
+    order: -2;
+  }
+
+  .main .pagehead__acts > [data-studio] {
+    grid-column: 1 / -1;
+    order: -1;
+  }
+
+  .main .pagehead__acts:has(> [data-studio]) > form {
+    grid-column: 1 / -1;
+    order: 2;
+  }
+
+  .main .pagehead__acts:has(> [data-studio]) > .btn {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+/* ---------- The studio ---------- */
+
+@media (max-width: 760px) {
+  /* "Use “Three sided open layout with a central podium garden”" is one
+     line on desktop and pushed the page 120px wider on a phone. */
+  .fixitem__choices {
+    display: grid;
+    gap: 8px;
+  }
+
+  .fixitem__choices form,
+  .fixitem__choices .btn {
+    width: 100%;
+  }
+
+  .fixitem__choices .btn {
+    height: auto;
+    min-height: 44px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    white-space: normal;
+    text-align: left;
+    justify-content: flex-start;
+    line-height: 1.3;
+  }
+
+  .copyblock__head {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .copyblock__edit {
+    width: 40px;
+    height: 40px;
+  }
+
+  .copyblock__rewritebtn,
+  .copyblock__acts .btn {
+    min-height: 40px;
+  }
+}
+
+/* ---------- Library: projects and towers ---------- */
+
+@media (max-width: 760px) {
+  /* Same 340px floor as the campaign tiles, and the same sideways page. */
+  .libtree {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .libnode {
+    min-height: 48px;
+    gap: 6px 12px;
+  }
+
+  .libnode--phase {
+    padding-left: 22px;
+  }
+
+  .libnode__name {
+    flex: 1 1 auto;
+    min-width: 0;
+    white-space: normal;
+  }
+
+  .libnode__counts {
+    justify-content: flex-start;
+  }
+}
+
+/* A tower's pictures: two to a row on a phone as well. One a row made
+   twenty pictures six thousand pixels of scrolling. Only a very narrow
+   column (under 260px) keeps one. */
+@container (max-width: 340px) {
+  .main .lib-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+}
+
+@container (max-width: 260px) {
+  .main .lib-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Branding while editing: a mark's file picker and "Remove from <kit>" were
+   cut off at half a row, so the marks go one to a row then. Read-only, they
+   stay two to a row. */
+@media (max-width: 560px) {
+  .main .bk-marks .brandfiles:has(.brandfile__pick) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---------- Reports ---------- */
+
+@media (max-width: 760px) {
+  /* The card's padding is 18px on a phone; a 20px bleed pushed it 2px wide. */
+  .main .rp-quarter .ws-scroll {
+    margin: 0 -18px;
+  }
+}
+
+/* ---------- Occasions ---------- */
+
+@media (max-width: 760px) {
+  /* The note beside "Greetings" held the card 22px wider than the screen. */
+  .card:has(> .occasions) > .card__head {
+    flex-wrap: wrap;
+    gap: 6px 10px;
+  }
+
+  .card:has(> .occasions) > .card__head .pill {
+    white-space: normal;
+  }
+
+  .occasions {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .occasion {
+    min-height: 56px;
+  }
+}
+
+/* ---------- Published ---------- */
+
+@media (max-width: 760px) {
+  /* "View" and "Open in Ads" were a 20px line of text beside a 40px button. */
+  .pub-row__link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+  }
+}
+
+/* ---------- Posts: two to a row ----------
+   One post a row made a campaign of sixty posts thirty thousand pixels long.
+   Two a row halves it, and a 9:16 reel still reads at half the width. */
+
+@media (max-width: 560px) {
+  .postgrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .posttile {
+    padding: 8px;
+    gap: 6px;
+  }
+
+  .posttile__media {
+    max-height: 300px;
+  }
+
+  .posttile__what strong {
+    font-size: 13px;
+  }
+
+  .posttile__what small {
+    font-size: 11.5px;
+  }
+
+  .posttile__acts {
+    gap: 4px 10px;
+  }
+
+  .posttile__link,
+  .posttile__acts .reftile__remove {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+  }
+
+  /* "or one: 1 2 3 4" wraps inside half a row rather than running off it. */
+  .posttile__each {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .posttile__strip {
+    max-width: 100%;
+  }
+
+  .posttile__each a {
+    display: inline-grid;
+    place-items: center;
+    min-width: 32px;
+    min-height: 32px;
+    border-radius: 8px;
+    background: var(--surface);
+  }
+
+  /* Publish and Remove each take the tile's width, one above the other. */
+  .posttile__decide {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  .posttile__decide > :not(dialog) {
+    width: 100%;
+    margin: 0;
+    justify-content: center;
+  }
+
+  .posttile__decide [data-confirm^="remove-post-"] {
+    margin-left: 0;
+  }
+
+  .posttile__decide > .btn {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}

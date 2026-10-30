@@ -1,0 +1,268 @@
+{
+  "updated": "2026-10-04",
+  "note": "Second pass complete: Canva look failures regenerated. All packs now keep current disk files.",
+  "image": {
+    "01-launch-announcement": {
+      "keep": [
+        "image__01-launch-announcement__02-coming-soon-red-drape-tower.jpg",
+        "image__01-launch-announcement__03-grand-unveiling-gold.jpg",
+        "image__01-launch-announcement__04-launching-soon-night.jpg",
+        "image__01-launch-announcement__05-red-silk-unveil.jpg"
+      ],
+      "remove": [],
+      "generate": 0
+    },
+    "03-price-and-configuration": {
+      "keep": [
+        "image__03-price-and-configuration__01-price-config.jpg",
+        "image__03-price-and-configuration__02-price-config.jpg",
+        "image__03-price-and-configuration__03-price-config.jpg",
+        "image__03-price-and-configuration__04-price-config.jpg"
+      ],
+      "remove": [],
+      "generate": 0
+    },
+    "04-offer-and-payment-plan": {
+      "keep": [
+        "image__04-offer-and-payment-plan__01-offer-panel.jpg",
+        "image__04-offer-and-payment-plan__02-offer-panel.jpg",
+        "image__04-offer-and-payment-plan__03-offer-panel.jpg",
+        "image__04-offer-and-payment-plan__04-offer-panel.jpg"
+      ],
+      "remove": [],
+      "generate": 0
+    },
+    "05-festive-offer": {
+      "keep": [
+        "image__05-festive-offer__01-diwali-offer.jpg",
+        "image__05-festive-offer__02-diwali-offer.jpg",
+        "image__05-festive-offer__03-diwali-offer.jpg",
+        "image__05-festive-offer__04-diwali-offer.jpg"
+      ],
+      "remove": [],
+      "generate": 0
+    },
+    "06-festive-greeting": {
+      "keep": [
+        "image__06-festive-greeting__01-diwali-greeting.jpg",
+        "image__06-festive-greeting__02-diwali-greeting.jpg",
+        "image__06-festive-greeting__03-diwali-greeting.jpg",
+        "image__06-festive-greeting__04-diwali-greeting.jpg"
+      ],
+      "remove": [],
+      "generate": 0
+    },
+    "07-location-and-connectivity": {
+      "keep": [
+        "image__07-location-and-connectivity__01-location-pin.jpg",
+        "image__07-location-and-connectivity__02-location-pin.jpg",
+        "image__07-location-and-connectivity__03-location-pin.jpg",
+        "image__07-location-and-connectivity__04-location-pin.jpg"
+      ],
+      "remove": [],
+      "generate": 0
+    },
+    "08-amenities-and-lifestyle": {
+      "keep": [
+        "image__08-amenities-and-lifestyle__01-lifestyle.jpg",
+        "image__08-amenities-and-lifestyle__02-lifestyle.jpg",
+        "image__08-amenities-and-lifestyle__03-lifestyle.jpg",
+        "image__08-amenities-and-lifestyle__04-lifestyle.jpg"
+      ],
+      "remove": [],
+      "generate": 0
+    },
+    "09-key-highlights": {
+      "keep": [
+        "image__09-key-highlights__01-fact-sheet.jpg",
+        "image__09-key-highlights__02-fact-sheet.jpg",
+        "image__09-key-highlights__03-fact-sheet.jpg",
+        "image__09-key-highlights__04-fact-sheet.jpg"
+      ],
+      "remove": [],
+      "generate": 0
+    },
+    "10-construction-update": {
+      "keep": [
+        "image__10-construction-update__01-site-progress.jpg",
+        "image__10-construction-update__02-site-progress.jpg",
+        "image__10-construction-update__03-site-progress.jpg",
+        "image__10-construction-update__04-site-progress.jpg"
+      ],
+      "remove": [],
+      "generate": 0
+    },
+    "11-ready-to-move-and-possession": {
+      "keep": [
+        "image__11-ready-to-move-and-possession__01-ready-keys.jpg",
+        "image__11-ready-to-move-and-possession__02-ready-keys.jpg",
+        "image__11-ready-to-move-and-possession__03-ready-keys.jpg",
+        "image__11-ready-to-move-and-possession__04-ready-keys.jpg"
+      ],
+      "remove": [],
+      "generate": 0
+    },
+    "12-site-visit-and-events": {
+      "keep": [
+        "image__12-site-visit-and-events__01-invite.jpg",
+        "image__12-site-visit-and-events__02-invite.jpg",
+        "image__12-site-visit-and-events__03-invite.jpg",
+        "image__12-site-visit-and-events__04-invite.jpg"
+      ],
+      "remove": [],
+      "generate": 0
+    },
+    "14-developer-trust": {
+      "keep": [
+        "image__14-developer-trust__01-developer-seal.jpg",
+        "image__14-developer-trust__02-developer-seal.jpg",
+        "image__14-developer-trust__03-developer-seal.jpg",
+        "image__14-developer-trust__04-developer-seal.jpg"
+      ],
+      "remove": [],
+      "generate": 0
+    },
+    "15-nri": {
+      "keep": [
+        "image__15-nri__01-nri-home.jpg",
+        "image__15-nri__02-nri-home.jpg",
+        "image__15-nri__03-nri-home.jpg",
+        "image__15-nri__04-nri-home.jpg"
+      ],
+      "remove": [],
+      "generate": 0
+    },
+    "16-referral": {
+      "keep": [
+        "image__16-referral__01-refer-friend.jpg",
+        "image__16-referral__02-refer-friend.jpg",
+        "image__16-referral__03-refer-friend.jpg",
+        "image__16-referral__04-refer-friend.jpg"
+      ],
+      "remove": [],
+      "generate": 0
+    },
+    "19-google-display-banners": {
+      "keep": [
+        "image__19-google-display-banners__01-invest-in-your-future-landscape.jpg",
+        "image__19-google-display-banners__04-luxury-home-dreams-landscape.jpg",
+        "image__19-google-display-banners__05-display-banner.jpg",
+        "image__19-google-display-banners__06-display-banner.jpg"
+      ],
+      "remove": [],
+      "generate": 0
+    }
+  },
+  "carousel": {
+    "01-project-tour": {
+      "keep": [
+        "carousel__01-project-tour__01-black-gold-villa-tour",
+        "carousel__01-project-tour__02-property-showcase-rooms",
+        "carousel__01-project-tour__03-luxury-just-listed-visit",
+        "carousel__01-project-tour__04-new-listing-alert-mono"
+      ],
+      "remove": [],
+      "generate": 0
+    },
+    "02-floor-plans": {
+      "keep": [
+        "carousel__02-floor-plans__01-config-card",
+        "carousel__02-floor-plans__02-config-card",
+        "carousel__02-floor-plans__03-config-card",
+        "carousel__02-floor-plans__04-config-card"
+      ],
+      "remove": [],
+      "generate": 0
+    },
+    "03-location-guide": {
+      "keep": [
+        "carousel__03-location-guide__03-property-tour-neighbourhood",
+        "carousel__03-location-guide__04-love-where-you-live",
+        "carousel__03-location-guide__05-nearby-place",
+        "carousel__03-location-guide__06-nearby-place"
+      ],
+      "remove": [],
+      "generate": 0
+    },
+    "04-amenities": {
+      "keep": [
+        "carousel__04-amenities__01-modern-living-interiors",
+        "carousel__04-amenities__02-luxury-living-premium-features",
+        "carousel__04-amenities__03-monochrome-live-close",
+        "carousel__04-amenities__04-gray-gold-top-features"
+      ],
+      "remove": [],
+      "generate": 0
+    },
+    "05-reasons-to-buy": {
+      "keep": [
+        "carousel__05-reasons-to-buy__01-smart-choice-future-home",
+        "carousel__05-reasons-to-buy__02-luxury-living-prime-location",
+        "carousel__05-reasons-to-buy__03-one-reason",
+        "carousel__05-reasons-to-buy__04-one-reason"
+      ],
+      "remove": [],
+      "generate": 0
+    },
+    "06-offer-explained": {
+      "keep": [
+        "carousel__06-offer-explained__01-offer-step",
+        "carousel__06-offer-explained__02-offer-step",
+        "carousel__06-offer-explained__03-offer-step",
+        "carousel__06-offer-explained__04-offer-step"
+      ],
+      "remove": [],
+      "generate": 0
+    },
+    "07-construction-timeline": {
+      "keep": [
+        "carousel__07-construction-timeline__01-site-milestones",
+        "carousel__07-construction-timeline__02-site-milestones",
+        "carousel__07-construction-timeline__03-site-milestones",
+        "carousel__07-construction-timeline__04-site-milestones"
+      ],
+      "remove": [],
+      "generate": 0
+    },
+    "08-site-progress-report": {
+      "keep": [
+        "carousel__08-site-progress-report__01-stage-inspection",
+        "carousel__08-site-progress-report__02-structural-progress",
+        "carousel__08-site-progress-report__03-slab-pour-update",
+        "carousel__08-site-progress-report__04-crane-and-elevation"
+      ],
+      "remove": [],
+      "generate": 0
+    },
+    "09-architecture-and-elevation": {
+      "keep": [
+        "carousel__09-architecture-and-elevation__01-modern-facade",
+        "carousel__09-architecture-and-elevation__02-elevation-monograph",
+        "carousel__09-architecture-and-elevation__03-tower-structure",
+        "carousel__09-architecture-and-elevation__04-design-craft"
+      ],
+      "remove": [],
+      "generate": 0
+    },
+    "10-key-highlights": {
+      "keep": [
+        "carousel__10-key-highlights__01-executive-points",
+        "carousel__10-key-highlights__02-tower-specifications",
+        "carousel__10-key-highlights__03-curated-features",
+        "carousel__10-key-highlights__04-prime-advantages"
+      ],
+      "remove": [],
+      "generate": 0
+    },
+    "11-seamless-panorama": {
+      "keep": [
+        "carousel__11-seamless-panorama__01-just-listed-room-photos",
+        "carousel__11-seamless-panorama__02-beds-baths-sqft-dark",
+        "carousel__11-seamless-panorama__03-interior-full-bleed",
+        "carousel__11-seamless-panorama__04-timeless-elegance-dark"
+      ],
+      "remove": [],
+      "generate": 0
+    }
+  }
+}

@@ -1,0 +1,321 @@
+/* One project's page: the towers beside the project's facts, site and hours. */
+
+/* --- a tower: who it is on the left, its six gates beside --------------- */
+
+.ptowers {
+  display: grid;
+  gap: 10px;
+}
+
+.ptower {
+  display: grid;
+  grid-template-columns: minmax(170px, 230px) minmax(0, 1fr);
+  gap: 12px 18px;
+  padding: 14px;
+  border-radius: var(--r-inner);
+  background: var(--surface-sunk);
+  scroll-margin-top: 16px;
+}
+
+.ptower:target {
+  box-shadow: 0 0 0 2px var(--blue-line);
+}
+
+.ptower--bare {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.ptower__id {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  min-width: 0;
+}
+
+.ptower__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+}
+
+.ptower__name {
+  font-size: 15px;
+  font-weight: 620;
+  letter-spacing: -0.014em;
+  color: var(--ink);
+}
+
+/* The status pill keeps the phase list's own class, which a narrow screen
+   would otherwise hide. */
+.ptower .person__when {
+  display: inline-flex;
+}
+
+.ptower__reg {
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--ink-mute);
+  font-variant-numeric: tabular-nums;
+}
+
+.ptower__lapse {
+  margin-top: 2px;
+}
+
+.ptower__act {
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.ptower__act:empty {
+  display: none;
+}
+
+.ptower__act .pill {
+  gap: 6px;
+}
+
+/* --- the six gates as chips, three across ------------------------------- */
+
+.pgates {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pgates > li {
+  min-width: 0;
+}
+
+.pgate {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  height: 100%;
+  min-width: 0;
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  background: var(--surface);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 120ms ease, background 120ms ease;
+}
+
+.pgate--link:hover {
+  border-color: var(--line-strong);
+}
+
+.pgate--link:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.pgate__mark {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  font-size: 10.5px;
+  font-weight: 640;
+  color: var(--ink-mute);
+  background: var(--surface);
+}
+
+.pgate--done .pgate__mark {
+  border-color: transparent;
+  color: var(--ok);
+  background: var(--ok-wash);
+}
+
+.pgate--blocked {
+  background: var(--risk-wash);
+}
+
+.pgate--blocked .pgate__mark {
+  border-color: transparent;
+  color: #fff;
+  background: var(--risk);
+}
+
+.pgate--next:not(.pgate--blocked) {
+  border-color: var(--blue-line);
+  background: var(--blue-wash);
+}
+
+.pgate--next:not(.pgate--blocked) .pgate__mark {
+  border-color: transparent;
+  color: #fff;
+  background: var(--blue);
+}
+
+.pgate__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.pgate__label {
+  font-size: 12.5px;
+  font-weight: 590;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pgate--done .pgate__label {
+  color: var(--ink-soft);
+}
+
+.pgate--blocked .pgate__label {
+  color: var(--risk);
+}
+
+.pgate--next:not(.pgate--blocked) .pgate__label {
+  color: var(--blue-deep);
+}
+
+.pgate__detail {
+  font-size: 11.5px;
+  line-height: 1.35;
+  color: var(--ink-mute);
+}
+
+/* --- no phases yet: the form is the page's first step -------------------- */
+
+.pjempty {
+  display: grid;
+  gap: 12px;
+}
+
+.pjempty__line {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--ink-mute);
+}
+
+/* --- the closed forms ------------------------------------------------------ */
+
+.pjdisclose {
+  scroll-margin-top: 16px;
+}
+
+.pjdisclose > summary {
+  flex-wrap: wrap;
+}
+
+.pjdisclose__pill {
+  font-size: 11.5px;
+}
+
+.pjdisclose__lead {
+  margin: 0 0 14px;
+  max-width: 64ch;
+}
+
+/* --- the rail ------------------------------------------------------------ */
+
+.pjrail .card__head {
+  flex-wrap: wrap;
+}
+
+.pjrail .siteloc__form {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.pjrail .hosthours__days {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.pjrail .invite input[type="text"] {
+  flex-basis: 100%;
+}
+
+.pjrail .invite .btn {
+  margin-left: 0;
+}
+
+.pjbrain {
+  display: grid;
+  gap: 14px;
+}
+
+.pjbrain__top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pjbrain__id {
+  min-width: 0;
+}
+
+.pjbrain__id .sub {
+  margin: 2px 0 0;
+}
+
+.pjbrain__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* Stacked under the work, the rail's short cards sit two across. */
+@media (max-width: 1180px) and (min-width: 761px) {
+  .pjrail {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    align-items: start;
+  }
+}
+
+@media (max-width: 760px) {
+  .ptower {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pgates {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ptower__act {
+    padding-top: 6px;
+  }
+
+  .ptower__act .btn {
+    min-height: 40px;
+  }
+}
+
+/* Registration: the number with "Fill from number" beside it. */
+.reglookup {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.reglookup input {
+  flex: 1;
+  min-width: 0;
+}
+
+.reglookup .btn {
+  white-space: nowrap;
+}
+
+.hint--warn {
+  color: var(--warn);
+}

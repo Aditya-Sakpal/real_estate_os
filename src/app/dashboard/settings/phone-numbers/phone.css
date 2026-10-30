@@ -1,0 +1,110 @@
+/* Buyer phone numbers: one row per role, opened into a form one at a time. */
+
+.pn-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 2fr) auto;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 4px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.pn-row:last-child {
+  border-bottom: 0;
+}
+
+.pn-row--open {
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 2fr);
+  align-items: start;
+  padding: 16px 12px;
+  margin: 0 -8px;
+  border-radius: 14px;
+  background: var(--blue-wash);
+}
+
+.pn-row__name {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+}
+
+.pn-row__sub {
+  margin-top: 2px;
+  font-size: 12.5px;
+  color: var(--ink-mute);
+}
+
+.pn-row__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pn-form {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.pn-form .field {
+  margin: 0;
+}
+
+.pn-row__acts {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+/* Two roles across: the name and what it sees on the left of each cell, its
+   Change on the right. The open row takes the whole width. The clip hides the
+   first line's top rule and nothing else. */
+.pn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr));
+  column-gap: 32px;
+  clip-path: inset(1px -12px -12px -12px);
+  margin-top: -1px;
+}
+
+.pn-grid .pn-row {
+  border-bottom: 0;
+  border-top: 1px solid var(--line-soft);
+}
+
+.pn-grid .pn-row:not(.pn-row--open) {
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "id    act"
+    "pills act";
+  row-gap: 8px;
+  padding: 14px 4px;
+}
+
+.pn-grid .pn-row:not(.pn-row--open) .pn-row__id { grid-area: id; }
+.pn-grid .pn-row:not(.pn-row--open) .pn-row__pills { grid-area: pills; }
+.pn-grid .pn-row:not(.pn-row--open) > .btn { grid-area: act; }
+
+.pn-grid .pn-row--open {
+  grid-column: 1 / -1;
+  margin: 8px -8px;
+  border-top: 0;
+}
+
+@media (max-width: 900px) {
+  .pn-row,
+  .pn-row--open {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .pn-form {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pn-row__acts {
+    justify-content: flex-start;
+  }
+}

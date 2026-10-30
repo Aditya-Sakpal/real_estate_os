@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  static:
+    name: Types, logic, client imports, production build
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm run typecheck
+      - run: npm run check:client-imports
+      - run: npm run check:tenant-nesting
+      - run: npm run check:logic
+      - name: Production build (webpack, as Vercel builds)
+        env:
+          DATABASE_URL: postgres://ci:ci@localhost:5432/ci
+          DATABASE_APP_URL: postgres://ci:ci@localhost:5432/ci
+          AUTH_SECRET: ci-only-secret
+          NEXT_TELEMETRY_DISABLED: "1"
+        run: npm run build
+
+  isolation:
+    name: Migrations and the isolation suite
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready --health-interval 5s --health-timeout 5s --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: sudo apt-get install -y postgresql-client >/dev/null
+      - run: db/ci/setup.sh
+      - run: npm run check:rls

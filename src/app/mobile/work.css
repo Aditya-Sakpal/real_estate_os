@@ -1,0 +1,174 @@
+/* Phone layout for this area's screens. Loaded after mobile.css. */
+
+@media (max-width: 900px) {
+  /* Ask Jimmy's answer table stacks itself by container width (ask.css);
+     it stays a real table, not the generic scrolling block. */
+  .main .ask-t__table {
+    display: table;
+    width: 100%;
+    overflow: visible;
+  }
+}
+
+/* ---------- AI agents ---------- */
+
+@media (max-width: 640px) {
+  /* The project chips bleed to the page's own 14px gutter, not 16. */
+  .main .agt-projects {
+    margin-inline: -14px;
+    padding-inline: 14px;
+  }
+
+  /* The voice dropdown takes the row and the play button stays beside it,
+     inside the card. */
+  .main .agt-pick {
+    justify-items: stretch;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .main .agt-pick__row {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .main .agt-pick__select {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .main .agt-pick__select select {
+    width: 100%;
+    min-width: 0;
+    height: 44px;
+  }
+
+  .main .agt-pick__row > :not(.agt-pick__select) {
+    flex: none;
+  }
+
+  /* The plans matrix stays a grid, the width of its card. */
+  .main .agt-plans table {
+    display: table;
+    width: 100%;
+    overflow: visible;
+  }
+
+  .main .agt-plans th,
+  .main .agt-plans td {
+    padding: 8px 4px;
+  }
+
+  .main .agt-plans tbody th {
+    padding-left: 0;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 640px) {
+  /* A voice sample is played with a thumb: a 44px target. */
+  .main .agt-listen {
+    height: 44px;
+    min-width: 44px;
+    justify-content: center;
+    padding: 0 4px;
+  }
+
+  .main .agt-listen--text {
+    padding-right: 14px;
+  }
+
+  .main .agt-listen__icon {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+/* ---------- Team ---------- */
+
+@media (max-width: 560px) {
+  /* A member's four controls sit as an even two-by-two grid, not a ragged wrap. */
+  .main .team .person__act {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
+  }
+
+  .main .team .person__act > .btn {
+    width: 100%;
+    padding-inline: 10px;
+  }
+}
+
+/* ---------- A project's page ---------- */
+
+@media (max-width: 560px) {
+  /* A closed form's heading: the name, what it holds under it, and the
+     chevron held on the right instead of wrapping to a line of its own. */
+  .main .pjdisclose > summary {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 12px;
+    row-gap: 2px;
+    padding: 16px;
+    min-height: 56px;
+  }
+
+  .main .pjdisclose > summary > .disclose__sub,
+  .main .pjdisclose > summary > .pjdisclose__pill {
+    grid-column: 1;
+    justify-self: start;
+  }
+
+  .main .pjdisclose > summary::after {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    align-self: center;
+    margin-left: 0;
+  }
+
+  .main .pjdisclose > .disclose__body {
+    padding: 0 16px 16px;
+  }
+}
+
+@media (max-width: 560px) {
+  /* A form opened on the project page ends in a full-width primary button. */
+  .main .pjdisclose .disclose__body button[type="submit"].btn--ink {
+    width: 100%;
+  }
+}
+
+/* ---------- Review and approve ---------- */
+
+@media (max-width: 560px) {
+  /* Two pictures a row, so a project's pictures are scanned, not scrolled. */
+  .main .rv-tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .main .rv-card {
+    padding: 16px;
+  }
+}
+
+/* ---------- Today ---------- */
+
+@media (max-width: 560px) {
+  /* "Before a campaign": the next gate reads whole on its own line, and its
+     button sits under it rather than squeezing it to "Cannot b...". */
+  .main .today__gates .gmini__next {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .main .today__gates .gmini__what {
+    flex: 1 1 100%;
+  }
+
+  .main .today__gates .gmini__detail {
+    white-space: normal;
+  }
+}

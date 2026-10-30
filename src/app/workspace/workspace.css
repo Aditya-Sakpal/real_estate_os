@@ -1,0 +1,674 @@
+/* A mandate firm's or a channel partner's workspace: one column, the offers
+   waiting on the one dark card, then the firm's own lists. */
+
+.fw {
+  min-height: 100dvh;
+  background: var(--ground);
+}
+
+.fw__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 16px 24px;
+}
+
+.fw__who {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.fw__mail {
+  font-size: 12.5px;
+  color: var(--ink-mute);
+}
+
+.fw__switch {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.fw__switch .cl-select {
+  width: auto;
+  max-width: 280px;
+  min-width: 0;
+  text-overflow: ellipsis;
+}
+
+.fw__main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 12px 24px 48px;
+  display: grid;
+  gap: 18px;
+}
+
+.fw__head {
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+  margin: 8px 0 6px;
+}
+
+.fw__head h1 {
+  margin: 0;
+  font-size: clamp(26px, 4vw, 34px);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.fw-card {
+  padding: 22px 24px;
+}
+
+.fw-card h2,
+.fw-offers h2 {
+  margin: 0 0 14px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.fw-empty {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--ink-mute);
+}
+
+.fw-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+
+.fw-table th {
+  text-align: left;
+  font-size: 12px;
+  font-weight: 560;
+  color: var(--ink-mute);
+  padding: 0 12px 10px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.fw-table td {
+  padding: 12px 12px 12px 0;
+  border-bottom: 1px solid var(--line-soft);
+  vertical-align: middle;
+}
+
+.fw-table tr:last-child td {
+  border-bottom: 0;
+}
+
+/* The offers: the one near-black card. */
+.fw-offers {
+  padding: 22px 24px;
+  color: var(--on-dark);
+  background: var(--ink-card);
+  border-radius: var(--r-card);
+  box-shadow: var(--lift-lg);
+}
+
+.fw-offers ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fw-offer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: var(--r-inner);
+}
+
+.fw-offer__what {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.fw-offer__dev {
+  font-weight: 600;
+  font-size: 14.5px;
+}
+
+.fw-offer__line {
+  font-size: 12.5px;
+  color: var(--on-dark-mute);
+}
+
+.fw-offer__acts {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.fw-offer__accept {
+  color: var(--ink);
+  background: #fff;
+  border-color: #fff;
+}
+
+.fw-offer__decline {
+  color: var(--on-dark);
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.fw-offer__decline:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.fw-offer__err {
+  width: 100%;
+  font-size: 12px;
+  color: #ffb3c0;
+}
+
+.fw-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px 24px;
+  margin: 0;
+}
+
+.fw-facts dt {
+  font-size: 12px;
+  color: var(--ink-mute);
+  margin-bottom: 3px;
+}
+
+.fw-facts dd {
+  margin: 0;
+  font-size: 14px;
+}
+
+.fw-foot {
+  margin: 4px 0 0;
+  font-size: 12.5px;
+  color: var(--ink-mute);
+}
+
+.fw-foot a {
+  color: var(--blue-deep);
+  font-weight: 560;
+  text-decoration: none;
+}
+
+/* Sections of a mandate firm's workspace. */
+.fw-tabs {
+  margin: 0;
+}
+
+.fw-count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 999px;
+}
+
+.fw-card__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.fw-card__head h2 {
+  margin: 0;
+}
+
+.fw-card__meta {
+  font-size: 12.5px;
+  color: var(--ink-mute);
+}
+
+/* The developers whose projects the firm sells: one primary action each. */
+.fw-open {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fw-open__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 14px 16px;
+  background: var(--ground);
+  border-radius: var(--r-inner);
+}
+
+.fw-open__what {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.fw-open__dev {
+  font-weight: 600;
+  font-size: 14.5px;
+}
+
+.fw-open__line {
+  font-size: 12.5px;
+  color: var(--ink-mute);
+}
+
+/* What the firm is owed: a pastel wash, read at a glance. */
+.fw-money {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  color: inherit;
+  text-decoration: none;
+  background: linear-gradient(115deg, var(--wash-blue), var(--wash-lilac) 55%, var(--wash-pink));
+  transition: box-shadow 140ms ease;
+}
+
+.fw-money:hover {
+  box-shadow: var(--lift-lg);
+}
+
+.fw-money__item {
+  display: grid;
+  gap: 4px;
+}
+
+.fw-money__label {
+  font-size: 12px;
+  color: var(--ink-mute);
+}
+
+.fw-money__value {
+  font-size: 22px;
+  font-weight: 560;
+  letter-spacing: -0.01em;
+}
+
+.fw-table--dense td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.fw-table__end {
+  text-align: right;
+}
+
+.fw-book,
+.fw-half {
+  display: grid;
+  gap: 3px;
+  justify-items: start;
+}
+
+.fw-book__what {
+  font-weight: 560;
+}
+
+.fw-book__line {
+  font-size: 12px;
+  color: var(--ink-mute);
+}
+
+.fw-book__line--risk {
+  color: var(--risk);
+}
+
+/* Adding a colleague, and the firm's record when it is being changed. */
+.fw-invite,
+.fw-profile {
+  display: grid;
+  gap: 12px;
+}
+
+.fw-invite__row {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr) auto;
+  gap: 12px;
+  align-items: end;
+}
+
+.fw-field {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.fw-field .cl-select {
+  width: 100%;
+}
+
+.fw-profile {
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  align-items: start;
+}
+
+.fw-profile .note,
+.fw-profile__acts {
+  grid-column: 1 / -1;
+}
+
+.fw-profile__acts {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.fw-ctl {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.fw-ctl__risk {
+  color: var(--risk);
+  border-color: var(--risk-wash);
+}
+
+@media (max-width: 640px) {
+  .fw__bar,
+  .fw__main {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .fw-table thead {
+    display: none;
+  }
+
+  .fw-table tr {
+    display: grid;
+    gap: 4px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .fw-table td {
+    padding: 0;
+    border: 0;
+  }
+
+  .fw-table__end {
+    text-align: left;
+  }
+
+  .fw-money {
+    grid-template-columns: 1fr;
+  }
+
+  .fw-invite__row {
+    grid-template-columns: 1fr;
+  }
+
+  .fw__who,
+  .fw__switch {
+    width: 100%;
+  }
+
+  .fw__switch .cl-select {
+    flex: 1;
+    max-width: none;
+  }
+
+  .fw-open__row form,
+  .fw-open__row .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* The same pieces inside the console's own shell. */
+.fw-stack {
+  display: grid;
+  gap: 16px;
+}
+
+.fw-card__foot {
+  margin-top: 14px;
+}
+
+/* A channel partner's workspace, in the console's shell. */
+.fw-money--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.fw-money__link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.fw-money__link:hover .fw-money__value {
+  color: var(--blue-deep);
+}
+
+.fw-open__dev svg {
+  vertical-align: -2px;
+  color: var(--ink-mute);
+}
+
+.fw-form {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px 16px;
+  align-items: end;
+}
+
+.fw-form__wide {
+  grid-column: 1 / -1;
+}
+
+.fw-form__acts {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.fw-form .note {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.fw-buyer {
+  display: grid;
+  gap: 2px;
+}
+
+.fw-buyer__name {
+  font-weight: 600;
+}
+
+.fw-buyer__line {
+  font-size: 12px;
+  color: var(--ink-mute);
+}
+
+.fw-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.fw-link__code {
+  font-family: var(--mono, ui-monospace, monospace);
+  font-size: 12.5px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--ground);
+}
+
+.fw-towers {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fw-tower {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 10px 14px;
+  background: var(--ground);
+  border-radius: var(--r-inner);
+}
+
+.fw-tower__name {
+  font-weight: 560;
+  font-size: 13.5px;
+}
+
+.fw-proj + .fw-proj {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.fw-proj__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.fw-proj__name {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.fw-proj__line {
+  margin: 4px 0 0;
+  font-size: 12.5px;
+  color: var(--ink-mute);
+}
+
+.fw-posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fw-post {
+  display: grid;
+  gap: 6px;
+  align-content: space-between;
+  padding: 12px 14px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-inner);
+}
+
+.fw-post__what {
+  font-size: 13px;
+  font-weight: 560;
+}
+
+.fw-post__line {
+  font-size: 12px;
+  color: var(--ink-mute);
+}
+
+.fw-post__get {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.fw-sub {
+  margin: 16px 0 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink-mute);
+}
+
+@media (max-width: 640px) {
+  .fw-money--4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .fw-form {
+    grid-template-columns: 1fr;
+  }
+
+  .fw-form__acts .btn {
+    flex: 1;
+    justify-content: center;
+  }
+}
+
+.fw-post__pic {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+  border-radius: 10px;
+  background: var(--ground);
+}
+
+.fw-form .mv-input {
+  height: 42px;
+}
+
+.fw-seg .seg__opt {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+}
+
+.fw-seg .seg__opt[aria-current="page"] {
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: var(--lift-sm);
+}
+
+/* A row's small actions, for a developer not on Sales Desk: side by side, wrapping on a phone. */
+.fw-rowacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.fw-rowact {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+}

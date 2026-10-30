@@ -1,0 +1,310 @@
+/* How the agent says it: the words, each with its voice, and how it is said. */
+
+.words {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.words__side {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.words__empty {
+  padding: 34px 16px;
+}
+
+/* ------------------------------ the primary action ------------------------------ */
+
+/* Inside the dark card, a light pill: the card stays the group's one dark thing. */
+.checkwords {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 14px 0 0;
+}
+
+.checkwords .btn {
+  gap: 8px;
+}
+
+.checkwords__note {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--on-dark-mute);
+}
+
+.checkwords__note--risk {
+  color: var(--risk-wash);
+}
+
+.checkwords__spin,
+.word__spin {
+  width: 12px;
+  height: 12px;
+  flex: none;
+  border-radius: 50%;
+  border: 2px solid var(--line-strong);
+  border-top-color: var(--ink);
+  animation: wordspin 0.9s linear infinite;
+}
+
+.word__spin {
+  border-color: var(--blue-line);
+  border-top-color: var(--blue);
+}
+
+@keyframes wordspin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ------------------------------ the words ------------------------------ */
+
+.wordrows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.word {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 12px;
+  padding: 11px 10px;
+  margin: 0 -10px;
+  border-top: 1px solid var(--line-soft);
+  border-radius: var(--r-field);
+  transition: background-color 220ms cubic-bezier(0.2, 0.8, 0.3, 1), box-shadow 220ms cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+
+.word:first-child {
+  border-top-color: transparent;
+}
+
+/* While the agent speaks, its row is lit: the one moment this page moves. */
+.word--playing {
+  background: var(--blue-wash);
+  box-shadow: inset 0 0 0 1px var(--blue-line);
+  border-top-color: transparent;
+}
+
+.word--playing + .word {
+  border-top-color: transparent;
+}
+
+.word__play {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 120ms ease;
+}
+
+.word__play svg {
+  margin-left: 1px;
+}
+
+.word__play:hover {
+  border-color: var(--ink-faint);
+}
+
+.word__play:active {
+  transform: translateY(1px);
+}
+
+.word--playing .word__play {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--on-dark);
+}
+
+.word--playing .word__play svg {
+  margin-left: 0;
+}
+
+.word__play[aria-busy="true"] {
+  cursor: progress;
+}
+
+.word__play--none {
+  border-color: transparent;
+  background: transparent;
+  cursor: default;
+}
+
+.word__body {
+  min-width: 0;
+  padding-top: 1px;
+}
+
+.word__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  min-height: 34px;
+}
+
+.word__name {
+  font-size: 14.5px;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.word__line {
+  margin: 1px 0 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ink-mute);
+}
+
+.word__say {
+  font-size: 13.5px;
+  font-weight: 560;
+  color: var(--ink-soft);
+}
+
+.word__from {
+  color: var(--ink-mute);
+}
+
+.word__line--warn,
+.word__line--warn .word__say {
+  color: var(--warn);
+}
+
+.word__line--risk {
+  color: var(--risk);
+}
+
+.word__line--ok {
+  color: var(--ok);
+}
+
+.word__change {
+  margin-top: 1px;
+}
+
+.word__fix {
+  margin: 8px 0 2px;
+}
+
+.word__fix label {
+  margin-bottom: 5px;
+}
+
+.word__fixrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.word__fixrow input {
+  flex: 1 1 200px;
+  min-width: 0;
+  width: auto;
+}
+
+/* ------------------------------ status and adding ------------------------------ */
+
+.words__status {
+  background: var(--ink-card);
+  color: var(--on-dark);
+}
+
+.words__status h2 {
+  font-size: 17px;
+  color: var(--on-dark);
+}
+
+.words__status p {
+  margin: 6px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--on-dark-mute);
+}
+
+.addword .field:last-of-type {
+  margin-bottom: 14px;
+}
+
+/* ------------------------------ narrow and touch ------------------------------ */
+
+@media (max-width: 1100px) {
+  .words {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .words__side {
+    display: contents;
+  }
+
+  .words__status {
+    order: -1;
+  }
+}
+
+@media (max-width: 560px) {
+  /* The button goes under the words, so what was said and heard keeps the row's width. */
+  .word {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 6px 10px;
+  }
+
+  .word__change {
+    grid-column: 2;
+    justify-self: start;
+    margin-top: 2px;
+  }
+
+  /* The pill always under the name, so every row is one height. */
+  .word__top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    min-height: 0;
+    padding-top: 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .word__play {
+    width: 44px;
+    height: 44px;
+  }
+
+  .word__change,
+  .word__fixrow .btn,
+  .checkwords .btn,
+  .addword .btn {
+    min-height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .checkwords__spin,
+  .word__spin {
+    animation-duration: 2.4s;
+  }
+
+  .word {
+    transition: none;
+  }
+}

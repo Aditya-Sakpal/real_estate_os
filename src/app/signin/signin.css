@@ -1,0 +1,376 @@
+/* Sign-in: who is signing up, then the identity provider. */
+
+.kinds {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 22px;
+  padding: 0;
+  list-style: none;
+}
+
+.kinds__item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  color: var(--ink);
+  text-decoration: none;
+  background: var(--surface-sunk);
+  border: 1px solid transparent;
+  border-radius: var(--r-inner);
+  transition: border-color 140ms ease, background 140ms ease, transform 140ms cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+
+.kinds__item:hover {
+  background: var(--surface);
+  border-color: var(--line-strong);
+}
+
+.kinds__item:active {
+  transform: translateY(1px);
+}
+
+.kinds__item:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--blue-wash);
+  border-color: var(--blue-line);
+}
+
+.kinds__no {
+  flex: none;
+  font-size: 12px;
+  color: var(--ink-mute);
+  font-variant-numeric: tabular-nums;
+}
+
+.kinds__body {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.kinds__label {
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.kinds__line {
+  font-size: 12.5px;
+  color: var(--ink-mute);
+}
+
+.kinds__go {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.kinds__or {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 14px;
+  font-size: 12px;
+  color: var(--ink-mute);
+}
+
+.kinds__or::before,
+.kinds__or::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line-soft);
+}
+
+/* The kind chosen: the one dark card on the page. */
+.kind-chosen {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2px 12px;
+  align-items: center;
+  margin-bottom: 18px;
+  padding: 14px 16px;
+  color: #fff;
+  background: var(--ink);
+  border-radius: var(--r-inner);
+}
+
+.kind-chosen__label {
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.kind-chosen__line {
+  grid-column: 1;
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.kind-chosen__change {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  padding: 6px 12px;
+  font-size: 12.5px;
+  font-weight: 560;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: var(--r-pill);
+}
+
+.kind-chosen__change:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* The onboarding page's switch between the three kinds. */
+.kindtabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 20px;
+  padding: 4px;
+  background: var(--surface-sunk);
+  border-radius: var(--r-pill);
+}
+
+.kindtabs a,
+.kindtabs span {
+  flex: 1 1 auto;
+  padding: 8px 12px;
+  font-size: 12.5px;
+  font-weight: 560;
+  text-align: center;
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-radius: var(--r-pill);
+}
+
+.kindtabs a:hover {
+  color: var(--ink);
+}
+
+.kindtabs [aria-current="page"] {
+  color: var(--ink);
+  background: var(--surface);
+  box-shadow: var(--lift-sm, 0 1px 3px rgba(0, 0, 0, 0.08));
+}
+
+.kindtabs [aria-disabled="true"] {
+  color: var(--ink-faint);
+  cursor: not-allowed;
+}
+
+.fielderr {
+  margin-top: 5px;
+  font-size: 12px;
+  color: #8e2437;
+}
+
+.auth input[type="date"],
+.auth input[type="tel"] {
+  width: 100%;
+  padding: 10px 13px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-field);
+}
+
+.auth input[type="date"]:focus,
+.auth input[type="tel"]:focus {
+  outline: none;
+  border-color: var(--blue-line);
+  box-shadow: 0 0 0 3px var(--blue-wash);
+}
+
+/* A company's own sign-in: folded away under the providers, one field. */
+.sso {
+  margin-top: 14px;
+  font-size: 13px;
+}
+
+.sso summary {
+  cursor: pointer;
+  color: var(--ink-soft);
+  text-align: center;
+  list-style: none;
+  padding: 6px 0;
+}
+
+.sso summary::-webkit-details-marker {
+  display: none;
+}
+
+.sso summary:hover {
+  color: var(--ink);
+}
+
+.sso__form {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.sso__form input {
+  flex: 1;
+  min-width: 0;
+  height: 44px;
+  padding: 0 14px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+}
+
+.sso__form input:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 1px;
+}
+
+/* Signing in with a phone: one big field and one big button at a time. */
+.phonesign .phonesign__input {
+  width: 100%;
+  min-height: 52px;
+  padding: 0 16px;
+  font: inherit;
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-field);
+}
+
+.phonesign .phonesign__input:focus {
+  outline: none;
+  border-color: var(--blue-line);
+  box-shadow: 0 0 0 3px var(--blue-wash);
+}
+
+.phonesign__go {
+  width: 100%;
+  min-height: 52px;
+  justify-content: center;
+  font-size: 15px;
+}
+
+.phonesign__again {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  margin-top: 8px;
+  font: inherit;
+  font-size: 13px;
+  color: var(--ink-soft);
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.phonesign__again:hover:not(:disabled) {
+  color: var(--ink);
+}
+
+.phonesign__back {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.phonesign__back a {
+  color: var(--ink-soft);
+}
+
+.phone-door {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  margin-top: 4px;
+  font-size: 13.5px;
+  font-weight: 560;
+  color: var(--ink);
+  text-decoration: none;
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--r-pill);
+}
+
+.phone-door:hover {
+  background: var(--surface-sunk);
+}
+
+/* The development door: on a hosted site only under ENVIRONMENT=development, with its code. */
+.dev-login {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.dev-login .btn {
+  border-radius: 999px;
+}
+
+.dev-login form {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.dev-login__code {
+  width: 96px;
+  height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--line, #d8d8de);
+  border-radius: 999px;
+  background: var(--surface, #fff);
+  font: inherit;
+  font-size: 13px;
+}
+
+.dev-login__wrong {
+  margin: 0;
+  font-size: 13px;
+  color: var(--danger, #b42318);
+}
+
+@media (max-width: 560px) {
+  /* The development door sits under the card on a phone, never over the
+     sign-in buttons (mobile.css says so too, but this sheet loads after it). */
+  .dev-login {
+    position: static;
+    align-items: stretch;
+    width: 100%;
+    max-width: 460px;
+    margin: 16px auto 0;
+  }
+
+  .sso summary {
+    padding: 13px 0;
+    font-size: 14px;
+  }
+
+  /* "Use Google or Microsoft instead" is a thumb's height, the words unchanged. */
+  .phonesign__back a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 8px;
+    font-size: 14px;
+  }
+}

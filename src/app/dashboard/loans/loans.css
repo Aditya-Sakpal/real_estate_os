@@ -1,0 +1,493 @@
+/* Home loans: the list, and one buyer's loan file. */
+
+.lo-none {
+  padding: 18px 20px;
+}
+
+.lo-none p,
+.lo-faint {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--ink-mute);
+}
+
+.lo-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.lo-filter .pill {
+  text-decoration: none;
+}
+
+.lo-scroll {
+  overflow-x: auto;
+  margin: 0 -20px -20px;
+}
+
+.lo-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 13.5px;
+}
+
+.lo-table th,
+.lo-table td {
+  padding: 9px 12px;
+  text-align: left;
+  vertical-align: middle;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.lo-table thead th {
+  font-size: 12px;
+  font-weight: 560;
+  color: var(--ink-mute);
+}
+
+.lo-table tbody th {
+  font-weight: 400;
+}
+
+.lo-scroll .lo-table th:first-child,
+.lo-scroll .lo-table td:first-child {
+  padding-left: 20px;
+}
+
+.lo-scroll .lo-table th:last-child,
+.lo-scroll .lo-table td:last-child {
+  padding-right: 20px;
+}
+
+.lo-table tbody tr:last-child th,
+.lo-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.lo-table .lo-num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.lo-buyer {
+  display: grid;
+  color: inherit;
+  text-decoration: none;
+}
+
+.lo-buyer strong {
+  font-weight: 620;
+}
+
+.lo-buyer span {
+  font-size: 12px;
+  color: var(--ink-mute);
+}
+
+.lo-buyer:hover strong {
+  text-decoration: underline;
+}
+
+.lo-paid {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
+
+.lo-bar {
+  position: relative;
+  display: inline-block;
+  width: 72px;
+  height: 6px;
+  overflow: hidden;
+  background: var(--line-soft);
+  border-radius: 999px;
+}
+
+.lo-bar span {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: var(--blue);
+  border-radius: 999px;
+}
+
+.lo-next {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+
+.lo-next:hover {
+  color: var(--ink);
+}
+
+.lo-next--flag {
+  font-weight: 600;
+  color: var(--risk);
+}
+
+/* ---- one buyer's loan file ---- */
+
+.lf-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.lf-col {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+
+@media (max-width: 960px) {
+  .lf-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.lf-card {
+  padding: 20px;
+}
+
+.lf-note {
+  margin: 0 0 12px;
+}
+
+.lf-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 12px 14px;
+}
+
+.lf-form .lf-wide,
+.lf-acts {
+  grid-column: 1 / -1;
+}
+
+.lf-acts {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+@media (max-width: 640px) {
+  .lf-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+.lf-dl {
+  display: grid;
+  margin: 0;
+}
+
+.lf-dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+  border-top: 1px solid var(--line-soft);
+  font-size: 13.5px;
+}
+
+.lf-dl div:first-child {
+  border-top: 0;
+}
+
+.lf-dl dt {
+  color: var(--ink-soft);
+}
+
+.lf-dl dd {
+  margin: 0;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* The money: the buyer's share and the bank's, each a bar of what is paid. */
+.lf-money {
+  display: grid;
+  gap: 14px;
+}
+
+.lf-money__row {
+  display: grid;
+  gap: 6px;
+}
+
+.lf-money__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13.5px;
+}
+
+.lf-money__top span {
+  color: var(--ink-soft);
+}
+
+.lf-money__top strong {
+  font-weight: 620;
+}
+
+.lf-money .lo-bar {
+  width: 100%;
+  height: 8px;
+}
+
+.lf-money .lo-bar--buyer span {
+  background: var(--ok);
+}
+
+.lf-money__sub {
+  font-size: 12px;
+  color: var(--ink-mute);
+}
+
+/* Documents: one group a block, a tick a line. */
+.lf-docs {
+  display: grid;
+  gap: 16px;
+}
+
+.lf-docs fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.lf-docs legend {
+  margin-bottom: 6px;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-mute);
+}
+
+.lf-doc {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 34px;
+  font-size: 13.5px;
+  cursor: pointer;
+}
+
+.lf-doc input {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--blue);
+}
+
+.lf-doc small {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--ink-mute);
+}
+
+.lf-doc--opt span {
+  color: var(--ink-soft);
+}
+
+/* Demands. */
+.lf-demands .card__head {
+  flex-wrap: wrap;
+}
+
+.lf-split {
+  display: grid;
+  gap: 2px;
+  font-size: 12.5px;
+}
+
+.lf-split small {
+  color: var(--ink-mute);
+}
+
+.lf-step {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.lf-step input {
+  width: auto;
+  min-width: 0;
+}
+
+.lf-step input[type="date"] {
+  width: 140px;
+}
+
+.lf-step input[name="amount"] {
+  width: 120px;
+}
+
+.lf-parts {
+  display: grid;
+  gap: 6px;
+}
+
+.lf-part {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.lf-cap {
+  margin: 12px 0 0;
+}
+
+.lf-cancelled td,
+.lf-cancelled th {
+  color: var(--ink-mute);
+  text-decoration: line-through;
+}
+
+/* Banks. */
+.bk-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+
+.bk-new {
+  width: 100%;
+}
+
+.bk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 640px) {
+  .bk-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.bk-card {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+
+.bk-card .card__head {
+  margin-bottom: 0;
+}
+
+.bk-sub {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--ink-mute);
+}
+
+.bk-mail {
+  overflow-wrap: anywhere;
+}
+
+.bk-approved {
+  display: grid;
+  gap: 6px;
+}
+
+.bk-approved__label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-mute);
+}
+
+.bk-approved__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.bk-stats {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
+
+.bk-foot {
+  display: flex;
+  gap: 8px;
+  padding-top: 4px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.bk-fixed {
+  color: var(--ink-soft);
+}
+
+.bk-projects {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.bk-projects legend {
+  margin-bottom: 6px;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-mute);
+}
+
+.bk-project {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+}
+
+.bk-project input[name^="apf:"] {
+  flex: 1 1 180px;
+  max-width: 260px;
+}
+
+/* Reports. */
+.rp-bars {
+  display: grid;
+  gap: 10px;
+}
+
+.rp-bar {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr) 32px 90px;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+}
+
+.rp-bar__label {
+  color: var(--ink-soft);
+}
+
+.rp-bar__track.lo-bar {
+  width: 100%;
+  height: 10px;
+}
+
+.rp-bar strong {
+  text-align: right;
+}
+
+.rp-bar__sub {
+  font-size: 12px;
+  color: var(--ink-mute);
+  text-align: right;
+}

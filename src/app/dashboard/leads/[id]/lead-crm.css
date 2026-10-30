@@ -1,0 +1,19 @@
+/* The availability and CRM lines on a lead's card. */
+
+.ld-link {
+  font-weight: 600;
+  color: var(--blue-deep);
+  text-decoration: none;
+}
+
+.ld-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ld-crm-why {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--risk);
+}

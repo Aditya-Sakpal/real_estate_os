@@ -1,0 +1,114 @@
+/* Review and approve: one card per kind, its one button in the header. */
+
+.rv-card,
+.rv-empty {
+  margin-bottom: 16px;
+  padding: 20px 22px;
+}
+
+.rv-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px 20px;
+  margin-bottom: 14px;
+}
+
+.rv-head h2 {
+  margin: 0 0 2px;
+  font-size: 17px;
+}
+
+.rv-meta {
+  margin: 0;
+  font-size: 13px;
+  color: var(--ink-mute);
+}
+
+.rv-list {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rv-row {
+  display: grid;
+  grid-template-columns: minmax(90px, 140px) minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 6px 16px;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+}
+
+.rv-place {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.rv-what {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  min-width: 0;
+}
+
+.rv-value {
+  overflow-wrap: anywhere;
+}
+
+.rv-foot {
+  margin-top: 12px;
+}
+
+.rv-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rv-tile {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.rv-thumb {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--line-soft);
+}
+
+.rv-thumb.mediabtn {
+  width: 100%;
+}
+
+.rv-thumb img,
+.rv-thumb video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.rv-tile__title {
+  font-size: 13.5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .rv-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .rv-place {
+    grid-column: 1 / -1;
+  }
+}

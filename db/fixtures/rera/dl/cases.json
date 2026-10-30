@@ -1,0 +1,15 @@
+{
+  "state": "DL",
+  "ours": "DLRERA2099P9901",
+  "others": "DLRERA2099P9902",
+  "revoked": null,
+  "never": "DLRERA2099P9904",
+  "down": "DLRERA2099P9905",
+  "lapsed": null,
+  "ourPromoter": "Rera Check Holdings LLP",
+  "otherPromoter": "Other Realty Developers Private Limited",
+  "nightlyRequests": 2,
+  "downDir": "down",
+  "oursValidTo": "2099-06-30",
+  "notes": "Delhi publishes no revocation, lapse or withdrawal list and the register has no status column, so `revoked` is null and blocked is always empty. atForm answers from the day's bulk read (sharedRead), not a per-number request. To prove `down`, point RERA_DL_FIXTURES at the `down` subfolder (both reads marked .down) and call resetPortalCache() first. `ours` is on the register valid to 31-Dec-2098 and on the extensions list extended to 30-Jun-2099, so its validTo must read 2099-06-30 (the later of the two). Real rows kept: company promoters only."
+}

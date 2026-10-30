@@ -1,0 +1,34 @@
+/* A buyer's visit pass: the enquiry page's frame, with one code on a white
+   card, large enough to be read off a phone held up at a gate. */
+
+.pass-card {
+  display: grid;
+  justify-items: center;
+  padding: 28px 22px 22px;
+}
+
+.pass-code {
+  width: min(100%, 280px);
+  aspect-ratio: 1;
+  padding: 16px;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px var(--enq-line);
+}
+
+.pass-code svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.pass-say {
+  margin: 16px 0 0;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--enq-ink);
+}
+
+.enq .pass-way {
+  text-decoration: none;
+}

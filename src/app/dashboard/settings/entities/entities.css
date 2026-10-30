@@ -1,0 +1,29 @@
+/* Legal entities: the list beside the form that adds or edits one. */
+
+.ent .ent__row {
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+}
+
+/* In the rail the form is one column: PAN and CIN stack. */
+.ent__form .roleform__pair {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+}
+
+.ent__form .btn[type="submit"] {
+  width: 100%;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .ent .ent__row {
+    grid-template-columns: 34px minmax(0, 1fr);
+  }
+
+  /* The Edit button lives where the date would be; keep it on a phone. */
+  .ent .ent__row .person__when {
+    display: block;
+    grid-area: role;
+    margin-top: 6px;
+  }
+}

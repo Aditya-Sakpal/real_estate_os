@@ -1,0 +1,55 @@
+PASTE-AND-SAVE LIST
+============================================================
+
+Folder: 19-insta-friendly-construction-progress
+
+HOW TO USE THIS FILE
+--------------------
+Copy a URL below, paste it into a downloader (fastvideosave.net or any
+equivalent paste-a-link service), download the file, then rename it to
+the "save as:" name printed directly under that URL and drop it in this
+folder.
+
+Work top to bottom. The list is already in the order you want, so the
+numbering comes out right on its own.
+
+Faster: download a whole batch into Downloads first without renaming,
+then rename them all in one pass. Explorer sorts by download time and
+this list is in the same order, so they line up row for row.
+
+If a link is refused by the downloader, screen record it instead, or
+skip it. There are more references here than you need.
+
+Full walkthrough, including the no-download option and the rules on
+what you can and cannot do with someone else's reel:
+  ..\INSTA-HOW-TO-DOWNLOAD.md
+
+--- YOUR ORIGINAL REFERENCES (priority) ---
+
+https://www.instagram.com/p/Dauw4Vsiq-y/
+  save as:  reel__19-construction-progress__01-naeemdhanani.mp4
+
+
+--- DISCOVERED, SAME FORMAT (optional) ---
+
+https://www.instagram.com/reel/DSh4EEtCPBX/
+  save as:  reel__19-construction-progress__02-hitech-infraprojects-india.mp4
+
+https://www.instagram.com/reel/DSXsGBEiNjO/
+  save as:  reel__19-construction-progress__03-hitech-infraprojects-india.mp4
+
+https://www.instagram.com/reel/DTsjnKRj6n2/
+  save as:  reel__19-construction-progress__04-hitech-infraprojects-india.mp4
+
+https://www.instagram.com/reel/DSfIXE7DzTX/
+  save as:  reel__19-construction-progress__05-hitech-infrapro.mp4
+
+https://www.instagram.com/reel/Ddit2FSKe9J/
+  save as:  reel__19-construction-progress__06-experion-developers.mp4
+
+https://www.instagram.com/reel/Dcs04OlIyyr/
+  save as:  reel__19-construction-progress__07-quickass-media.mp4
+
+https://www.instagram.com/reel/DUI6zKPjRCE/
+  save as:  reel__19-construction-progress__08-prism-group-mumbai.mp4
+

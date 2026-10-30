@@ -1,0 +1,201 @@
+/* Phone layout for this area's screens. Loaded after mobile.css. */
+
+/* ---------- Partners ---------- */
+
+@media (max-width: 760px) {
+  /* The desk's head: the two secondary dialogs share a row, the one ink
+     button takes the full width under them, nearest the thumb. */
+  .main .pt .pf-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
+  }
+
+  .main .pt .pf-actions > .btn {
+    width: 100%;
+    min-width: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    justify-content: center;
+    white-space: normal;
+    line-height: 1.2;
+  }
+
+  /* globals.css centres every form in a page head's actions on a phone,
+     which caught the dialogs' forms too: their one grid column shrank to
+     its content, a 200px column in the middle of the sheet. */
+  .main .pagehead__acts dialog form {
+    justify-content: stretch;
+  }
+
+  .main .pt .pf-actions > .btn--ink,
+  .main .pt .pf-actions > .btn:only-of-type {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ---------- Settings: audit trail ---------- */
+
+@media (max-width: 640px) {
+  /* The two days share a line; Show runs the width under them. */
+  .main .au-filters .au-field--day {
+    flex: 1 1 calc(50% - 8px);
+    min-width: 0;
+  }
+
+  /* A date box sizes itself to its picker otherwise and runs off the card. */
+  .main .au-filters input[type="date"] {
+    width: 100%;
+    min-width: 0;
+    padding-left: 10px;
+    padding-right: 8px;
+  }
+
+  /* The trail's rows span the card, not just their own text. */
+  .main .au-table,
+  .main .au-table tbody {
+    display: block;
+    width: 100%;
+  }
+
+  .main .au-filters .au-acts {
+    flex: 1 1 100%;
+  }
+
+  .main .au-filters .au-acts .btn {
+    flex: 1 1 0;
+    justify-content: center;
+  }
+}
+
+/* ---------- Settings: calling ---------- */
+
+@media (max-width: 560px) {
+  /* A sales person's number stays one line; their two controls drop under
+     the name when the row has no room, rather than squeezing the number. */
+  .main [data-sales-team] .cs-row {
+    flex-wrap: wrap;
+    row-gap: 10px;
+  }
+
+  .main [data-sales-team] .cs-row > :first-child {
+    min-width: 0;
+    flex: 1 1 140px;
+  }
+
+  .main [data-sales-team] .cs-row__sub {
+    white-space: nowrap;
+  }
+
+  .main [data-sales-team] .cst-acts {
+    margin-left: auto;
+  }
+}
+
+/* ---------- Settings: numbers (calling and WhatsApp) ---------- */
+
+@media (max-width: 900px) {
+  /* Move, Change and Cancel are text links; on a phone their hit area is a
+     thumb's, the words unchanged. */
+  .main .wa-num__move {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 0 6px;
+    font-size: 14px;
+  }
+}
+
+/* ---------- Settings: a connected provider's daily limits ---------- */
+
+@media (max-width: 560px) {
+  /* The rupee box takes the row and Save limit sits at its end, rather than
+     a narrow box pushed right with empty space before it. */
+  .main .acct__capform {
+    justify-content: flex-start;
+  }
+
+  .main .acct__capform .mv-money {
+    flex: 1 1 140px;
+    min-width: 0;
+  }
+
+  .main .acct__capform .mv-money .mv-input {
+    width: 100%;
+    min-height: 44px;
+  }
+
+  .main .acct__capform > .btn {
+    flex: none;
+    min-height: 44px;
+  }
+
+  .main .acct__capform > .note {
+    flex-basis: 100%;
+  }
+}
+
+/* ---------- Developers (a channel partner's console) ---------- */
+
+@media (max-width: 640px) {
+  /* Posts with the partner's name: a row that swipes, two cards and a bit
+     in view, rather than nine full-width pictures one under another. */
+  .main .fw-posts {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: min(62vw, 240px);
+    /* The strip's width is the card's, never its cards' total. */
+    contain: inline-size;
+    width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 0;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+
+  .main .fw-posts::-webkit-scrollbar {
+    display: none;
+  }
+
+  .main .fw-post {
+    min-width: 0;
+    scroll-snap-align: start;
+    padding: 10px;
+  }
+
+  .main .fw-post__get .btn {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+}
+
+/* A Developers tab carries a short label for a phone (PartnerHead). */
+.dv-tab-short {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .dv-tab-long {
+    display: none;
+  }
+
+  .dv-tab-short {
+    display: inline;
+  }
+}
+
+@media (max-width: 560px) {
+  /* A developer the partner added: each setting reads label over value,
+     where two columns left the value a third of the card. */
+  .main .fw-card > .fw-facts[style] {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 2px 0 !important;
+  }
+
+  .main .fw-card > .fw-facts[style] dd {
+    margin-bottom: 10px !important;
+  }
+}

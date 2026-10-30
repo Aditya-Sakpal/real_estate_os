@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="csrf-token" content="fixtureCsrfToken0000000000000000000000000">
+<title>TNRERA home</title>
+</head>
+<body>
+<!-- Test fixture. Trimmed from a capture of rera.tn.gov.in on 28 and 29 September 2026: page chrome cut, rows cut to a few, personal details removed. Rows numbered 99xx are invented. -->
+<form id="filterForm" action="https://rera.tn.gov.in/project-details" method="post"
+                                    autocomplete="off" class="rounded-4" onsubmit="return getFormDetails()">
+                                    <input type="hidden" name="_token" value="fixtureCsrfToken0000000000000000000000000" autocomplete="off">                                    <div class="row g-1 align-items-end">
+                                        
+                                        <div class="col-md-3">
+                                            <label class="form-label fw-semibold text-dark">
+                                                Select Project Type
+                                                <span class="required">*</span>
+                                            </label>
+                                            <select name="projectType" id="projectType"
+                                                class="form-select custom-input shadow-sm"required>
+                                                <option value="">
+                                                    Select Project Type
+                                                </option>
+                                                <option value="building">
+                                                    Building
+                                                </option>
+                                                <option value="layout">
+                                                    Layout
+                                                </option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="col-md-4">
+                                            <label class="form-label fw-semibold text-dark d-block">
+                                                <br>
+                                            </label>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="searchBy"
+                                                    id="applicationNo" value="applicationNo" onclick="searchByProject(1)">
+                                                <label class="form-check-label text-dark fw-semibold" for="applicationNo">
+                                                    Project Registration No.
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-5">
+                                            <label class="form-label fw-semibold text-dark d-block">
+                                                <br>
+                                            </label>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="searchBy"
+                                                    id="promoterName" value="promoterName" onclick="searchByProject(2)">
+                                                <label class="form-check-label text-dark fw-semibold" for="promoterName">
+                                                    Promoter / Project Name
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row" id="form_input_details" style="display:none;">
+                                        
+                                        <div class="card border-0 shadow-sm rounded-4 mb-2" id="application_no_input"
+                                            style="display:none;">
+                                            <div class="card-body p-2">
+                                                <label class="form-label fw-bold text-dark mb-3">
+                                                    Registration No.
+                                                    <span class="required">*</span>
+                                                </label>
+                                                <div class="row g-2 align-items-center">
+                                                    <div class="col-md-3">
+                                                        <select name="state" class="form-control" id="rera_type" autocomplete="off">
+                                                            <option value="">Select Type</option>
+                                                            <option value="TN">TN</option>
+                                                            <option value="TNRERA">TNRERA</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <input type="text" name="code" id="code" class="form-control text-center"
+                                                            maxlength="2"
+                                                            oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,2)"
+                                                            placeholder="00" autocomplete="off">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <select name="project_type" class="form-control" id="project_type" autocomplete="off">
+                                                            <option value="">Select Type</option>
+                                                            <option value="Layout">Layout</option>
+                                                            <option value="Building">Building</option>
+                                                            <option value="BLG">BLG</option>
+                                                            <option value="LO">LO</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <input type="text" name="running_no"
+                                                            class="form-control text-center" id="regNumber" maxlength="4"
+                                                            oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,4)"
+                                                            placeholder="0000" autocomplete="off">
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <select name="year" id="pro_year" class="form-control" autocomplete="off">
+                                                            <option value="">Select Year</option>
+                                                                                                                            <option value="2024">
+                                                                    2024
+                                                                </option>
+                                                                                                                            <option value="2025">
+                                                                    2025
+                                                                </option>
+                                                                                                                            <option value="2026">
+                                                                    2026
+                                                                </option>
+                                                                                                                    </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="card border-0 shadow-sm rounded-4" id="promoter_search_section"
+                                            style="display:none;">
+                                            <div class="card-body p-3">
+                                                <div class="row g-3">
+                                                    <div class="col-md-3 mb-3" id="promoter_name_input"
+                                                        style="display:none;">
+                                                        <label for="promoter_name" class="form-label text-dark fw-semibold">
+                                                            Promoter Name
+                                                        </label>
+                                                        <input type="text" class="form-control custom-input"
+                                                            id="promoter_name" name="promoter_name"
+                                                            placeholder="Enter Promoter Name" autocomplete="off">
+                                                    </div>
+                                                    
+                                                    <div class="col-md-3 mb-3" id="project_name_input" style="display:none;">
+                                                        <label for="project_name" class="form-label text-dark fw-semibold">
+                                                            Project Name
+                                                        </label>
+                                                        <input type="text" class="form-control custom-input"
+                                                            id="project_name" name="project_name"
+                                                            placeholder="Enter Project Name" autocomplete="off">
+                                                    </div>
+                                                    
+                                                    <div class="col-md-2 mb-3" id="state_input" style="display:none;">
+                                                        <label for="state" class="form-label text-dark fw-semibold ">
+                                                            State
+                                                        </label>
+                                                        <select name="state" id="state"
+                                                            class="form-control custom-input StateDataChange"
+                                                            DivStateId="project_state">
+                                                            <option value="" selected disabled>
+                                                                Select
+                                                            </option>
+                                                                                                                            <option value="1">
+                                                                    Andaman and Nicobar Island (UT)
+                                                                </option>
+                                                                                                                            <option value="31">
+                                                                    Tamil Nadu
+                                                                </option>
+                                                                                                                    </select>
+                                                    </div>
+                                                    
+                                                    <div class="col-md-2 mb-3" id="district_input" style="display:none;">
+                                                        <label for="district" class="form-label text-dark fw-semibold">
+                                                            District
+                                                        </label>
+                                                        <select name="district" id="district"
+                                                            class="form-control custom-input DistrictDataValueproject_state">
+                                                            <option value="">
+                                                                Select
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                    
+                                                    <div class="col-md-2 mb-3" id="pincode_input" style="display:none;">
+                                                        <label for="pincode" class="form-label  text-dark fw-semibold">
+                                                            Pincode
+                                                        </label>
+                                                        <select name="pincode" id="pincode" class="form-control custom-input">
+
+                                                            <option value="">Select</option>
+
+                                                            
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-center mt-2">
+                                        <button type="submit"
+                                            class="btn px-5 py-2 rounded-pill shadow-sm fw-semibold text-white loader-link"
+                                            style="background:#012d5f;" id="getProjectDetails">
+                                            <i class="fa fa-search me-2"></i>
+                                            Search Projects
+                                        </button>
+                                    </div>
+                                </form>
+</body>
+</html>

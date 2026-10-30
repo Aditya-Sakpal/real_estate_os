@@ -1,0 +1,55 @@
+PASTE-AND-SAVE LIST
+============================================================
+
+Folder: 18-insta-friendly-cinematic-slow-tour
+
+HOW TO USE THIS FILE
+--------------------
+Copy a URL below, paste it into a downloader (fastvideosave.net or any
+equivalent paste-a-link service), download the file, then rename it to
+the "save as:" name printed directly under that URL and drop it in this
+folder.
+
+Work top to bottom. The list is already in the order you want, so the
+numbering comes out right on its own.
+
+Faster: download a whole batch into Downloads first without renaming,
+then rename them all in one pass. Explorer sorts by download time and
+this list is in the same order, so they line up row for row.
+
+If a link is refused by the downloader, screen record it instead, or
+skip it. There are more references here than you need.
+
+Full walkthrough, including the no-download option and the rules on
+what you can and cannot do with someone else's reel:
+  ..\INSTA-HOW-TO-DOWNLOAD.md
+
+--- YOUR ORIGINAL REFERENCES (priority) ---
+
+https://www.instagram.com/p/DSubilkCD8e/
+  save as:  reel__18-cinematic-slow-tour__01-shotbybrendan.mp4
+
+
+--- DISCOVERED, SAME FORMAT (optional) ---
+
+https://www.instagram.com/reel/DSDFdnJCDcu/
+  save as:  reel__18-cinematic-slow-tour__02-brendan-dsouza.mp4
+
+https://www.instagram.com/reel/DY7JkPhBdGS/
+  save as:  reel__18-cinematic-slow-tour__03-flashoot.mp4
+
+https://www.instagram.com/reel/Dc5-vfiAmXy/
+  save as:  reel__18-cinematic-slow-tour__04-asmita-india-realty.mp4
+
+https://www.instagram.com/reel/Dc8z-l-su2m/
+  save as:  reel__18-cinematic-slow-tour__05-for-interiorss.mp4
+
+https://www.instagram.com/reel/DbyMpJAsg6X/
+  save as:  reel__18-cinematic-slow-tour__06-payperjump.mp4
+
+https://www.instagram.com/reel/DbYSyGbM5Rq/
+  save as:  reel__18-cinematic-slow-tour__07-rakesh-shirke.mp4
+
+https://www.instagram.com/reel/DZug6Hho-QP/
+  save as:  reel__18-cinematic-slow-tour__08-marketincrew.mp4
+

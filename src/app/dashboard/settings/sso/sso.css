@@ -1,0 +1,225 @@
+/* Single sign-on: two columns of cards, the long lists full width. */
+
+.sso-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  align-items: start;
+}
+
+.sso-col {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+  min-width: 0;
+}
+
+/* In a half-width card a copied value reads under its name, not squeezed
+   between the name and Copy. */
+.sso-col .sso-copies .copyfield {
+  grid-template-columns: minmax(0, 1fr) auto;
+  row-gap: 5px;
+}
+
+.sso-col .sso-copies .copyfield > label {
+  grid-column: 1 / -1;
+}
+
+.sso-card {
+  padding: 20px 22px;
+  min-width: 0;
+}
+
+.sso-card--wide {
+  grid-column: 1 / -1;
+}
+
+.sso-card h2 {
+  margin: 0 0 12px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.018em;
+}
+
+.sso-facts {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 14px;
+}
+
+.sso-facts dt {
+  font-size: 12px;
+  color: var(--ink-mute);
+  margin-bottom: 2px;
+}
+
+.sso-facts dd {
+  margin: 0;
+  font-size: 13.5px;
+  overflow-wrap: anywhere;
+}
+
+.sso-mono {
+  font-family: var(--font-mono, ui-monospace, "SFMono-Regular", Menlo, monospace);
+  font-size: 12.5px;
+}
+
+.sso-form {
+  display: grid;
+  gap: 12px;
+}
+
+.sso-form textarea {
+  resize: vertical;
+}
+
+.sso-acts {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sso-form .sso-acts {
+  justify-content: flex-end;
+}
+
+.sso-copies {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.sso-muted {
+  color: var(--ink-mute);
+}
+
+.sso-small {
+  font-size: 12.5px;
+  margin: 8px 0 0;
+}
+
+.sso-line {
+  margin: 0 0 12px;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+}
+
+.sso-domains {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.sso-domain {
+  display: grid;
+  gap: 8px;
+  padding: 12px 14px;
+  background: var(--surface-sunk);
+  border-radius: var(--r-inner);
+}
+
+.sso-domain__head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sso-domain__name {
+  font-weight: 560;
+}
+
+.sso-domain__acts {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.sso-inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.sso-inline .mv-input {
+  flex: 1 1 200px;
+  min-width: 0;
+}
+
+.sso-inline .note {
+  flex-basis: 100%;
+}
+
+.sso-table {
+  margin: 6px 0 14px;
+}
+
+.sso-revoked td {
+  color: var(--ink-mute);
+}
+
+/* The token, shown once: the page's one near-black card. */
+.sso-token {
+  margin-top: 12px;
+  padding: 16px 18px;
+  color: var(--on-dark);
+  background: var(--ink-card);
+  border-radius: var(--r-inner);
+}
+
+.sso-token__title {
+  margin: 0 0 10px;
+  font-weight: 600;
+}
+
+.sso-token .copyfield > label {
+  color: var(--on-dark-mute);
+}
+
+.sso-map {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+}
+
+.sso-map--open .cl-select {
+  width: auto;
+  min-width: 160px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  font-size: 13px;
+}
+
+.sso-map .note {
+  flex-basis: 100%;
+}
+
+.sso-enforce {
+  display: inline-grid;
+  gap: 8px;
+}
+
+@media (max-width: 860px) {
+  .sso-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sso-card {
+    padding: 16px;
+  }
+
+  .sso-inline .btn,
+  .sso-acts .btn {
+    min-height: 44px;
+  }
+}
+
+.sso-card .pf-danger {
+  color: var(--risk);
+}

@@ -1,0 +1,313 @@
+/* The developer's own WhatsApp number. Built from the connection screens'
+   parts: the card, the pill, the account rows, the tiles and the one dark
+   card. Nothing here carries a raw hex. */
+
+.wa-mark {
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  vertical-align: -6px;
+  color: var(--ink-soft);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.wa-card,
+.wa-needs,
+.wa-account {
+  margin-top: 16px;
+}
+
+/* The console's own glyph on the card, as the CRM's is: only the sign-in
+   page's two providers earn a third party's colour. */
+.wa-conn .conn__mark {
+  color: var(--ink-soft);
+}
+
+/* The signup button, and a line under it when it cannot start or Meta's
+   window closed early. */
+.wa-signup {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.wa-signup__why {
+  max-width: 320px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--ink-mute);
+  text-align: right;
+}
+
+.wa-signup__why--risk {
+  color: var(--risk);
+}
+
+.wa-needs .wa-signup__why {
+  color: var(--on-dark-mute);
+}
+
+/* Which number: two tiles across the column, the chosen one in the
+   open-row blue. */
+.wa-pick {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.wa-pick__tile {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 18px 20px;
+  color: var(--ink);
+  text-decoration: none;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-inner);
+  box-shadow: var(--lift-sm);
+  transition: border-color 120ms ease, background 120ms ease;
+}
+
+.wa-pick__tile strong {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.wa-pick__tile span {
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--ink-mute);
+}
+
+.wa-pick__tile:hover {
+  border-color: var(--line-strong);
+}
+
+.wa-pick__tile--on {
+  background: var(--blue-wash);
+  border-color: var(--blue-line);
+}
+
+.wa-pick__tile--on span {
+  color: var(--blue-deep);
+}
+
+.wa-pick__tile:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* Needs you: the group's one dark card. */
+.wa-needs__list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.wa-needs__list > li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.wa-needs__list > li:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.wa-needs__what {
+  display: flex;
+  flex: 1 1 280px;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.wa-needs__what strong {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.wa-needs__what span {
+  font-size: 12.5px;
+  color: var(--on-dark-mute);
+}
+
+.wa-needs__form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.wa-needs__form .select-field {
+  min-width: 200px;
+}
+
+/* Six digits, read as figures, sized to hold them and no more. */
+.wa-pin {
+  width: 116px;
+  letter-spacing: 0.18em;
+  text-align: center;
+}
+
+/* One number a row: which number, how Meta rates it, where it writes. */
+.wa-num {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(180px, auto);
+  align-items: center;
+  gap: 12px 18px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.wa-num:last-child {
+  border-bottom: 0;
+}
+
+.wa-num__facts {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wa-num__limit {
+  font-size: 12.5px;
+  color: var(--ink-mute);
+  white-space: nowrap;
+}
+
+.wa-num__where {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+}
+
+.wa-num__move {
+  font-size: 12.5px;
+  font-weight: 560;
+  color: var(--blue-deep);
+  text-decoration: none;
+  text-underline-offset: 3px;
+}
+
+.wa-num__move:hover {
+  text-decoration: underline;
+}
+
+.wa-num__move:focus-visible {
+  border-radius: 4px;
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* Every message and where Meta stands on it: dense, one line each, the
+   reason for a refusal under the message it is about. */
+.wa-msgs {
+  width: 100%;
+  font-size: 13.5px;
+  border-collapse: collapse;
+}
+
+.wa-msgs th {
+  padding: 8px 10px;
+  font-size: 12px;
+  font-weight: 560;
+  color: var(--ink-mute);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.wa-msgs th:first-child,
+.wa-msgs td:first-child {
+  padding-left: 0;
+}
+
+.wa-msgs th:last-child,
+.wa-msgs td:last-child {
+  padding-right: 0;
+  text-align: right;
+}
+
+.wa-msgs td {
+  padding: 10px;
+  vertical-align: top;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--line-soft);
+}
+
+.wa-msgs__label {
+  display: block;
+  font-weight: 560;
+  color: var(--ink);
+}
+
+.wa-msgs__why {
+  display: block;
+  margin-top: 3px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--risk);
+}
+
+.wa-foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.wa-foot__who {
+  font-size: 12.5px;
+  color: var(--ink-mute);
+}
+
+@media (max-width: 720px) {
+  .wa-pick {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .wa-num {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .wa-num__where {
+    justify-content: flex-start;
+  }
+
+  /* On a phone the kind column goes; the message, its language and Meta's
+     answer stay. */
+  .wa-msgs th:nth-child(3),
+  .wa-msgs td:nth-child(3) {
+    display: none;
+  }
+
+  .wa-needs__list > li .btn,
+  .wa-needs__form .btn {
+    min-height: 40px;
+  }
+
+  .wa-signup {
+    align-items: stretch;
+  }
+
+  .wa-signup__why {
+    text-align: left;
+  }
+}

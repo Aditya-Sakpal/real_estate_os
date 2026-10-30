@@ -1,0 +1,115 @@
+/* A campaign brief: the job and the creative set beside a rail (the offer and
+   what has worked), then the references as two boards side by side. */
+
+/* Pills that need the row can sit after what follows them, so a short field
+   fills the hole a long one would leave. */
+.briefgrid {
+  grid-auto-flow: row dense;
+}
+
+/* A short value beside a long one stays under its own label. */
+.briefgrid .formfield {
+  align-content: start;
+}
+
+.briefgrid .chipline {
+  gap: 6px;
+}
+
+/* In the rail the form's label-left rows have no room: label over field. */
+.brieflayout .split__side .formfield {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "label"
+    "input";
+  row-gap: 8px;
+}
+
+.brieflayout--editing .split__side .formfield {
+  margin-bottom: 0 !important;
+}
+
+/* The playbook in a rail: the tone pill over its sentence reads better than
+   beside it at this width. */
+.brieflayout .split__side .ww-line {
+  grid-template-columns: 64px minmax(0, 1fr);
+  font-size: 13.5px;
+}
+
+.brieflayout .split__side .ww-none {
+  font-size: 13px;
+}
+
+.briefrefs {
+  margin-top: 16px;
+}
+
+/* What has worked | What to avoid, side by side, a rule between them. */
+.refcols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+}
+
+.refcols > .refgroup {
+  min-width: 0;
+  padding: 0 24px 0 0;
+}
+
+.refcols > .refgroup + .refgroup {
+  margin-top: 0;
+  padding: 0 0 0 24px;
+  border-top: 0;
+  border-left: 1px solid var(--line-soft);
+}
+
+.refgroup__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.refgroup__count {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-mute);
+}
+
+.refcols .refgrid {
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+}
+
+/* Half a card is too narrow for picker, note and button on one line. */
+.refcols .refupload {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.refcols .refupload__file {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 860px) {
+  .refcols {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .refcols > .refgroup {
+    padding: 0;
+  }
+
+  .refcols > .refgroup + .refgroup {
+    margin-top: 22px;
+    padding: 20px 0 0;
+    border-left: 0;
+    border-top: 1px solid var(--line-soft);
+  }
+
+  .refcols .refupload {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Two tiles across on a phone rather than one the height of the screen. */
+  .refcols .refgrid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  }
+}

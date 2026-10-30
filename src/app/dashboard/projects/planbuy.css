@@ -1,0 +1,206 @@
+/* Buying a plan: a new project's fields, the three plans, and what is paid today. */
+
+.planbuy {
+  display: grid;
+  gap: 16px;
+  padding: 0 16px 16px;
+}
+
+.planbuy__fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.planbuy__fields .field {
+  margin: 0;
+}
+
+.planbuy__plans {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.planbuy__legend {
+  grid-column: 1 / -1;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.plancard {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  padding: 16px;
+  border-radius: var(--r-inner);
+  background: var(--surface-sunk);
+  border: 1.5px solid transparent;
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 140ms ease, background 140ms ease, color 140ms ease;
+}
+
+.plancard input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.plancard:hover {
+  border-color: var(--line-strong);
+}
+
+.plancard:has(input:focus-visible) {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* The chosen plan is the group's one near-black card. */
+.plancard.is-on {
+  background: var(--ink-card);
+  border-color: var(--ink-card);
+  color: var(--on-dark);
+  box-shadow: var(--lift);
+}
+
+.plancard__name {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.plancard__price {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.plancard__price small {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--ink-mute);
+}
+
+.plancard.is-on .plancard__price small,
+.plancard.is-on .plancard__rows {
+  color: var(--on-dark-mute);
+}
+
+.plancard__rows {
+  display: grid;
+  gap: 3px;
+  margin-top: 4px;
+  font-size: 12.5px;
+  color: var(--ink-mute);
+}
+
+.planbuy__state {
+  max-width: 320px;
+  margin: 0;
+}
+
+.planbuy__sum {
+  display: grid;
+  gap: 10px;
+  padding: 14px 16px;
+  border-radius: var(--r-inner);
+  background: var(--surface-sunk);
+}
+
+.planbuy__lines {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+}
+
+.planbuy__lines li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.planbuy__gst {
+  color: var(--ink-mute);
+}
+
+.planbuy__next {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--ink-mute);
+}
+
+.planbuy__sum .btn {
+  justify-self: start;
+}
+
+.planbuy__why,
+.planbuy__error {
+  margin: 0;
+  font-size: 13px;
+}
+
+.planbuy__why {
+  color: var(--ink-mute);
+}
+
+.planbuy__error {
+  color: var(--risk);
+}
+
+/* A firm's plan, shown above its projects. */
+.planfirm {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 560px) {
+  .planbuy {
+    padding: 0 12px 12px;
+  }
+
+  .planbuy__sum .btn {
+    justify-self: stretch;
+    justify-content: center;
+  }
+}
+
+/* Moving a channel partner's firm to a smaller plan: one row a plan. */
+.plandown {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.plandown__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+
+.plandown__what {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.plandown__why {
+  color: var(--warn);
+}

@@ -1,0 +1,603 @@
+/* =========================== the console on a phone ===========================
+
+   Loaded after globals.css and before any page's own sheet, so a page can still
+   refine what is here. Everything sits behind the same 900px break the shell
+   already turns into a phone at.
+
+   What a phone changes, and why each rule exists:
+
+   - A thumb, not a pointer. Every control a person presses is at least 44px
+     tall (Apple's 44pt, Android's 48dp less the gap), with 8px between.
+   - iOS zooms the whole page into any field set under 16px and never zooms
+     back, so every field is 16px on a phone.
+   - Hover does not exist. Anything that only appeared on hover is shown.
+   - Most Indian buyers' and site teams' phones are Android at 360 to 412 CSS
+     px, so 360 is the width every screen is checked at, not 390.
+   - Wide things scroll inside their own card, never the page: a page that
+     slides sideways under a thumb reads as broken. */
+
+@media (max-width: 900px) {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    overflow-x: clip;
+    -webkit-tap-highlight-color: rgba(43, 92, 230, 0.12);
+  }
+
+  /* ---------- fields: never zoom, always thumb-sized ---------- */
+
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]):not([type="file"]):not([type="hidden"]),
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]):not([type="file"]):not([type="hidden"]),
+  select {
+    min-height: 44px;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* ---------- buttons ---------- */
+
+  .btn {
+    min-height: 44px;
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 14.5px;
+  }
+
+  .btn--sm {
+    min-height: 40px;
+    padding-left: 14px;
+    padding-right: 14px;
+    font-size: 13.5px;
+  }
+
+  .btn--icon {
+    width: 44px;
+    height: 44px;
+    min-height: 44px;
+    padding: 0;
+  }
+
+  /* ---------- wide content scrolls in its own box ---------- */
+
+  .main table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .main img,
+  .main video,
+  .main svg {
+    max-width: 100%;
+  }
+
+  .main pre,
+  .main code {
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  /* Long ids, emails and links break instead of pushing the card wider. */
+  .main {
+    overflow-wrap: break-word;
+  }
+
+  /* ---------- the top bar ---------- */
+
+  .bar {
+    padding: 0 12px;
+    gap: 6px;
+  }
+
+  .bar__actions {
+    gap: 6px;
+  }
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .crumb--org {
+    min-height: 40px;
+    max-width: 38vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .bar__blocked-text {
+    display: none;
+  }
+
+  .bar .pill--risk {
+    min-height: 32px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  /* A menu from the top bar is a sheet across the screen, not a 256px box
+     hanging off a corner a thumb cannot reach round. */
+  .bar > .menu {
+    position: fixed;
+    top: calc(var(--topbar) - 4px);
+    left: 10px;
+    right: 10px;
+    max-width: none;
+    max-height: calc(100dvh - var(--topbar) - 110px);
+    overflow-y: auto;
+  }
+
+  .menu__item {
+    min-height: 46px;
+    font-size: 15px;
+  }
+
+  /* ---------- the tab bar ---------- */
+
+  .rail {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: visible;
+    padding: 6px 6px calc(6px + env(safe-area-inset-bottom));
+    background: color-mix(in srgb, var(--rail-bg) 94%, transparent);
+    backdrop-filter: saturate(1.4) blur(14px);
+    -webkit-backdrop-filter: saturate(1.4) blur(14px);
+  }
+
+  /* Four sections and More share the width evenly. */
+  .rail .nav--work {
+    display: contents;
+  }
+
+  .rail .nav__item,
+  .rail .nav__item[aria-current="page"] {
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 54px;
+    padding: 6px 2px;
+    gap: 3px;
+    font-size: 11px;
+    border-radius: 14px;
+  }
+
+  .rail .nav__text,
+  .rail .nav__item[aria-current="page"] .nav__text {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .rail .rail__more {
+    display: flex;
+    flex: 1 1 0;
+    align-items: center;
+    border: 0;
+    background: transparent;
+    color: var(--ink-mute);
+    font: inherit;
+    font-size: 11px;
+    cursor: pointer;
+  }
+
+  .main {
+    padding-bottom: calc(92px + env(safe-area-inset-bottom));
+  }
+
+  /* ---------- the "More" sheet ---------- */
+
+  .msheet {
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .msheet__scrim {
+    position: absolute;
+    inset: 0;
+    border: 0;
+    background: rgba(20, 22, 27, 0.38);
+    animation: msheet-fade 180ms ease-out;
+    cursor: default;
+  }
+
+  .msheet__panel {
+    position: relative;
+    background: var(--surface);
+    border-radius: 24px 24px 0 0;
+    padding: 8px 16px calc(18px + env(safe-area-inset-bottom));
+    box-shadow: 0 -18px 40px -18px rgba(20, 22, 27, 0.35);
+    animation: msheet-up 260ms cubic-bezier(0.16, 1, 0.3, 1);
+    max-height: 82dvh;
+    overflow-y: auto;
+  }
+
+  .msheet__grip {
+    width: 38px;
+    height: 4px;
+    border-radius: 4px;
+    background: var(--line-strong);
+    margin: 2px auto 10px;
+  }
+
+  .msheet__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .msheet__title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-mute);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .msheet__close {
+    width: 40px;
+    height: 40px;
+    flex: none;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 0;
+    background: var(--surface-sunk);
+    color: var(--ink-soft);
+    cursor: pointer;
+  }
+
+  .msheet__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .msheet__tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 88px;
+    padding: 12px 6px;
+    border-radius: 18px;
+    background: var(--surface-sunk);
+    color: var(--ink);
+    text-decoration: none;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 560;
+  }
+
+  .msheet__tile:active {
+    transform: scale(0.97);
+  }
+
+  .msheet__tile[aria-current="page"] {
+    background: var(--blue-wash);
+    color: var(--blue-deep);
+  }
+
+  .msheet__icon {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: var(--surface);
+    box-shadow: var(--lift-sm);
+  }
+
+  .msheet__label {
+    line-height: 1.2;
+  }
+
+  html.sheet-open,
+  html.sheet-open body {
+    overflow: hidden;
+  }
+
+  /* ---------- reading on a small screen ---------- */
+
+  .main h1 {
+    font-size: 24px;
+    line-height: 1.18;
+  }
+
+}
+
+@keyframes msheet-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes msheet-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+/* The More button is a phone's control; the rail lists everything above it. */
+.rail__more,
+.msheet {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .msheet {
+    display: flex;
+  }
+}
+
+/* The sections off the tab bar live in its "More" sheet now. */
+.menu__phone {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  /* The count sits on the icon's corner, not over it. */
+  .rail .nav__count {
+    position: absolute;
+    top: 3px;
+    left: 50%;
+    transform: translateX(4px);
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    font-size: 10.5px;
+    line-height: 18px;
+    border: 2px solid var(--rail-bg);
+    box-sizing: content-box;
+  }
+}
+
+/* ---------- a data table on a phone is a list of cards ----------
+   `TableStack` copies each column's heading onto its cells. The first cell
+   is the card's title, the rest sit two to a line under their own labels,
+   and a cell with no heading (the row's action) takes the full width. */
+
+@media (max-width: 760px) {
+  .main table[data-stack] {
+    display: block;
+    overflow: visible;
+    min-width: 0 !important;
+    width: 100% !important;
+    border: 0;
+  }
+
+  .main table[data-stack] thead {
+    display: none;
+  }
+
+  .main table[data-stack] tbody,
+  .main table[data-stack] tfoot {
+    display: block;
+  }
+
+  .main table[data-stack] tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 10px 14px;
+    padding: 14px 2px;
+    border-bottom: 1px solid var(--line-soft);
+    background: transparent;
+    height: auto;
+  }
+
+  .main table[data-stack] tbody tr:last-child {
+    border-bottom: 0;
+  }
+
+  .main table[data-stack] tr > td,
+  .main table[data-stack] tr > th {
+    display: block;
+    min-width: 0;
+    width: auto !important;
+    max-width: none !important;
+    padding: 0 !important;
+    border: 0 !important;
+    text-align: left !important;
+    white-space: normal !important;
+    font-size: 14px;
+    position: static;
+    background: transparent;
+  }
+
+  .main table[data-stack] tr > :first-child {
+    grid-column: 1 / -1;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .main table[data-stack] tr > :not(:first-child)[data-label]:not([data-label=""])::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 11.5px;
+    font-weight: 560;
+    color: var(--ink-mute);
+    letter-spacing: 0.01em;
+    margin-bottom: 3px;
+  }
+
+  .main table[data-stack] tr > [data-label=""]:not(:first-child) {
+    grid-column: 1 / -1;
+  }
+
+  .main table[data-stack] tr > :empty {
+    display: none;
+  }
+
+  /* A row that is one cell across the table (a group heading, an empty
+     note) stays one line. */
+  .main table[data-stack] tr > [colspan] {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ---------- a dialog on a phone is a sheet from the bottom ----------
+   Centred, its buttons sat mid-screen and its top under the notch; from the
+   bottom they are where the thumb already is, and the page above stays in
+   view. The media viewer and the document page view keep the full screen. */
+
+@media (max-width: 760px) {
+  dialog.mv,
+  dialog.cl-dialog,
+  dialog.confirm {
+    width: 100%;
+    max-width: 100%;
+    margin: auto 0 0;
+    max-height: 92dvh;
+    border-radius: 24px 24px 0 0;
+    padding-bottom: env(safe-area-inset-bottom);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  dialog.mv[open],
+  dialog.cl-dialog[open],
+  dialog.confirm[open] {
+    animation: msheet-up 260ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  dialog.mv::before,
+  dialog.cl-dialog::before,
+  dialog.confirm::before {
+    content: "";
+    display: block;
+    width: 38px;
+    height: 4px;
+    border-radius: 4px;
+    background: var(--line-strong);
+    margin: 8px auto 0;
+  }
+
+  .mv-head,
+  .cl-form {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  /* The buttons that end a sheet stack full width, the main one last and so
+     nearest the thumb. */
+  .cl-actions,
+  .mv-foot,
+  .mv-actions {
+    flex-wrap: wrap;
+  }
+
+  .cl-actions > .btn,
+  .mv-foot > .btn,
+  .mv-actions > .btn {
+    flex: 1 1 140px;
+  }
+}
+
+/* ---------- small controls grow to a thumb ----------
+   Chips, segments, view switches, the back link and any pill that is a link
+   or a button. A pill that only says a state stays its size. */
+
+@media (max-width: 900px) {
+  .backlink,
+  .seg__opt,
+  .ws-view,
+  .agt-chip,
+  .lib-chip,
+  .kb-chip,
+  .subtabs__tab,
+  a.pill,
+  button.pill {
+    min-height: 40px;
+  }
+
+  .seg__opt,
+  .ws-view,
+  a.pill,
+  button.pill {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .subtabs__tab {
+    font-size: 14.5px;
+  }
+
+  .subtabs__nav {
+    gap: 20px;
+  }
+
+  /* Rows in a list of actions keep 8px between them. */
+  .pagehead__acts {
+    gap: 8px;
+  }
+
+  label:has(> input[type="checkbox"]),
+  label:has(> input[type="radio"]) {
+    min-height: 40px;
+  }
+}
+
+/* ---------- sign-in and onboarding ---------- */
+
+@media (max-width: 560px) {
+  .auth {
+    padding: 16px 12px calc(16px + env(safe-area-inset-bottom));
+    place-items: start center;
+  }
+
+  .auth__card {
+    padding: 26px 20px 24px;
+  }
+
+  .provider {
+    min-height: 50px;
+    font-size: 15px;
+    padding: 10px 14px;
+  }
+}
+
+/* A phone's top bar names only the page it is on: the trail before it was
+   cut to "Setti… > Plan an… > Auto t…" beside the organisation switcher.
+   Each page's own back link goes up a level. */
+@media (max-width: 900px) {
+  .crumbs .crumbs__seg:not(:last-child) {
+    display: none;
+  }
+
+  .crumbs .crumbs__seg:last-child .crumb__sep {
+    display: none;
+  }
+
+  .crumbs .crumb {
+    max-width: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

@@ -1,0 +1,397 @@
+/* One node's library: what the tower sells beside the upload, then every
+   picture in one dense grid with its kind on it. The forms needed now and
+   then are closed pills that open to the full width of their card. */
+
+.lib {
+  container-type: inline-size;
+}
+
+.lib-top {
+  display: grid;
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 16px;
+}
+
+.lib-top > * {
+  margin: 0;
+}
+
+@container (min-width: 720px) {
+  .lib-top--two {
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 300px);
+  }
+
+  /* In the rail the upload reads top to bottom. */
+  .lib-top--two .lib-add .uploader__row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .lib-top--two .lib-add .uploader__field--grow {
+    flex: none;
+  }
+}
+
+/* Alone on the row (a project, where nothing is sold), the upload is one
+   line: the kind, the files, the photograph tick and the button. */
+@container (min-width: 720px) {
+  .lib-top:not(.lib-top--two) .lib-add > form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 12px 16px;
+  }
+
+  .lib-top:not(.lib-top--two) .lib-add .uploader__row {
+    flex: 1 1 380px;
+  }
+
+  .lib-top:not(.lib-top--two) .lib-add .uploader__field--grow {
+    flex: 1 1 180px;
+  }
+
+  .lib-top:not(.lib-top--two) .lib-add .uploader__flag {
+    flex: 0 1 250px;
+    margin: 0;
+  }
+
+  .lib-top:not(.lib-top--two) .lib-add .uploader__go {
+    margin: 0;
+  }
+}
+
+.lib-add .uploader__field select,
+.lib-add .uploader__field input[type="date"] {
+  width: 100%;
+}
+
+.lib-add .uploader__go .btn {
+  min-width: 112px;
+}
+
+/* Configurations: two across in the column, one per row on a phone. */
+.lib-units .unitgrid {
+  grid-template-columns: repeat(auto-fit, minmax(236px, 1fr));
+}
+
+.lib-units .unitfacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
+/* ---- the forms needed now and then ---- */
+
+.lib-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.lib-tool {
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.lib-tool[open] {
+  flex-basis: 100%;
+}
+
+.lib-tool > summary,
+.lib-edit > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 32px;
+  padding: 0 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  color: var(--ink-soft);
+  font-size: 12.5px;
+  font-weight: 560;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  transition: border-color 140ms ease, color 140ms ease, background 140ms ease;
+}
+
+.lib-tool > summary::-webkit-details-marker,
+.lib-edit > summary::-webkit-details-marker {
+  display: none;
+}
+
+.lib-tool > summary::before {
+  content: "+";
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.lib-tool[open] > summary::before {
+  content: "\2212";
+}
+
+.lib-tool > summary:hover,
+.lib-edit > summary:hover {
+  border-color: var(--ink-faint);
+  color: var(--ink);
+}
+
+.lib-tool[open] > summary,
+.lib-edit[open] > summary {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.lib-tool > summary:focus-visible,
+.lib-edit > summary:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.lib-tool__body {
+  margin-top: 10px;
+  padding: 16px;
+  border-radius: var(--r-inner);
+  background: var(--surface-sunk);
+}
+
+.lib-tool__body .uploader__go {
+  margin-top: 12px;
+}
+
+.lib-tool__note {
+  margin: 0 0 12px;
+  font-size: 12.5px;
+  color: var(--ink-mute);
+}
+
+/* ---- pictures ---- */
+
+.lib-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 10px 12px;
+  margin-bottom: 16px;
+}
+
+.lib-chips {
+  flex: 1 1 420px;
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.lib-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 30px;
+  padding: 0 6px 0 12px;
+  font-size: 12.5px;
+  font-weight: 560;
+  color: var(--ink-soft);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 140ms ease, border-color 140ms ease, color 140ms ease;
+}
+
+a.lib-chip:hover {
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+
+.lib-chip.is-on {
+  background: var(--blue-wash);
+  border-color: var(--blue-line);
+  color: var(--blue-deep);
+}
+
+.lib-chip__n {
+  display: inline-grid;
+  place-items: center;
+  min-width: 19px;
+  height: 19px;
+  padding: 0 5px;
+  font-size: 11px;
+  font-weight: 640;
+  border-radius: var(--r-pill);
+  background: var(--surface-sunk);
+  color: var(--ink-mute);
+  font-variant-numeric: tabular-nums;
+}
+
+.lib-chip.is-on .lib-chip__n {
+  background: var(--blue-deep);
+  color: #fff;
+}
+
+/* A kind with nothing in it: still listed, so the gap is plain to see. */
+.lib-chip--none {
+  color: var(--ink-faint);
+  border-style: dashed;
+  background: transparent;
+}
+
+.lib-chip--none .lib-chip__n {
+  background: transparent;
+  color: var(--ink-faint);
+}
+
+.lib-chip:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.lib-grid {
+  grid-template-columns: repeat(auto-fill, minmax(196px, 1fr));
+  margin-bottom: 0;
+}
+
+.lib .reftile__media {
+  position: relative;
+}
+
+.lib-cat {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 1;
+  max-width: calc(100% - 16px);
+  padding: 3px 9px;
+  border-radius: var(--r-pill);
+  background: color-mix(in srgb, var(--surface) 90%, transparent);
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-shadow: var(--lift-sm);
+  pointer-events: none;
+}
+
+.lib .assetacts {
+  margin-top: auto;
+}
+
+.lib-edit {
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.lib-edit[open] {
+  flex-basis: 100%;
+}
+
+.lib-edit > summary {
+  min-height: 30px;
+  padding: 0 13px;
+}
+
+.lib-edit__body {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+
+.lib-edit__body .assettag {
+  flex: none;
+}
+
+.lib .lib-edit__body .assetrename {
+  flex: none;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+/* Inside the open editor a Save is a quiet neutral pill, never the red the
+   tile's hover gives a Remove. */
+.lib .lib-edit__body .reftile__remove {
+  align-self: flex-start;
+  padding: 5px 12px;
+  border-color: var(--line-strong);
+  background: var(--surface);
+  color: var(--ink-soft);
+}
+
+.lib .lib-edit__body .reftile__remove:hover {
+  border-color: var(--ink-faint);
+  color: var(--ink);
+}
+
+/* The copy list in the rail: one compact line per picture. */
+@container (min-width: 720px) {
+  .lib-top--two .lib-add .copier__pick {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+  }
+
+  .lib-top--two .lib-add .copier__item {
+    padding: 7px 10px;
+  }
+}
+
+.lib-empty {
+  padding: 32px 16px;
+  border-radius: var(--r-inner);
+  background: var(--surface-sunk);
+  color: var(--ink-mute);
+  font-size: 13px;
+  text-align: center;
+}
+
+@container (max-width: 560px) {
+  .lib-chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+
+  .lib-chips::-webkit-scrollbar {
+    display: none;
+  }
+
+  .lib .assetpills .pill {
+    white-space: normal;
+  }
+
+  .lib-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .lib-tool > summary,
+  .lib-edit > summary {
+    min-height: 40px;
+  }
+
+}
+
+@container (max-width: 340px) {
+  .lib-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.lib-add__elsewhere {
+  margin-top: 12px;
+}
+.lib-add__elsewhere a {
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

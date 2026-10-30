@@ -1,0 +1,209 @@
+/* Settings: the overview, and the two screens whose cards pair up. The list
+   of settings beside every screen is the shared section frame. */
+
+/* ---------- the overview ---------- */
+
+.sethome__top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(280px, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.sethome__top--solo {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.sethome__org .facts {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.sethome__org-foot {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+  font-size: 13px;
+}
+
+.sethome__org-foot a {
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: 560;
+}
+
+.sethome__org-foot a:hover {
+  text-decoration: underline;
+}
+
+/* The one near-black card: what needs a person. */
+.sethome__needs {
+  background: var(--ink-card);
+  color: var(--on-dark);
+  border-radius: var(--r-card);
+  box-shadow: var(--lift);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sethome__needs h2 {
+  color: var(--on-dark);
+  font-size: 16px;
+  margin: 0 0 4px;
+}
+
+.sethome__needs .sub {
+  color: var(--on-dark-mute);
+}
+
+.sethome__needs ul {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.sethome__need {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--on-dark);
+  text-decoration: none;
+  font-size: 13.5px;
+  transition: background 120ms ease;
+}
+
+.sethome__need:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.sethome__need:focus-visible {
+  outline: 2px solid var(--blue-line);
+  outline-offset: 1px;
+}
+
+.sethome__need span {
+  flex: 1;
+  min-width: 0;
+}
+
+.sethome__need-dot {
+  flex: none !important;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #f0b44c;
+}
+
+.sethome__need-dot--risk {
+  background: #ff7a8a;
+}
+
+.sethome__calm {
+  margin-top: auto;
+  padding-top: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--on-dark-mute);
+  font-size: 13px;
+}
+
+.glance {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.glance__cell {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  padding: 14px 16px;
+  border-radius: var(--r-inner);
+  background: var(--surface-sunk);
+  border: 1.5px solid transparent;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 140ms ease, background 140ms ease;
+}
+
+a.glance__cell:hover {
+  border-color: var(--blue-line);
+  background: var(--surface);
+}
+
+a.glance__cell:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.glance__name {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+}
+
+.glance__name svg {
+  color: var(--ink-faint);
+}
+
+.glance__pills {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+@media (max-width: 900px) {
+  .sethome__top {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .sethome__org .facts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---------- Calling: two columns, the long capture list under them ---------- */
+
+.cs-board {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-areas:
+    "head head"
+    "rules team"
+    "auto chan"
+    "cap cap";
+  column-gap: 16px;
+}
+
+.cs-board > .pagehead { grid-area: head; }
+.cs-board > [aria-labelledby="rules-title"] { grid-area: rules; }
+.cs-board > [data-automation] { grid-area: auto; }
+.cs-board > [data-sales-team] { grid-area: team; }
+.cs-board > [data-channels] { grid-area: chan; }
+.cs-board > [data-lead-capture] { grid-area: cap; }
+
+/* Side by side, the gap between cards is the grid's, not each card's. */
+.cs-board > .card {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 1180px) {
+  .cs-board {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "head" "rules" "auto" "team" "chan" "cap";
+  }
+}

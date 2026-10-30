@@ -1,0 +1,48 @@
+/* Where the money went, and the quarterly check. The tables are the
+   report's own (`rp-table`, `rp-stack`); only what these two add is here. */
+
+.rp-roll__head .seg {
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.rp-roll__note {
+  margin: -4px 0 10px;
+}
+
+.rp-quarter {
+  margin-top: 16px;
+  padding-bottom: 8px;
+}
+
+.rp-quarter .card__head {
+  flex-wrap: wrap;
+}
+
+.rp-quarter .ws-scroll {
+  margin: 0 -20px;
+}
+
+.rp-quarter__say {
+  margin: -2px 0 12px;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+}
+
+.rp-quarter__say.is-warn {
+  color: var(--warn);
+  font-weight: 560;
+}
+
+@media (max-width: 760px) {
+  .rp-roll__head .seg {
+    display: flex;
+    width: 100%;
+  }
+
+  .rp-roll__head .seg__opt {
+    flex: 1 1 auto;
+    padding: 0 6px;
+  }
+}

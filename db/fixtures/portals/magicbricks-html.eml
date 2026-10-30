@@ -1,0 +1,30 @@
+X-Sales Desk-Fixture: invented sample for check:logic, not a real portal email
+From: "Magicbricks" <leads@magicbricks.com>
+To: sales@billbay.example
+Subject: =?UTF-8?Q?You_have_a_new_enquiry_for_Sath_Heights_Tower_C?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="mb-boundary-01"
+
+--mb-boundary-01
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
+
+Please view this email in a browser that shows HTML.
+
+--mb-boundary-01
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<html><head><style>td{padding:4px}</style></head><body>
+<p>Hi, you have a new enquiry on Magicbricks.</p>
+<table>
+<tr><td>Name</td><td>Sneha Kulkarni</td></tr>
+<tr><td>Contact No.</td><td>98220 12345</td></tr>
+<tr><td>Email ID</td><td>sneha.k@example.com</td></tr>
+<tr><td>Property</td><td>Sath Heights Tower C</td></tr>
+<tr><td>Message</td><td>Looking for a 3 BHK, budget &#8377;2.5 Cr. Call aft=
+er 6&nbsp;pm.</td></tr>
+</table>
+<p>Magicbricks helpline: 1800 41 00000</p>
+</body></html>
+--mb-boundary-01--

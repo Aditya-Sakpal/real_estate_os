@@ -1,0 +1,15 @@
+{
+  "state": "HR",
+  "ours": "GGM/9991/9991/2099/91",
+  "others": "HRERA-PKL-AMB-9992-2099",
+  "revoked": "GGM/9993/9993/2099/93",
+  "never": "GGM/9995/9995/2099/95",
+  "down": "GGM/9996/9996/2099/96",
+  "lapsed": "GGM/9994/9994/2099/94",
+  "ourPromoter": "Rera Check Holdings LLP",
+  "otherPromoter": "Other Realty Developers Private Limited",
+  "nightlyRequests": 6,
+  "downDir": "down",
+  "oursProjectId": "RERA-GRG-9991-2099",
+  "notes": "atForm answers from the day's bulk read (sharedRead over the six lists), not a per-number request, so no per-number fixture exists. To prove `down`, point RERA_HR_FIXTURES at the `down` subfolder (all six lists marked .down) and call resetPortalCache() first. The register prints promoters in capitals, so compare promoter names with promoterMatches(), not ===. `ours` is also found by its Project ID (oursProjectId), and by the advertisement's spelling RC/REP/HARERA/GGM/9991/9991/2099/91. `revoked` is on Gurugram's cancelled list only (gone from the register, which is what cancellation does) and reads REVOKED. `lapsed` carries 'Lapsed Project' in the register and is on the lapsed list; it reads LAPSED. Real rows kept exercise the cell notes: SUPERSEDED BY (GGM/602/334/2022/77 reads REVOKED, GGM/790/522/2024/17 REGISTERED), IS HEREBY SUPERSEDED BY (GGM/938/670/2025/41 REVOKED, GM/938/670/2025/41/SS(1)/1 REGISTERED with the same Project ID), SUPERSEDES (364 OF 2017, which has no row here, reads REVOKED), REGISTRATION SUSPENDED and IN ABEYANCE (SUSPENDED). Company promoters only; page chrome and the footer (an official's name and contacts) are cut."
+}
